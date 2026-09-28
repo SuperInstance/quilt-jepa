@@ -1,0 +1,19 @@
+{
+ "schema": "quilt-jepa/run-receipt-v3b",
+ "seed_u32": 2133245488,
+ "lr_registered": 0.3,
+ "addendum": "registration-v3-addendum1.json (sealed pre-run, verified at startup)",
+ "cross_check": "7/7 bit-identical vs receipts/run3.json",
+ "r6a": {
+  "sha_at_corruption": "edad9a2e28a76308103035dc0aceb2ebbb41d4ce34311737b9364e5a5446bc79",
+  "sha_after_idle": "edad9a2e28a76308103035dc0aceb2ebbb41d4ce34311737b9364e5a5446bc79",
+  "invariant_holds": true,
+  "recheck_delta": 0,
+  "claim": "corrected frozen-state invariant (addendum R6a)",
+  "pass": true
+ },
+ "corr_mean": 0.6957494750892016,
+ "jump": 4.068281036288609,
+ "loss_pre": 0.001321124496410814,
+ "loss_corrupted": 0.005374705735324454
+}

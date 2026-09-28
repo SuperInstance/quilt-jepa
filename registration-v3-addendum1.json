@@ -1,0 +1,20 @@
+{
+  "registration": {
+    "task": "wave 53-c addendum 1 to registration-v3 — corrected R6 frozen-state invariant. NEW file; registration-v3.json is SEALED and untouched.",
+    "honest_correction_receipted": "In BOTH run2 and run3 the state-sha flag as implemented compared the PRE-corruption weight state to the POST-idle-ticks state, so it returned FALSE in both runs for a trivial reason: the deliberate corruption (sign-flips) is inside the compared delta. The predicate that both runs actually measured is not the registered invariant. Corollary correction to verdict-v2's narrative: its sentence 'the frozen-state invariant half of R6 (state sha unchanged after 50 live ticks, probe recheck within 1e-9) held' mischaracterized run2's receipt — run2.json records state_sha_unchanged=false; what actually held in run2 was only the recheck-delta half (0 <= 1e-9). The substantive R6 findings stand unchanged in both runs: the corruption JUMP and (run3) the L3 correlation precondition. This addendum exists so the corrected invariant is REGISTERED before the supplementary run that executes it — the same discipline as the round-2 seal-tool incident: declared, not hidden.",
+    "supplementary_protocol": "run3b.mjs deterministically REBUILDS the round-3 R6 trajectory (identical code path: train 400 steps at the registered lr on world2, advance 130 window steps, capture the FIXED probe window 531-560, rank impact, corrupt top-26 cells by sign-flip). CROSS-CHECK (fail-closed): corr_mean, top26, loss_pre, loss_corrupted, jump, recheck_delta must equal run3.json's recorded values bit-for-bit (any deviation = determinism incident, run refused). CORRECTED INVARIANT: snapshot the weight-state sha256 AFTER the corruption (at corruption time), execute 50 further live world ticks (no training, no EMA), snapshot again — REGISTERED PREDICTION: the two shas are equal AND the probe loss re-evaluated on the fixed pairs equals the post-corruption loss within 1e-9 (nothing mutates and nothing repairs without a gradient signal; encode/predict/encodeTarget and world stepping write no weights).",
+    "claims": [
+      {
+        "id": "R6a",
+        "text": "Corrected frozen-state invariant: the post-corruption weight state is inert under 50 live ticks — sha256(corruption-time state) == sha256(state after 50 idle ticks), and probe loss re-evaluated equals post-corruption probe loss within 1e-9.",
+        "verdict_rule": "PASS iff sha_idle == sha_at_corruption AND |recheck - corrupted| <= 1e-9; else FAIL with both shas and the delta. Cross-check mismatch with run3.json recorded values = run REFUSED (fail-closed), receipted as an incident, not a FAIL."
+      }
+    ],
+    "seal_discipline": "this file sealed BEFORE the supplementary run via tools/seal-file.mjs (v2); run3b.mjs re-verifies at startup (masked sha + mtime) and refuses otherwise.",
+    "seal": {
+      "self_sha256_masked": "63ba6f9fac7ab374706a2adab4c644c1e56e1fd5f54c4daebb69c60498a00244",
+      "mtime_local_ms": 1790620175966,
+      "sealed_by": "keeper, wave 53, before the supplementary run3b"
+    }
+  }
+}

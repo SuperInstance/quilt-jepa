@@ -1,0 +1,20 @@
+{
+ "schema": "quilt-jepa/design-probe-v3/floor",
+ "purpose": "design-time reachability of the L1 2x gate; receipted before v3 seal",
+ "rows": [
+  {
+   "world": "trivial(world.js)",
+   "window": 2000,
+   "initLoss": 0.009312622773259345,
+   "floorLoss": 0.0003027374231352185,
+   "ratio": 0.03250828799857666
+  },
+  {
+   "world": "hard(world2)",
+   "window": 2000,
+   "initLoss": 0.009895118079560832,
+   "floorLoss": 0.00045699180203503833,
+   "ratio": 0.04618356227390474
+  }
+ ]
+}

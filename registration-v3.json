@@ -1,0 +1,59 @@
+{
+  "registration": {
+    "task": "wave 53-c — quilt-jepa ROUND 3: the L1 optimizer repair. Round-2 verdict (3/6) receipted the starvation diagnosis (D1: gradients divided by N=1024 before clipping) and registered three design laws for round 3. This registration v3 instantiates them as falsifiable claims. NEW file; registration.json (v1) and registration-v2.json are untouched history.",
+    "root_causes_receipted": "TWO root causes were found and repaired before this seal, both by design-time probes (receipts/design3.json, receipts/design3_floor.json, probe stdout): (D1, round-2 receipt) gradient scale starved: d divided by N=1024; repaired to per-latent normalization d/4 per the L1 law ('per-latent normalization or lr ∝ N'). (D4, NEW, found by finite-difference gradient check eps=1e-5) the Wc update in core/jepa.js was TRANSPOSED: forward computes zCtx = Wc·f but the backward applied d(Wcᵀ·f)/dWc — Wc[j][k] -= bp[k]·f[j] where the chain rule requires Wc[j][k] -= bp[j]·f[k] (bp = Wpᵀ·g). The check matched the chain-rule convention to <=7.5e-9 on every probed entry; the implemented form erred up to 5.7e-5 with sign flips. With the scale fix ALONE (jepa3-v1) the trivial-world gate was unreachable (ratio >= 0.86 at 100 steps) — the transposition, not the scale, was the binding constraint. core/jepa.js is untouched history; the repaired optimizer lives in core/jepa3.js (Jepa3), same feature law, same EMA law, same loss law.",
+    "learning_rate_registered": "lr = 0.3 for all round-3 training (design-probe-selected, receipted: stable band probed 0.1..0.5 on both worlds; 0.3 clears the G gate at 100 steps with 1.43x margin and R1 at 400 steps with 2.7x margin; 0.5 was faster but rejected as edge-riding; jepa.js's 0.02 default remains in the untouched history file).",
+    "floor_measurement_L2": "per verdict-v2 law L2 (entry loss retired as difficulty gate — it measures init mismatch and is world-independent): the new difficulty meter is the per-cell CLOSED-FORM linear next-latent predictor (normal equations, 4x4 Gauss-Jordan, deterministic) on a 2000-tick registered window with encoders frozen at init. Design-time measurement (seed 12345): trivial world floor/init = 0.0325, hard world = 0.0462 — the 2x learning gate is architecturally reachable with >15x headroom, and the hard world is strictly harder under the meter (both absolute floor 4.57e-4 vs 3.03e-4 and relative). Claim L2 re-measures on the RUN seed.",
+    "seed_provenance": "SAME certified-seed receipt as rounds 1-2 (receipts/certified-seed.json, FALLBACK-labeled — comet cert payload question still open upstream); seed_u32 derived identically. Determinism claim (R4) is the SAME seed twice, so fallback labeling does not affect it.",
+    "law": "same JEPA law as rounds 1-2 EXCEPT the receipted optimizer repairs: loss = mean((predicted_latent - target_latent)^2) in latent space ONLY; target encoder EMA tau=0.999 stop-gradient; clipped SGD at per-latent scale with chain-rule Wc indexing; 16x16 cells, per-cell 4-dim latents; Perona-Malik mesh lambda=0.2; worlds: core/world.js (trivial, gate world) and core/world2.js (hard).",
+    "claims": [
+      {
+        "id": "G",
+        "text": "L1 learning-sanity gate (precondition for all world/detector/corruption claims, per verdict-v2 law L1): on the TRIVIAL world (core/world.js), 100 training steps of the repaired optimizer at the registered lr show mean loss over the last 10 steps below half the first-10 mean (the optimizer descends; the gate that round 1/2 could never pass).",
+        "verdict_rule": "PASS iff lossLast10/lossFirst10 < 0.5 on the trivial world at 100 steps; else FAIL with the ratio and ALL downstream claims are scored VOID-AS-GATED"
+      },
+      {
+        "id": "L2",
+        "text": "Difficulty meter ordering (verdict-v2 law L2): the closed-form linear next-latent floor on the hard world EXCEEDS the trivial world's floor (absolute and relative to init loss), measured on the run seed with a 2000-tick window and frozen init encoders — the meter that replaces the retired entry-loss gate ranks the worlds correctly.",
+        "verdict_rule": "PASS iff floor_hard > floor_trivial AND floor_hard/init_hard > floor_trivial/init_trivial; else FAIL with all four numbers"
+      },
+      {
+        "id": "R1",
+        "text": "Hard world, real learning (re-registered under the repaired optimizer): on world2, 400 training steps at the registered lr drop the mean latent-prediction loss below half the first-10 mean. No absolute-loss gate is registered: per L2 the entry loss is world-independent and retired as a gate.",
+        "verdict_rule": "PASS iff lossLast10/lossFirst10 < 0.5 at 400 steps on world2; else FAIL with the ratio"
+      },
+      {
+        "id": "R2",
+        "text": "EMA stationarity survives a WORKING optimizer (same law as round 2, now meaningful): with Wc actually moving, the target encoder's L2 drift from a snapshot at step 200 over 200 further steps stays < 1% of its final norm (tau=0.999 fixed-point law on world2). This claim is now falsifiable in a new way — a faster optimizer could break stationarity; if it does, that is a real finding for round 4, not a threshold to be retuned post hoc.",
+        "verdict_rule": "PASS iff drift/norm < 0.01; else FAIL with the ratio"
+      },
+      {
+        "id": "R3",
+        "text": "Concentration statistic on a LEARNED model (same law and thresholds as round 2, same receipted timing fix — intruder applied BEFORE scoring): per-cell surprise at a tick = |zPred - zTgt| per cell; CONCENTRATED surprise = mean of its top-4 cells (intruder footprint 2x2 = 4 cells). Mean concentrated surprise at the 3 registered anomaly ticks (430, 465, 500) exceeds 3x the mean over 30 baseline ticks in the held-out window (401-530, excluding anomaly ticks and their +1 recovery transients). Global-mean ratio receipted as contrast, gates nothing.",
+        "verdict_rule": "PASS iff concentrated anomaly_mean / concentrated baseline_mean > 3.0; else FAIL with both ratios"
+      },
+      {
+        "id": "R4",
+        "text": "Determinism crown carries to the repaired core: two full executions of the round-3 core with the same seed produce byte-identical metrics (sha256 of canonical metrics JSON equal).",
+        "verdict_rule": "PASS iff the two metrics shas are equal; else FAIL with both hashes"
+      },
+      {
+        "id": "R5",
+        "text": "Mesh conservation law carries unchanged: under diffusion-only mesh steps (lambda=0.2) loaded from a world2 energy field, total energy conserved within 1e-6 relative and energy variance strictly non-increasing across 100 consecutive steps.",
+        "verdict_rule": "PASS iff max relative total drift <= 1e-6 AND variance non-increasing; else FAIL with the first violating step"
+      },
+      {
+        "id": "R6",
+        "text": "Impact-sensitive zero self-repair WITH the L3 learning precondition (verdict-v2 law L3): probe set = FIXED registered window of 30 (obsT, obsT1) world2 pairs from ticks 531-560. PRECONDITION measured before corruption: mean per-cell Pearson correlation between predicted and target latents across the probe pairs, over the top-26 impact-ranked cells, exceeds 0.3 (a learned prediction structure exists — corruption claims are meaningless against uncorrelated noise). Then per-cell impact = mean per-cell latent loss over the probe set; the top-26 cells (416 weights = 10.2% of 4096) are corrupted by sign-flipping ALL their context-encoder weights (deterministic ranking, ties by lower cell index); (i) JUMP: probe loss after corruption exceeds 1.5x pre-corruption on the SAME fixed pairs; (ii) FROZEN-STATE INVARIANT: full weight-state sha256 after 50 further live ticks (no training, no EMA) identical to corruption-time state, and probe loss re-evaluated equals post-corruption loss within 1e-9.",
+        "verdict_rule": "PASS iff corr_precondition > 0.3 AND jump > 1.5 AND state_sha_unchanged AND |probe_loss_recheck - probe_loss_corrupted| <= 1e-9; else FAIL with all numbers; if the corr precondition alone fails, verdict is FAIL (L3) with the measured correlation"
+      }
+    ],
+    "seal_discipline": "this file sealed BEFORE any run via tools/seal-file.mjs (v2): seal.self_sha256_masked = sha256 of these exact bytes with the mask value replaced by 64 zeros; mtime forced to fixedMs after last write. run3.mjs RE-VERIFIES both at startup (masked-sha recomputation + mtime equality) and refuses to run otherwise (fail-closed).",
+    "design_probe_receipts": "receipts/design3.json (P1 scale-only probe, P2 gradient check, P3 post-repair probe + lr sweep) and receipts/design3_floor.json (closed-form floor) were generated BEFORE this seal; they gate nothing and are receipted as design rationale only.",
+    "seal": {
+      "self_sha256_masked": "19aae14d2db32fe3469322d8c5fe76d0bbd677998c122283014263effa982a0a",
+      "mtime_local_ms": 1790619995624,
+      "sealed_by": "keeper, wave 53, before first round-3 run"
+    }
+  }
+}

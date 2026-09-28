@@ -1,0 +1,229 @@
+{
+ "schema": "quilt-jepa/run-receipt-v3",
+ "seed_u32": 2133245488,
+ "lr_registered": 0.3,
+ "seal_verified_at_startup": {
+  "masked_sha": "19aae14d2db32fe3469322d8c5fe76d0bbd677998c122283014263effa982a0a",
+  "mtime": 1790619995624
+ },
+ "claims_passed": 5,
+ "claims_total": 8,
+ "verdicts": {
+  "G_learning_sanity_gate": true,
+  "L2_difficulty_meter": true,
+  "R1_hard_world_learning": true,
+  "R2_ema_stationarity": false,
+  "R3_concentration": false,
+  "R4_determinism": true,
+  "R5_mesh_conservation": true,
+  "R6_impact_sensitive_no_repair": false
+ },
+ "metrics": {
+  "g_ratio": 0.347699819391506,
+  "g_last10": 0.002741397071001422,
+  "l2_floor_trivial": 0.0002696956247429777,
+  "l2_floor_hard": 0.0004284808386273881,
+  "l2_ratio_trivial": 0.029520126256367397,
+  "l2_ratio_hard": 0.04325338123347421,
+  "r1_ratio": 0.17807577052820692,
+  "r1_first10": 0.00820309827542357,
+  "r1_last10": 0.0014607730461146575,
+  "r2_drift_ratio": 0.10607460360973504,
+  "r3_conc_ratio": 1.919183406560624,
+  "r3_glob_ratio": 1.2568858790522037,
+  "r6_corr_mean": 0.6957494750892016,
+  "r6_jump": 4.068281036288609,
+  "r6_state_sha_unchanged": false,
+  "r6_recheck_delta": 0,
+  "r5_total_drift_rel": 3.7089280276023968e-9,
+  "r5_variance_non_increasing": true
+ },
+ "chain": [
+  {
+   "i": 0,
+   "id": "header#0",
+   "type": "header",
+   "payload": {
+    "repo": "quilt-jepa",
+    "round": 3,
+    "executed_in": "wave 53",
+    "seed_u32": 2133245488,
+    "seed_receipt": {
+     "label": "quilt-jepa-wave49-seed",
+     "mode": "FALLBACK",
+     "schema": "moth-seal/receipt-v1",
+     "note": ""
+    },
+    "registration": "registration-v3.json (sealed pre-run, self_sha256_masked + mtime; RE-VERIFIED fail-closed at this run's startup)",
+    "repair": "core/jepa3.js: per-latent gradient scale (1/LAT, L1 law) + chain-rule Wc indexing (D4 finite-difference receipt); jepa.js untouched history; registered lr = 0.3",
+    "retired": "entry-loss absolute gate (round-2 law L2: world-independent init-mismatch measure) — replaced by the L2 closed-form linear floor meter"
+   },
+   "prev": "JEPA-GENESIS-1",
+   "sha": "6ad4f6983bb95908d2ff1d03bf5a560e3b36bcf25c2ea7a97f0f580c9f1c0af8"
+  },
+  {
+   "i": 1,
+   "id": "G_learning_sanity_gate#1",
+   "type": "G_learning_sanity_gate",
+   "payload": {
+    "ratio": 0.347699819391506,
+    "first10": 0.00788437876038883,
+    "last10": 0.002741397071001422,
+    "lr": 0.3,
+    "steps": 100,
+    "world": "trivial (core/world.js)",
+    "claim": "last10/first10 < 0.5 on the trivial world at 100 steps (L1 law)",
+    "pass": true,
+    "gate_note": "gate OPEN — downstream claims scored"
+   },
+   "prev": "6ad4f6983bb95908d2ff1d03bf5a560e3b36bcf25c2ea7a97f0f580c9f1c0af8",
+   "sha": "f01fae1bc485d68dbc9a398b9537c2f42a04867b0fe30b7789c54e532673920a"
+  },
+  {
+   "i": 2,
+   "id": "L2_difficulty_meter#2",
+   "type": "L2_difficulty_meter",
+   "payload": {
+    "floor_trivial": 0.0002696956247429777,
+    "floor_hard": 0.0004284808386273881,
+    "ratio_trivial": 0.029520126256367397,
+    "ratio_hard": 0.04325338123347421,
+    "init_trivial": 0.009135991574047053,
+    "init_hard": 0.00990629695085624,
+    "claim": "hard world linear floor exceeds trivial (absolute and relative)",
+    "pass": true
+   },
+   "prev": "f01fae1bc485d68dbc9a398b9537c2f42a04867b0fe30b7789c54e532673920a",
+   "sha": "9bcbd2b1ca84eb5b8e8825f992ae758c62b72df54757c1afe9c1b3178b44d83d"
+  },
+  {
+   "i": 3,
+   "id": "R1_hard_world_learning#3",
+   "type": "R1_hard_world_learning",
+   "payload": {
+    "ratio": 0.17807577052820692,
+    "first10": 0.00820309827542357,
+    "last10": 0.0014607730461146575,
+    "lr": 0.3,
+    "steps": 400,
+    "claim": "last10/first10 < 0.5 on world2 (no absolute gate — L2 law)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "9bcbd2b1ca84eb5b8e8825f992ae758c62b72df54757c1afe9c1b3178b44d83d",
+   "sha": "c48ec1ee1334251a44d76b39c955667a2c76864aa8008a532b811ef4b7e744be"
+  },
+  {
+   "i": 4,
+   "id": "R2_ema_stationarity#4",
+   "type": "R2_ema_stationarity",
+   "payload": {
+    "drift_ratio": 0.10607460360973504,
+    "claim": "drift/norm < 0.01 (snapshot 200, 200 steps, world2, WORKING optimizer)",
+    "pass": false,
+    "void_as_gated": false
+   },
+   "prev": "c48ec1ee1334251a44d76b39c955667a2c76864aa8008a532b811ef4b7e744be",
+   "sha": "e5517b8a1b57fa1ba25dca29e3c0d1960cdb60d7defddb10de150cbc80353eff"
+  },
+  {
+   "i": 5,
+   "id": "R3_concentration#5",
+   "type": "R3_concentration",
+   "payload": {
+    "conc_ratio": 1.919183406560624,
+    "glob_ratio": 1.2568858790522037,
+    "conc_anomaly": 0.13707489054650068,
+    "conc_baseline": 0.07142354924386989,
+    "glob_anomaly": 0.007575193092279164,
+    "glob_baseline": 0.006026953774030374,
+    "claim": "concentrated(top-4) anomaly/baseline > 3.0 (intruder BEFORE scoring)",
+    "pass": false,
+    "anomalyTicks": [
+     430,
+     465,
+     500
+    ],
+    "void_as_gated": false
+   },
+   "prev": "e5517b8a1b57fa1ba25dca29e3c0d1960cdb60d7defddb10de150cbc80353eff",
+   "sha": "123cea280a756a56b26e6a2c7362b2119f29e39eef27c634d89152a435e82bfe"
+  },
+  {
+   "i": 6,
+   "id": "R4_determinism#6",
+   "type": "R4_determinism",
+   "payload": {
+    "claim": "two runs byte-identical metrics",
+    "pass": true,
+    "sha_run1": "d16ab2690efdadb69eb0feeda690f3d87b307e2adff2e1bb9b0f72f97b9a0d4f",
+    "sha_run2": "d16ab2690efdadb69eb0feeda690f3d87b307e2adff2e1bb9b0f72f97b9a0d4f"
+   },
+   "prev": "123cea280a756a56b26e6a2c7362b2119f29e39eef27c634d89152a435e82bfe",
+   "sha": "2b48ca07fb327e5d468f82bab2f2a48c795e9c9f80c207fd36617c1bff31c717"
+  },
+  {
+   "i": 7,
+   "id": "R5_mesh_conservation#7",
+   "type": "R5_mesh_conservation",
+   "payload": {
+    "total_drift_rel": 3.7089280276023968e-9,
+    "variance_non_increasing": true,
+    "first_violating": -1,
+    "claim": "total conserved within 1e-6 rel AND variance non-increasing over 100 steps (world2 energy)",
+    "pass": true
+   },
+   "prev": "2b48ca07fb327e5d468f82bab2f2a48c795e9c9f80c207fd36617c1bff31c717",
+   "sha": "51bc07f5f02b6c1e77332c83c64d264892c332094d1bb73ff11212c4fa142513"
+  },
+  {
+   "i": 8,
+   "id": "R6_impact_sensitive_no_repair#8",
+   "type": "R6_impact_sensitive_no_repair",
+   "payload": {
+    "corr_mean": 0.6957494750892016,
+    "corr_min": 0.046511250566338334,
+    "jump": 4.068281036288609,
+    "loss_pre": 0.001321124496410814,
+    "loss_corrupted": 0.005374705735324454,
+    "state_sha_unchanged": false,
+    "recheck_delta": 0,
+    "flipped": 416,
+    "top26": [
+     218,
+     42,
+     147,
+     59,
+     158,
+     213,
+     146,
+     100,
+     116,
+     87,
+     131,
+     200,
+     246,
+     61,
+     130,
+     212,
+     126,
+     141,
+     230,
+     162,
+     174,
+     76,
+     60,
+     196,
+     57,
+     129
+    ],
+    "claim": "L3 precondition corr > 0.3 AND jump > 1.5 AND state sha unchanged AND |recheck - corrupted| <= 1e-9",
+    "pass": false,
+    "void_as_gated": false
+   },
+   "prev": "51bc07f5f02b6c1e77332c83c64d264892c332094d1bb73ff11212c4fa142513",
+   "sha": "436d13b57e58f15bcd94bc42bf4bd3f9ededc433eecd3c6e7a692a761cb78dee"
+  }
+ ],
+ "tip": "436d13b57e58f15bcd94bc42bf4bd3f9ededc433eecd3c6e7a692a761cb78dee"
+}
