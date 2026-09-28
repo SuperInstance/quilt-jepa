@@ -1,0 +1,126 @@
+{
+  "instrument": "fleet-seeds/tools/moth-seal.mjs",
+  "sealVersion": "1",
+  "schema": "moth-seal/receipt-v1",
+  "ts": "2026-09-28T05:52:26.323Z",
+  "label": "quilt-jepa-wave49-seed",
+  "mode": "FALLBACK",
+  "seedUseDeclaration": {
+    "consumer": "quilt-jepa-wave49-seed",
+    "poolSize": 1134,
+    "take": 16,
+    "stream": "whitening(mothbits-registered-recipe)",
+    "declaredAt": "2026-09-28T05:52:26.323Z",
+    "singleUse": true,
+    "binding": "this seal binds seed material (jobId + seed-material sha256) to the ONE draw described by chosen{} for the consumer above; re-deriving another permutation from the same material is a protocol violation, detectable by comparing receipts (same jobId or same seed-material sha256 twice = reuse)",
+    "note": "FALLBACK PATH — source is graph-v1 (top-20-truncated, NOT a certified QRNG raw) + registered whitening; not certified randomness"
+  },
+  "job": {
+    "engine": "graph-v1",
+    "jobId": "e799440d-2e2f-4134-b8fb-a66aea3bd3d3",
+    "finalStatus": "completed",
+    "polls": 2,
+    "params": {
+      "mode": "emu",
+      "num_qubits": 12,
+      "shots": 1024
+    }
+  },
+  "certifiedBits": null,
+  "cert": null,
+  "fallback": {
+    "reason": "explicit --fallback flag (comet unavailable or operator-degraded mode)",
+    "engine": "graph-v1",
+    "sourceVerdict": "graph-v1 top-20 truncation confirmed in wave-45 census (P1); distinct=20, shotsSeen=79/1024",
+    "rawBits": {
+      "len": 948,
+      "sha256": "24543d61dd496770e50ea1048576bfa08b6ef9db0247f5b54830beeeef4beffe",
+      "distinct": 20,
+      "outcomeWidth": 12
+    },
+    "whitening": {
+      "instrument": "fleet-seeds/tools/mothbits.mjs",
+      "recipe": "STEP1 von Neumann debias (pairs 01->0, 10->1, 00/11 discard) -> STEP2 MSB-first byte pack (trailing zero pad, pad_len receipted) -> STEP3 SHA-256 counter stream block_c = SHA256(u32be(c) || vn_bytes), consumed MSB-first -> STEP4 Fisher-Yates over the pool (registered census order), 16-bit rejection-sampled draws, selected = first take IN MOTH SHUFFLE ORDER",
+      "input": {
+        "kind": "raw_bits",
+        "len": 948,
+        "sha256": "24543d61dd496770e50ea1048576bfa08b6ef9db0247f5b54830beeeef4beffe"
+      },
+      "step1_vonNeumann": {
+        "bitsLen": 279,
+        "bitsSha256": "0fd1f14cdd47772d85845c5d45b08c97ce2538031c6ae751a7b00dea3d712ce4",
+        "pairStats": {
+          "pairs": 474,
+          "emit0": 126,
+          "emit1": 153,
+          "discard00": 62,
+          "discard11": 133
+        }
+      },
+      "step2_pack": {
+        "bytesLen": 35,
+        "padLen": 1,
+        "bytesSha256": "aa2bcc54bccfc3e1447584ca9ec54b8aca0ddc51cad1358cfe5a997b0faf0acf"
+      },
+      "step3_counterStream": {
+        "block0Hex": "ab074e4edcf27563a20383e39f4d160a80205e6e95bd438404adffed4ff974d4",
+        "block0Sha256": "b0f2b78eb2f22115b47f57a3069853a08c8a40d7da7cb9b2ce77a2a4c569344c",
+        "note": "the 256-bit SEED is block_0; whitened_seed_sha256 = SHA-256(block_0)"
+      },
+      "step4_fisherYates": {
+        "poolSize": 1134,
+        "take": 16,
+        "selected": [
+          6,
+          95,
+          194,
+          641,
+          539,
+          170,
+          868,
+          448,
+          941,
+          163,
+          342,
+          325,
+          540,
+          799,
+          652,
+          228
+        ],
+        "draws": 1140,
+        "rejects": 7
+      },
+      "keysUsed": "none"
+    },
+    "katReference": "tools/fixtures/moth-42b-raw-bits-2caa822b-7c46-4f65-a0c9-152c46272e19.txt (42-b sealed KAT, byte-exact, lane 43-c)"
+  },
+  "rawResultSha256": "306142233a59ec52ce5ac811916a064ab1dc6a7e91232eed114ce13ef85436d7",
+  "chosen": {
+    "poolSize": 1134,
+    "take": 16,
+    "selected": [
+      6,
+      95,
+      194,
+      641,
+      539,
+      170,
+      868,
+      448,
+      941,
+      163,
+      342,
+      325,
+      540,
+      799,
+      652,
+      228
+    ],
+    "draws": 1140,
+    "rejects": 7,
+    "shuffleOrderHead": null
+  },
+  "keysUsed": "MOTH_KEY runtime-only (never printed, never receipted)",
+  "note": ""
+}

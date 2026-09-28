@@ -1,0 +1,45 @@
+{
+  "registration": {
+    "task": "wave 49 — quilt-jepa: a tiny JEPA world model living inside an anisotropic cell mesh, with stone receipts (the 'latent grid' architecture: cells are the latent space)",
+    "seal_discipline": "this file sealed BEFORE any run: seal.self_sha256_masked = sha256 of these exact bytes with the seal.self_sha256_masked value replaced by 64 zeros (fixed-position mask); seal.mtime_local forced back via utimes after last write so recorded mtime binds sealed bytes and predates every receipt in receipts/",
+    "seed_provenance": "training seed comes from the moth API comet-qrng-v1 certified stream via tools/certified-seed.mjs (fail-closed to LABELED local fallback if the API is unreachable — fallback is receipted in the run header and the claim scoring for P4 is unaffected because determinism is about the SAME seed twice)",
+    "law": "loss = mean((predicted_latent - target_latent)^2) in latent space ONLY (no pixel reconstruction — the JEPA law); target encoder updated by EMA tau=0.999 (stop-gradient); context encoder + predictor trained by clipped SGD; world = 16x16 cell grid, synthetic wave+ball field; mesh = Perona-Malik anisotropic diffusion, lambda=0.2 <= 0.25 stability bound",
+    "claims": [
+      {
+        "id": "P1",
+        "text": "Learning: mean latent-prediction loss over the last 10 training steps is < 25% of the mean loss over the first 10 steps of the run (same seed).",
+        "verdict_rule": "PASS iff receipts show ratio < 0.25; else FAIL with the ratio"
+      },
+      {
+        "id": "P2",
+        "text": "EMA stationarity: L2 drift of the target encoder over the final 200 steps is < 1% of its final L2 norm (tau=0.999 fixed point behavior).",
+        "verdict_rule": "PASS iff drift_norm / final_norm < 0.01; else FAIL with the ratio"
+      },
+      {
+        "id": "P3",
+        "text": "Anomaly surprise: mean mesh-surprise energy at the 3 registered anomaly ticks exceeds 3x the mean surprise over the 30 non-anomaly sampled ticks in the held-out evaluation segment.",
+        "verdict_rule": "PASS iff anomaly_mean / baseline_mean > 3.0; else FAIL with the ratio"
+      },
+      {
+        "id": "P4",
+        "text": "Determinism crown: two full runs with the same certified seed produce byte-identical receipt chains (sha256 of the receipt file equal).",
+        "verdict_rule": "PASS iff run1/run2 receipt file sha256 equal; else FAIL with both hashes"
+      },
+      {
+        "id": "P5",
+        "text": "Diffusion conservation law: under diffusion-only mesh steps (lambda=0.2), total mesh energy is conserved within 1e-6 relative and energy variance is strictly non-increasing across 100 consecutive steps (Perona-Malik with conductance <= 1 is a variance contraction, NOT an energy sink — registering the conservation, not a decay).",
+        "verdict_rule": "PASS iff max relative total drift <= 1e-6 AND variance sequence non-increasing; else FAIL with the first violating step"
+      },
+      {
+        "id": "P6",
+        "text": "Zero self-repair (E-Q10 port to a learned substrate): corrupting 10% of context-encoder weights at tick T raises loss, and with NO further gradient steps the loss at T+50 does not fall below the post-corruption level (allowing 1e-9 tolerance for numeric noise) — the world model does not silently heal.",
+        "verdict_rule": "PASS iff loss(T+50, frozen corrupted weights) >= loss(T, corrupted) - 1e-9 AND loss(T, corrupted) > loss(T-1) * 1.5; else FAIL"
+      }
+    ],
+    "seal": {
+      "self_sha256_masked": "5d1e422001b0070c331861b0526f2ecf740084551148eeadb3c022e01bdecce2",
+      "mtime_local": "see mtime_local_ms",
+      "sealed_by": "keeper, wave 49, before first run", "mtime_local_ms": 1790574965122
+    }
+  }
+}

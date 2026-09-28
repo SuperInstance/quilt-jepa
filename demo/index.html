@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- DEMO ONLY — never executed headless in this wave; the verified substrate is core/*.js (Node).
+     Exact-twin doctrine: this browser artifact is the labeled float twin, not the verified law.
+     Single-file WebGPU visualization of the latent grid: per-cell Sobel features + latent energy,
+     WGSL fused compute adapted from the principal's blueprint. Requires a WebGPU browser. -->
+<html><head><meta charset="utf-8"><title>quilt-jepa latent grid (DEMO)</title>
+<style>body{background:#050505;color:#0f8;font-family:monospace;margin:0;padding:12px}canvas{image-rendering:pixelated;border:1px solid #053}#hud{font-size:11px;white-space:pre}</style></head>
+<body>
+<div id="hud">quilt-jepa · latent grid demo (unverified browser twin)
+grid: 64×48 · tau 0.999 · lambda 0.2 · loading…</div>
+<canvas id="c" width="256" height="192"></canvas>
+<script type="module">
+const COLS=64, ROWS=48, N=COLS*ROWS;
+const shader = `
+struct CellData { lum: f32, ang: f32, mag: f32, energy: f32 };
+struct Config { cols: u32, rows: u32, tau: f32, edge: f32 };
+@group(0) @binding(0) var<uniform> cfg: Config;
+@group(0) @binding(1) var<storage, read> px: array<f32>;
+@group(0) @binding(2) var<storage, read_write> cells: array<CellData>;
+@compute @workgroup_size(8,8)
+fn main(@builtin(global_invocation_id) gid: vec3<u32>) {
+  let x=gid.x; let y=gid.y;
+  if (x>=cfg.cols || y>=cfg.rows) { return; }
+  let i=y*cfg.cols+x;
+  let at = |xx:i32,yy:i32| -> f32 { return px[u32(((yy+yy)%2+yy))*0u + 0u]; };
+  let l =px[i]; let r=px[min(i+1u, cfg.cols*cfg.rows-1u)];
+  let d=px[min(i+cfg.cols, cfg.cols*cfg.rows-1u)];
+  let gx=r-l; let gy=d-l;
+  let mag=sqrt(gx*gx+gy*gy)*cfg.edge;
+  let pred = l*0.6 + mag*0.4;              // placeholder latent proxy (DEMO)
+  let energy = (pred - cfg.tau*l*1.0)*(pred - cfg.tau*l*1.0);
+  cells[i].lum=l; cells[i].ang=atan2(gy,gx); cells[i].mag=mag; cells[i].energy=energy;
+}`;
+if (!navigator.gpu) { document.getElementById('hud').textContent = 'WebGPU unavailable — run core/ (Node) for the verified law.'; }
+else {
+  const adapter = await navigator.gpu.requestAdapter();
+  const dev = await adapter.requestDevice();
+  const module = dev.createShaderModule({ code: shader });
+  const cfgBuf = dev.createBuffer({ size: 16, usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST });
+  const pxBuf  = dev.createBuffer({ size: N*4, usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST });
+  const celBuf = dev.createBuffer({ size: N*16, usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_SRC });
+  const rdBuf  = dev.createBuffer({ size: N*16, usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ });
+  const pipe = dev.createComputePipeline({ layout: 'auto', compute: { module, entryPoint: 'main' } });
+  const bg = dev.createBindGroup({ layout: pipe.getBindGroupLayout(0), entries: [
+    { binding: 0, resource: { buffer: cfgBuf } }, { binding: 1, resource: { buffer: pxBuf } },
+    { binding: 2, resource: { buffer: celBuf } }] });
+  const ctx = document.getElementById('c').getContext('2d');
+  const px = new Float32Array(N);
+  let t = 0;
+  async function frame() {
+    t += 0.06;
+    for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++)
+      px[y*COLS+x] = 0.5 + 0.3*Math.sin(0.3*x + t) * Math.cos(0.25*y + 0.7*t);
+    const bx = ((t*3)|0) % (COLS-2), by = ((t*2)|0) % (ROWS-2);
+    for (let dy=0;dy<2;dy++) for (let dx=0;dx<2;dx++) px[(by+dy)*COLS+bx+dx]=1.0;
+    dev.queue.writeBuffer(cfgBuf, 0, new Uint32Array([COLS, ROWS]));
+    dev.queue.writeBuffer(cfgBuf, 8, new Float32Array([0.999, 1.5]));
+    dev.queue.writeBuffer(pxBuf, 0, px);
+    const enc = dev.createCommandEncoder();
+    const pass = enc.beginComputePass();
+    pass.setPipeline(pipe); pass.setBindGroup(0, bg);
+    pass.dispatchWorkgroups(Math.ceil(COLS/8), Math.ceil(ROWS/8));
+    pass.end();
+    enc.copyBufferToBuffer(celBuf, 0, rdBuf, 0, N*16);
+    dev.queue.submit([enc.finish()]);
+    await rdBuf.mapAsync(GPUMapMode.READ);
+    const cells = new Float32Array(rdBuf.getMappedRange());
+    const img = ctx.createImageData(COLS, ROWS);
+    for (let i = 0; i < N; i++) {
+      const lum = cells[i*4], e = cells[i*4+3];
+      const hot = Math.min(1, e*30);
+      img.data[i*4]   = 255*hot + 30*lum*(1-hot);
+      img.data[i*4+1] = 30*lum*(1-hot) + 60*hot;
+      img.data[i*4+2] = 30*lum*(1-hot);
+      img.data[i*4+3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+    rdBuf.unmap();
+    document.getElementById('hud').textContent = `quilt-jepa · latent grid demo (unverified browser twin)\ngrid: ${COLS}×${ROWS} · tau 0.999 · frame t=${t.toFixed(1)} · red = surprise energy`;
+    requestAnimationFrame(frame);
+  }
+  frame();
+}
+</script></body></html>

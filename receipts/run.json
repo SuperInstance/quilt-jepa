@@ -1,0 +1,138 @@
+{
+ "schema": "quilt-jepa/run-receipt-v1",
+ "seed_u32": 2133245488,
+ "claims_passed": 3,
+ "claims_total": 6,
+ "verdicts": {
+  "P1_learning": false,
+  "P2_ema_stationarity": true,
+  "P3_anomaly_surprise": false,
+  "P4_determinism": true,
+  "P5_diffusion_conservation": true,
+  "P6_zero_self_repair": false
+ },
+ "metrics": {
+  "p1_ratio": 0.9480770718457654,
+  "p2_drift_ratio": 0.00010692535844444933,
+  "p3_ratio": 1.098258288351072,
+  "p6_jump_ratio": 0.9792802545363906,
+  "p6_no_heal": true,
+  "p5_total_drift_rel": 1.241988287614467e-8,
+  "p5_variance_non_increasing": true,
+  "lossFirst10": 0.00903088505109307,
+  "lossLast10": 0.008561975055416013,
+  "p3_anomaly_mean": 0.009420723441736799,
+  "p3_baseline_mean": 0.00857787602575811
+ },
+ "chain": [
+  {
+   "i": 0,
+   "id": "header#0",
+   "type": "header",
+   "payload": {
+    "repo": "quilt-jepa",
+    "wave": 49,
+    "seed_u32": 2133245488,
+    "seed_receipt": {
+     "label": "quilt-jepa-wave49-seed",
+     "mode": "FALLBACK",
+     "schema": "moth-seal/receipt-v1",
+     "note": ""
+    },
+    "registration": "registration.json (sealed pre-run, self_sha256_masked + mtime)",
+    "law": "JEPA latent-space prediction; no pixel reconstruction; EMA target tau=0.999; Perona-Malik mesh lambda=0.2"
+   },
+   "prev": "JEPA-GENESIS-1",
+   "sha": "a3e2c4793353b3bb4a3c8e09a67c3b543be9faf07de6c55781911b3d92458173"
+  },
+  {
+   "i": 1,
+   "id": "P1_learning#1",
+   "type": "P1_learning",
+   "payload": {
+    "ratio": 0.9480770718457654,
+    "claim": "last10/first10 < 0.25",
+    "pass": false,
+    "lossFirst10": 0.00903088505109307,
+    "lossLast10": 0.008561975055416013
+   },
+   "prev": "a3e2c4793353b3bb4a3c8e09a67c3b543be9faf07de6c55781911b3d92458173",
+   "sha": "d797f33448d24e4e737e39447bdf651a937ee09869eedcb7a391efb4d37f7557"
+  },
+  {
+   "i": 2,
+   "id": "P2_ema_stationarity#2",
+   "type": "P2_ema_stationarity",
+   "payload": {
+    "drift_ratio": 0.00010692535844444933,
+    "claim": "drift/norm < 0.01 (snapshot at step 200, 200 steps)",
+    "pass": true
+   },
+   "prev": "d797f33448d24e4e737e39447bdf651a937ee09869eedcb7a391efb4d37f7557",
+   "sha": "7affac4e3fc80d18fec6299e610e15e8903d94b2c8c0c87a09ebc9d6858cd29e"
+  },
+  {
+   "i": 3,
+   "id": "P3_anomaly_surprise#3",
+   "type": "P3_anomaly_surprise",
+   "payload": {
+    "ratio": 1.098258288351072,
+    "claim": "anomaly_mean > 3x baseline_mean",
+    "pass": false,
+    "anomaly_mean": 0.009420723441736799,
+    "baseline_mean": 0.00857787602575811,
+    "anomalyTicks": [
+     430,
+     465,
+     500
+    ]
+   },
+   "prev": "7affac4e3fc80d18fec6299e610e15e8903d94b2c8c0c87a09ebc9d6858cd29e",
+   "sha": "85d84d7c80eae6a6ad5ea89cae4cbda6e0d1e5059f6479025ad5e4bf37bcdf86"
+  },
+  {
+   "i": 4,
+   "id": "P4_determinism#4",
+   "type": "P4_determinism",
+   "payload": {
+    "claim": "two runs byte-identical metrics",
+    "pass": true,
+    "sha_run1": "cafb5602497a00da68cf657b8fe61a803325518aa3c57635eae1c51827dede82",
+    "sha_run2": "cafb5602497a00da68cf657b8fe61a803325518aa3c57635eae1c51827dede82"
+   },
+   "prev": "85d84d7c80eae6a6ad5ea89cae4cbda6e0d1e5059f6479025ad5e4bf37bcdf86",
+   "sha": "55cfb80773fc61689b0e78ec1147049eb2b7c83a7d6e021008ca8e2beefd8e3b"
+  },
+  {
+   "i": 5,
+   "id": "P5_diffusion_conservation#5",
+   "type": "P5_diffusion_conservation",
+   "payload": {
+    "total_drift_rel": 1.241988287614467e-8,
+    "variance_non_increasing": true,
+    "first_violating": -1,
+    "claim": "total conserved within 1e-6 rel AND variance non-increasing over 100 steps",
+    "pass": true
+   },
+   "prev": "55cfb80773fc61689b0e78ec1147049eb2b7c83a7d6e021008ca8e2beefd8e3b",
+   "sha": "6eb1851592fb6181500666d1c0d0ccba6380d9f7875058f2609ff0f28ca8b434"
+  },
+  {
+   "i": 6,
+   "id": "P6_zero_self_repair#6",
+   "type": "P6_zero_self_repair",
+   "payload": {
+    "jump_ratio": 0.9792802545363906,
+    "min_frozen": 0.008958830300028862,
+    "loss_corrupted": 0.008384656148785443,
+    "no_heal": true,
+    "claim": "loss jumps >1.5x AND frozen min >= corrupted - 1e-9",
+    "pass": false,
+    "corrupted_weights": 413
+   },
+   "prev": "6eb1851592fb6181500666d1c0d0ccba6380d9f7875058f2609ff0f28ca8b434",
+   "sha": "09e84771c6906108c2903a3ad32ead08c4c10c883836ad866dde01adf35b31f8"
+  }
+ ],
+ "tip": "09e84771c6906108c2903a3ad32ead08c4c10c883836ad866dde01adf35b31f8"
+}
