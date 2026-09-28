@@ -1,0 +1,495 @@
+{
+ "schema": "quilt-jepa/run-receipt-v5",
+ "seed_u32": 2133245488,
+ "lr_registered": 0.3,
+ "tau_registered": 0.99998,
+ "K4_registered": 0.0000015,
+ "amp_registered": 0.9,
+ "operating_point_note": "UNCHANGED from round 4 — round 5 validates and characterizes; carried claims must reproduce run4.json bit-exactly",
+ "seal_verified_at_startup": {
+  "masked_sha": "d5b27af15311048b3a6bbc34a653207629260deae6aff85c7e47408194c00f3c",
+  "mtime": 1790625527953
+ },
+ "claims_passed": 11,
+ "claims_total": 11,
+ "verdicts": {
+  "G_learning_sanity_gate": true,
+  "L2_difficulty_meter": true,
+  "R1_hard_world_learning": true,
+  "R2v4_pace_aware_ema": true,
+  "R3v4_percentile_normalized_surprise": true,
+  "R3L_ladder_saturation": true,
+  "R2x_k4_cross_pace": true,
+  "RHOR_finite_horizon_divergence": true,
+  "R4_determinism": true,
+  "R5_mesh_conservation": true,
+  "R6v4_impact_sensitive_no_repair": true
+ },
+ "metrics": {
+  "g_ratio": 0.34923244770336087,
+  "g_last10": 0.002753790128275017,
+  "l2_floor_trivial": 0.0002696956247429777,
+  "l2_floor_hard": 0.0004284808386273881,
+  "l2_ratio_trivial": 0.029520126256367397,
+  "l2_ratio_hard": 0.04325338123347421,
+  "r1_ratio": 0.1693138758473519,
+  "r1_first10": 0.008204023586316903,
+  "r1_last10": 0.0013890550309424068,
+  "r2_drift_ratio": 0.0026397133338834375,
+  "r2v4_wc_disp_200_400_rel": 0.16056800416046071,
+  "r2v4_wt_total_move_rel_400": 0.004258257316654435,
+  "r2v4_var_ratio": 1.0024850692069596,
+  "r3v4_z_ratio": 3.540717612984098,
+  "r3v4_z_anomaly_mean": 14.076616731036117,
+  "r3v4_z_sample_mean": 3.9756394803742676,
+  "r3v4_raw_ratio": 1.8496141357514475,
+  "r3v4_mad_ratio": 3.6111297062612198,
+  "r3v4_rank_ratio_selfsel": 1.0099090538889643,
+  "r3v4_rank_ratio_rawsel": 1.0368760515984299,
+  "r3v4_own_max_anomaly": 6.666666666666667,
+  "r3v4_own_max_sample": 2.9,
+  "r3v4_rank_excess_diff": 0.035349462365591555,
+  "r6_corr_mean": 0.6342727488089809,
+  "r6_jump": 2.7548573357019737,
+  "r6_sha_invariant": true,
+  "r6_recheck_delta": 0,
+  "r5_total_drift_rel": 9.468186588477004e-9,
+  "r5_variance_non_increasing": true,
+  "r3l_z_0": 1.0342504185275474,
+  "r3l_z_0_1": 1.0677299242125713,
+  "r3l_z_0_2": 1.2323130172135066,
+  "r3l_z_0_3": 1.687135333362526,
+  "r3l_z_0_45": 2.5305055451148752,
+  "r3l_z_0_6": 3.166808736910162,
+  "r3l_z_0_75": 3.501945930078974,
+  "r3l_z_0_9": 3.540717612984098,
+  "r3l_z_1_2": 3.540717612984098,
+  "r3l_raw_0_9": 1.8496141357514475,
+  "r3l_raw_1_2": 1.8496141357514475,
+  "r3l_mad_0_9": 3.6111297062612198,
+  "r3l_mad_1_2": 3.6111297062612198,
+  "r3l_sat_bit_exact": true,
+  "r2x_0_15_tau": 0.99996,
+  "r2x_0_15_drift": 0.004428545205078809,
+  "r2x_0_15_g": 0.5692660186806099,
+  "r2x_0_15_r1": 0.21237181800862215,
+  "r2x_0_15_z": 3.879667500687105,
+  "r2x_0_15_var": 1.0034723082456949,
+  "r2x_0_15_wcdisp": 0.15586912091252547,
+  "r2x_0_15_wtmove": 0.006584278355008626,
+  "r2x_0_5_tau": 0.999988,
+  "r2x_0_5_drift": 0.0017608179568816096,
+  "r2x_0_5_g": 0.2286213846892445,
+  "r2x_0_5_r1": 0.14567856315712555,
+  "r2x_0_5_z": 3.43008622021181,
+  "r2x_0_5_var": 1.0016584413577045,
+  "r2x_0_5_wcdisp": 0.18841066172555032,
+  "r2x_0_5_wtmove": 0.002928149913162613,
+  "rhor_D": 30174,
+  "rhor_executed_to": 32174,
+  "rhor_D_mod80": 14,
+  "rhor_loss_finite_again": 21,
+  "rhor_all_nan_step": null,
+  "rhor_nan_absorbing": false,
+  "rhor_weights_all_nan_at_end": false,
+  "rhor_slow_rate": 0.000019382458307633484,
+  "rhor_runaway_rate": 0.07290041942913189,
+  "rhor_rate_ratio": 3761.1544558525466,
+  "rhor_wc_norm_last": 55374836904458270000,
+  "rhor_drift_last200": 0.9999976213398036,
+  "rhor_first10": 0.008204023586316903,
+  "rhor_ckpt_400_wt": 0.004258257316654435,
+  "rhor_ckpt_400_wcnorm": 12.17949620862212,
+  "rhor_ckpt_400_loss500": 0.0024915332105346646,
+  "rhor_ckpt_1000_loss500": 0.0007844690561419031,
+  "rhor_ckpt_5000_wcnorm": 15.439670506486136,
+  "rhor_ckpt_5000_loss500": 0.0004440682122302101,
+  "rhor_ckpt_10000_wcnorm": 16.24302570594884,
+  "rhor_ckpt_20000_wcnorm": 17.808040736570447,
+  "rhor_ckpt_20000_loss500": 0.0004675783274632795,
+  "rhor_ckpt_30000_wcnorm": 53514577209592.18,
+  "rhor_depth2000_drift": 0.0038874393945087246,
+  "rhor_depth2000_var": 1.0217532266155713,
+  "rhor_depth2000_z": 2.5480705541027127,
+  "rhor_depth2000_wcdisp": 0.03541951624868526,
+  "rhor_c_tau999_D": 9653,
+  "rhor_c_lr015_D": 68434,
+  "rhor_c_lr05_D": 13052,
+  "rhor_c_trivial_D": 30562,
+  "rhor_c_lr015_slow": 0.000022099921843162118,
+  "rhor_c_trivial_slow": 0.00001795598361529933
+ },
+ "chain": [
+  {
+   "i": 0,
+   "id": "header#0",
+   "type": "header",
+   "payload": {
+    "repo": "quilt-jepa",
+    "round": 5,
+    "executed_in": "wave 55",
+    "seed_u32": 2133245488,
+    "seed_receipt": {
+     "label": "quilt-jepa-wave49-seed",
+     "mode": "FALLBACK",
+     "schema": "moth-seal/receipt-v1",
+     "note": ""
+    },
+    "registration": "registration-v5.json (sealed pre-run, self_sha256_masked + mtime; RE-VERIFIED fail-closed at this run's startup)",
+    "scope": "round-4 operating point UNCHANGED (lr 0.3, tau 0.99998, K4 1.5e-6, amp 0.9) — 8 carried claims re-scored (must reproduce run4.json bit-exactly) + 3 new claims: R3L anomaly-strength ladder, R2x K4 cross-pace, RHOR finite-horizon divergence",
+    "probe_provenance": "probe5.mjs v1 completed (design5 receipt), v2 rewrite crashed on a use-before-assignment print BEFORE any receipt; v2 fixed + re-run (computation now precedes use); 13/13 pipeline identity vs run4.json enforced fail-closed before the v2 receipt was written"
+   },
+   "prev": "JEPA-GENESIS-1",
+   "sha": "6e4bb0bb45200f6b29ef7fcd206defa25c9db296137942ca0c8176ca104e3a89"
+  },
+  {
+   "i": 1,
+   "id": "G_learning_sanity_gate#1",
+   "type": "G_learning_sanity_gate",
+   "payload": {
+    "ratio": 0.34923244770336087,
+    "first10": 0.00788526423127239,
+    "last10": 0.002753790128275017,
+    "lr": 0.3,
+    "tau": 0.99998,
+    "steps": 100,
+    "world": "trivial (core/world.js)",
+    "claim": "last10/first10 < 0.5 on the trivial world at 100 steps (L1 law, carried)",
+    "pass": true,
+    "gate_note": "gate OPEN — downstream claims scored"
+   },
+   "prev": "6e4bb0bb45200f6b29ef7fcd206defa25c9db296137942ca0c8176ca104e3a89",
+   "sha": "8b52d7d11eecf035ff7908ae294b4caeebdfbf19086d6361e3ac50616f2432d0"
+  },
+  {
+   "i": 2,
+   "id": "L2_difficulty_meter#2",
+   "type": "L2_difficulty_meter",
+   "payload": {
+    "floor_trivial": 0.0002696956247429777,
+    "floor_hard": 0.0004284808386273881,
+    "ratio_trivial": 0.029520126256367397,
+    "ratio_hard": 0.04325338123347421,
+    "init_trivial": 0.009135991574047053,
+    "init_hard": 0.00990629695085624,
+    "claim": "hard world linear floor exceeds trivial (absolute and relative) — the gate meter (carried)",
+    "pass": true
+   },
+   "prev": "8b52d7d11eecf035ff7908ae294b4caeebdfbf19086d6361e3ac50616f2432d0",
+   "sha": "36707c89c368d5fde38711eaaefd748b5a555888d522469e16444e28efd9e5e5"
+  },
+  {
+   "i": 3,
+   "id": "R1_hard_world_learning#3",
+   "type": "R1_hard_world_learning",
+   "payload": {
+    "ratio": 0.1693138758473519,
+    "first10": 0.008204023586316903,
+    "last10": 0.0013890550309424068,
+    "lr": 0.3,
+    "tau": 0.99998,
+    "steps": 400,
+    "claim": "last10/first10 < 0.5 on world2 (carried)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "36707c89c368d5fde38711eaaefd748b5a555888d522469e16444e28efd9e5e5",
+   "sha": "aa7b434b8eb682a8c8ca43f43491c38d04e1287ad60794f0ce3d1c52da9482c1"
+  },
+  {
+   "i": 4,
+   "id": "R2v4_pace_aware_ema#4",
+   "type": "R2v4_pace_aware_ema",
+   "payload": {
+    "drift_ratio": 0.0026397133338834375,
+    "drift_gate": 0.01,
+    "tau": 0.99998,
+    "g_ratio": 0.34923244770336087,
+    "r1_ratio": 0.1693138758473519,
+    "var_ratio": 1.0024850692069596,
+    "var_gate": 0.5,
+    "wc_disp_200_400_rel": 0.16056800416046071,
+    "wt_total_move_rel_400": 0.004258257316654435,
+    "claim": "PACE-AWARE EMA LAW (carried): drift/norm < 0.01 AND g<0.5 AND r1<0.5 AND var_ratio>=0.5",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "aa7b434b8eb682a8c8ca43f43491c38d04e1287ad60794f0ce3d1c52da9482c1",
+   "sha": "144b597ffc8810f83fd645a891cc2bfc0d46ed379983b170c824c8f19d6040dc"
+  },
+  {
+   "i": 5,
+   "id": "R3v4_percentile_normalized_surprise#5",
+   "type": "R3v4_percentile_normalized_surprise",
+   "payload": {
+    "z_ratio": 3.540717612984098,
+    "gate": 3,
+    "z_anomaly_mean": 14.076616731036117,
+    "z_sample_mean": 3.9756394803742676,
+    "contrasts_gate_nothing": {
+     "raw_ratio": 1.8496141357514475,
+     "mad_ratio": 3.6111297062612198,
+     "rank_ratio_selfsel": 1.0099090538889643,
+     "rank_ratio_rawsel": 1.0368760515984299,
+     "own_max_cells_anomaly_mean": 6.666666666666667,
+     "own_max_cells_sample_mean": 2.9,
+     "rank_excess_diff": 0.035349462365591555
+    },
+    "claim": "PERCENTILE-NORMALIZED SURPRISE LAW (carried): per-cell z vs own 124-tick baseline BEFORE concentration; top-4-by-z > 3.0",
+    "pass": true,
+    "anomalyTicks": [
+     430,
+     465,
+     500
+    ],
+    "void_as_gated": false
+   },
+   "prev": "144b597ffc8810f83fd645a891cc2bfc0d46ed379983b170c824c8f19d6040dc",
+   "sha": "1cd348f569f03a246f253af6c710f41e20982a0acf3fb2c365f737691a6d7f24"
+  },
+  {
+   "i": 6,
+   "id": "R3L_ladder_saturation#6",
+   "type": "R3L_ladder_saturation",
+   "payload": {
+    "ladder_z": {
+     "0": 1.0342504185275474,
+     "0.1": 1.0677299242125713,
+     "0.2": 1.2323130172135066,
+     "0.3": 1.687135333362526,
+     "0.45": 2.5305055451148752,
+     "0.6": 3.166808736910162,
+     "0.75": 3.501945930078974,
+     "0.9": 3.540717612984098,
+     "1.2": 3.540717612984098
+    },
+    "ladder_raw": {
+     "0": 0.7327541540995385,
+     "0.1": 0.7327541540995385,
+     "0.2": 0.7440278451925231,
+     "0.3": 0.7834194239234958,
+     "0.45": 1.01993801577223,
+     "0.6": 1.4208352127134833,
+     "0.75": 1.781668946034062,
+     "0.9": 1.8496141357514475,
+     "1.2": 1.8496141357514475
+    },
+    "ladder_var": {
+     "0": 1.0024890884456237,
+     "0.1": 1.0024889573906772,
+     "0.2": 1.0024886843717724,
+     "0.3": 1.002488269674619,
+     "0.45": 1.0024875803856914,
+     "0.6": 1.0024871136667557,
+     "0.75": 1.0024854332429138,
+     "0.9": 1.0024850692069596,
+     "1.2": 1.0024850692069596
+    },
+    "z_null_anchor": 1.0342504185275474,
+    "z_null_band": [
+     0.9,
+     1.15
+    ],
+    "monotone_up_to_anchor": true,
+    "sat_bit_exact": true,
+    "z_0_75": 3.501945930078974,
+    "claim": "ANOMALY-STRENGTH LADDER: null anchor carries no signal, ratio non-decreasing to the anchor, anchor at the clamp plateau (1.2 == 0.9 bit-exact on z/raw/mad), plateau above gate — REFUTES the widen-by-amplitude lever",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "1cd348f569f03a246f253af6c710f41e20982a0acf3fb2c365f737691a6d7f24",
+   "sha": "2445bbb46a1f0e0ac2ef7af889f8602fd0ce35cbee58646d4fdba1445edc90c4"
+  },
+  {
+   "i": 7,
+   "id": "R2x_k4_cross_pace#7",
+   "type": "R2x_k4_cross_pace",
+   "payload": {
+    "lr_0_15": {
+     "tau": 0.99996,
+     "pace": 0.0375,
+     "drift": 0.004428545205078809,
+     "g": 0.5692660186806099,
+     "r1": 0.21237181800862215,
+     "z": 3.879667500687105,
+     "var": 1.0034723082456949,
+     "wcdisp": 0.15586912091252547,
+     "wtmove": 0.006584278355008626
+    },
+    "lr_0_5": {
+     "tau": 0.999988,
+     "pace": 0.125,
+     "drift": 0.0017608179568816096,
+     "g": 0.2286213846892445,
+     "r1": 0.14567856315712555,
+     "z": 3.43008622021181,
+     "var": 1.0016584413577045,
+     "wcdisp": 0.18841066172555032,
+     "wtmove": 0.002928149913162613
+    },
+    "g_pace_lock_finding": {
+     "lr": 0.15,
+     "g_ratio": 0.5692660186806099,
+     "gate": 0.5,
+     "exceeds": true,
+     "note": "REGISTERED FINDING, gates nothing here: the L1 G gate's fixed 100-step window is pace-locked; prices the round-6 candidate law G window ∝ 1/pace"
+    },
+    "claim": "K4 CROSS-PACE: same law constant transfers — drift < 0.01 at both second pace points AND all learning guards hold at lr=0.5",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "2445bbb46a1f0e0ac2ef7af889f8602fd0ce35cbee58646d4fdba1445edc90c4",
+   "sha": "414d38f228d80a946c626bf785de43ff71eb23e484f3e346997f61bca965a3b6"
+  },
+  {
+   "i": 8,
+   "id": "RHOR_finite_horizon_divergence#8",
+   "type": "RHOR_finite_horizon_divergence",
+   "payload": {
+    "D": 30174,
+    "D_band": [
+     25000,
+     40000
+    ],
+    "D_mod80": 14,
+    "executed_to": 32174,
+    "probe_identity": true,
+    "slow_inflation_rate": 0.000019382458307633484,
+    "slow_gate": 0.0001,
+    "runaway_rate": 0.07290041942913189,
+    "rate_ratio": 3761.1544558525466,
+    "ratio_gate": 100,
+    "wc_norm_at_last_finite": 55374836904458270000,
+    "drift_last200": 0.9999976213398036,
+    "loss_ratio_at_20000": 0.07518584732274115,
+    "depth2000": {
+     "drift": 0.0038874393945087246,
+     "var": 1.0217532266155713,
+     "z": 2.5480705541027127,
+     "wcdisp": 0.03541951624868526
+    },
+    "weight_death_receipt": {
+     "all_nan_step": null,
+     "all_nan_at_end": false,
+     "absorbing": false,
+     "loss_finite_again": 21
+    },
+    "contrasts_gate_nothing": {
+     "tau0.999_lr0.3": {
+      "D": 9653,
+      "slow": null,
+      "rate": 0.08526432973022445,
+      "mod80": 53
+     },
+     "lr0.15_tau_law": {
+      "D": 68434,
+      "slow": 0.000022099921843162118,
+      "rate": 0.015921841405126168,
+      "mod80": 34
+     },
+     "lr0.5_tau_law": {
+      "D": 13052,
+      "slow": null,
+      "rate": 0.17289240406047499,
+      "mod80": 12
+     },
+     "trivial_lr0.3": {
+      "D": 30562,
+      "slow": 0.00001795598361529933,
+      "rate": 0.05649610144967517,
+      "mod80": 2
+     }
+    },
+    "claim": "FINITE-HORIZON DIVERGENCE: D in [2.5e4, 4e4] AND == design5 bit-exact AND depth-2000 laws hold (drift < 0.01, var >= 0.5) AND two-phase shape (slow < 1e-4, runaway > 100x). Findings receipted, gate nothing: depth-2000 z < 3.0 (statistic is depth-sensitive), weight death slower than the D+2000 window, all four contrasts diverge (fast EMA shortens life, slow pace lengthens it, trivial world ~ world2 — optimizer-borne)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "414d38f228d80a946c626bf785de43ff71eb23e484f3e346997f61bca965a3b6",
+   "sha": "5af4554532584f31ce42b811e2d43a070c5fceb1dd037537d0ab34bddcbcd2fe"
+  },
+  {
+   "i": 9,
+   "id": "R4_determinism#9",
+   "type": "R4_determinism",
+   "payload": {
+    "claim": "two runs byte-identical AND all carried metrics bit-equal to run4.json AND all new metrics bit-equal to design5.json (probe==run==run==prior-round)",
+    "pass": true,
+    "sha_run1": "ff60c2113b48c9a92d34589b69ac9874bc56fd85fa3ae956aa18de9a8b39cc99",
+    "sha_run2": "ff60c2113b48c9a92d34589b69ac9874bc56fd85fa3ae956aa18de9a8b39cc99",
+    "carried_cross_check": {
+     "shared": 29,
+     "mismatches": []
+    },
+    "probe_cross_check": {
+     "shared": 63,
+     "mismatches": []
+    }
+   },
+   "prev": "5af4554532584f31ce42b811e2d43a070c5fceb1dd037537d0ab34bddcbcd2fe",
+   "sha": "9fc00109b732f16e836a9151962fd1aa2f4efcee7d7e96d90429cee0cd3af599"
+  },
+  {
+   "i": 10,
+   "id": "R5_mesh_conservation#10",
+   "type": "R5_mesh_conservation",
+   "payload": {
+    "total_drift_rel": 9.468186588477004e-9,
+    "variance_non_increasing": true,
+    "first_violating": -1,
+    "claim": "total conserved within 1e-6 rel AND variance non-increasing over 100 steps (carried)",
+    "pass": true
+   },
+   "prev": "9fc00109b732f16e836a9151962fd1aa2f4efcee7d7e96d90429cee0cd3af599",
+   "sha": "4b198d8298dd40aa0fe1e84a52be1a1f78f8f4e38fdb7f511a1087eb9de7b681"
+  },
+  {
+   "i": 11,
+   "id": "R6v4_impact_sensitive_no_repair#11",
+   "type": "R6v4_impact_sensitive_no_repair",
+   "payload": {
+    "corr_mean": 0.6342727488089809,
+    "corr_min": -0.008137254564441311,
+    "jump": 2.7548573357019737,
+    "loss_pre": 0.0012608681904543331,
+    "loss_corrupted": 0.0034735119838263926,
+    "sha_invariant": true,
+    "recheck_delta": 0,
+    "flipped": 416,
+    "top26": [
+     158,
+     218,
+     147,
+     42,
+     59,
+     146,
+     100,
+     213,
+     246,
+     131,
+     61,
+     87,
+     141,
+     1,
+     163,
+     129,
+     212,
+     130,
+     162,
+     69,
+     174,
+     116,
+     25,
+     76,
+     60,
+     231
+    ],
+    "claim": "L3 precondition corr > 0.3 AND jump > 1.5 AND corrected frozen-state invariant AND |recheck - corrupted| <= 1e-9 (carried)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "4b198d8298dd40aa0fe1e84a52be1a1f78f8f4e38fdb7f511a1087eb9de7b681",
+   "sha": "b450d8462cdac3aef0f2a4d026ec57f700368d8c2ce7d4a8aaa3a60716f742d2"
+  }
+ ],
+ "tip": "b450d8462cdac3aef0f2a4d026ec57f700368d8c2ce7d4a8aaa3a60716f742d2"
+}

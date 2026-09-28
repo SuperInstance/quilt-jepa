@@ -1,0 +1,78 @@
+{
+  "registration": {
+    "task": "wave 55-a (resumed lane) — quilt-jepa ROUND 5: validation and characterization of the round-4 laws at the FIXED registered operating point. Three probes instantiated as falsifiable claims: (R3L) the anomaly-strength ladder — tests whether the v3-queued 'ladder widens the R3v4 margin' lever exists; (R2x) K4 cross-pace validation — tests the round-4 law's transfer to second pace points with the SAME constant; (RHOR) horizon scaling — tests the laws at depths far beyond the round-4 windows and receipts the operating point's finite lifetime. The round-4 operating point itself is UNCHANGED (lr = 0.3, tau = 0.99998, K4 = 1.5e-6, amp = 0.9, same seed derivation); all eight round-4 claims are carried and re-scored, required to reproduce run4.json bit-exactly.",
+    "carries_unchanged": "lr = 0.3, tau = 0.99998 (1 - tau = K4*LAT/lr, K4 = 1.5e-6), jepa3.js byte-untouched, worlds byte-untouched, L2 meter law, R5 mesh law, R6v4 corrected-invariant law, R3v4 z-normalizer law and its 3.0 gate, R2v4 drift gate 0.01 — nothing about the registered operating point moves this round. Registration-v3(+addendum-1) and registration-v4 are untouched history.",
+    "probes_receipted_pre_seal": "receipts/design5.json (probe5.mjs v2, gates nothing). PROVENANCE RECEIPT: the first draft of probe5 crashed post-run on a use-before-assignment print (derived shape rates printed before computation) — no receipt was written by the crash; v1 of the probe HAD completed earlier with identical pre-crash arithmetic (its design5.json is superseded by the v2 receipt byte-set; v1's D=30174, ladder, and xpace numbers are all reproduced by v2 bit-exactly). Pipeline identity enforced fail-closed BEFORE the receipt was written: 13/13 shared metrics bit-exact vs run4.json (the amp=0.9 ladder rung, the lr=0.3 cross-pace arm, and the horizon trajectory's first 400 steps re-derive the round-4 receipt).",
+    "seed_provenance": "SAME certified-seed receipt as rounds 1-4 (receipts/certified-seed.json, FALLBACK-labeled — comet cert payload question still open upstream); seed_u32 = 2133245488, identical derivation. All determinism claims are same-seed, so fallback labeling does not affect them.",
+    "pre_registered_predictions": [
+      "P-carried: every carried claim (G, L2, R1, R2v4, R3v4, R5, R6v4) reproduces its run4.json value BIT-EXACTLY (the probe already re-derived 13 of these metrics exactly; the round-4 registered point is untouched). Verdicts all PASS.",
+      "P-R3L: z-ratio ladder bit-exact to design5: z(0.0)=1.0342504185275474 in [0.9, 1.15] (null anchor: no injection -> no signal); non-decreasing up to the anchor; z(1.2) == z(0.9) BIT-EXACT on v0/v1/v3 ratios (clamp saturation: injected frames identical after min(1,.)); z(0.75)=3.501945930078974 in [3.45, 3.55] and > 3.0. REGISTERED FINDING: the v3-queued 'widen the margin by amplitude' lever is REFUTED — the registered anchor 0.9 sits at the clamp-saturation plateau (the wave+ball footprint already fills the injected block toward 1.0); max measurable z-conc ~3.54; margin widening must come from the statistic or the window, not amplitude.",
+      "P-R2x: drift bit-exact to design5: lr=0.15 -> 0.004428545205078809 in [4.0e-3, 4.9e-3]; lr=0.5 -> 0.0017608179568816096 in [1.5e-3, 2.0e-3]; both < 0.01 (the K4 law TRANSFERS — the round-4 transfer caveat is answered for these two points). Guards at lr=0.5: g 0.2286213846892445 < 0.5, r1 0.14567856315712555 < 0.5, var 1.0016584413577045 >= 0.5. REGISTERED FINDING (predicted, gates nothing): G@lr=0.15 = 0.5692660186806099 > 0.5 — the L1 G gate's FIXED 100-step window is pace-locked (100 steps at half pace = ~50 effective steps); this is an honest FAIL of the gate's portability and prices the round-6 candidate law: G window proportional to 1/pace (e.g. 100*0.3/lr steps). Also receipted: z@0.15 = 3.879667500687105 — the HIGHEST z-concentration measured anywhere (slower pace -> wider surprise margin), but G-locked.",
+      "P-RHOR: horizon main arm bit-exact to design5: first non-finite loss D = 30174 (in [2.5e4, 4e4]); executed_to = 32174 (stop rule min(5e5, D+2000)); slow-inflation phase 0.000019382458307633484/step < 1e-4 (|Wc| 12.179 -> 17.808 over steps 400-20000 while the loss sits AT the closed-form floor: loss_mean_500 at 20000 = 4.676e-4 vs floor 4.285e-4 — null-space diffusion: the Wp/Wc composition stays optimal while the factors drift); runaway phase 0.07290041942913189/step; rate ratio 3761.15 > 100. Pre-divergence scoring at the FIXED depth-2000 window: drift 0.0038874393945087246 < 0.01 and var 1.0217532266155713 >= 0.5 (the round-4 stationarity and no-collapse laws HOLD at 5x depth). REGISTERED FINDINGS (predicted, gate nothing): (a) z at depth-2000 = 2.5480705541027127 < 3.0 — the R3v4 statistic is DEPTH-SENSITIVE and fails its gate at the floor (the well-fit model's residual scale collapse compresses the intruder contrast); priced round-6 lever (window/depth law for the surprise statistic); (b) weight death is NOT complete within the D+2000 window (all_weights_nan_step null, weights_nan_absorbing false as-executed) — the loss oscillates Inf<->finite-huge (loss_finite_again 21) while the weights die slower than 2000 steps; (c) all four contrast arms diverge within the 1e5-step cap, bit-exact: tau=0.999 D=9653 (a FAST EMA shortens life 3.1x — target churn feeds the runaway), lr=0.15 D=68434 (slow pace lengthens life 2.3x), lr=0.5 D=13052, trivial world D=30562 ~ world2's 30174 — the divergence is OPTIMIZER-borne (un-regularized churn diffusion), not world-borne; slow-inflation rates across arms 1.80e-5 - 2.21e-5/step (weak world/pace dependence).",
+      "P-R4: twin executions byte-identical (metrics sha equal) AND every carried metric bit-equal to run4.json AND every new metric bit-equal to design5.json — probe == run == run-twin == prior-round-run, the strongest determinism chain this repo has produced."
+    ],
+    "claims": [
+      {
+        "id": "G",
+        "text": "L1 learning-sanity gate (carried, unchanged): on the TRIVIAL world, 100 training steps at lr 0.3 / tau 0.99998 show mean loss over the last 10 steps below half the first-10 mean.",
+        "verdict_rule": "PASS iff lossLast10/lossFirst10 < 0.5; else FAIL with the ratio and ALL downstream claims are scored VOID-AS-GATED"
+      },
+      {
+        "id": "L2",
+        "text": "Difficulty meter ordering (carried, unchanged — the gate meter): closed-form linear next-latent floor on the hard world EXCEEDS the trivial world's floor (absolute and relative), 2000-tick window, encoders frozen at init.",
+        "verdict_rule": "PASS iff floor_hard > floor_trivial AND floor_hard/init_hard > floor_trivial/init_trivial; else FAIL with all four numbers"
+      },
+      {
+        "id": "R1",
+        "text": "Hard world, real learning (carried, unchanged): on world2, 400 training steps at the registered point drop the mean latent-prediction loss below half the first-10 mean.",
+        "verdict_rule": "PASS iff lossLast10/lossFirst10 < 0.5 at 400 steps on world2; else FAIL with the ratio"
+      },
+      {
+        "id": "R2v4",
+        "text": "PACE-AWARE EMA LAW (carried, unchanged): target-encoder L2 drift from a snapshot at step 200 over 200 further steps on world2 < 1% of final norm at tau 0.99998, with guards G < 0.5, R1 < 0.5, no-collapse var_ratio >= 0.5; Wc churn and Wt plasticity receipted, gate nothing (declared cost).",
+        "verdict_rule": "PASS iff drift/norm < 0.01 AND g_ratio < 0.5 AND r1_ratio < 0.5 AND var_ratio >= 0.5; else FAIL with all numbers"
+      },
+      {
+        "id": "R3v4",
+        "text": "PERCENTILE-NORMALIZED SURPRISE LAW (carried, unchanged): per-cell z against the cell's own 124-tick baseline BEFORE concentration; top-4-by-z anomaly/baseline > 3.0 at the registered amplitude 0.9; contrasts receipted, gate nothing.",
+        "verdict_rule": "PASS iff z_concentration_anomaly_mean / z_concentration_baseline_mean > 3.0; else FAIL with both means, the ratio, and all contrast values"
+      },
+      {
+        "id": "R3L",
+        "text": "ANOMALY-STRENGTH LADDER (round-5 claim 1 — closes the v3-queued lever): sweep the injected amplitude over the registered ladder [0.0, 0.1, 0.2, 0.3, 0.45, 0.6, 0.75, 0.9, 1.2] at the otherwise-fixed operating point. The claim asserts the ladder SATURATES at the registered anchor: the null anchor carries no signal, the ratio is non-decreasing up to the anchor, the anchor is at the clamp plateau (amp 1.2 produces bit-identical statistics to 0.9 because the injected frames are identical after min(1, .)), and the plateau is above the gate (0.75 already exceeds 3.0). This REFUTES the 'widen the margin by amplitude' hypothesis: 0.9 is the ceiling, ~3.54 the max measurable z-concentration.",
+        "verdict_rule": "PASS iff z(0.0) in [0.9, 1.15] AND z-ratio non-decreasing on [0.0, 0.9] AND z(1.2)==z(0.9) bit-exact on the v0, v1, AND v3 ratios AND z(0.75) > 3.0; else FAIL with the full ladder"
+      },
+      {
+        "id": "R2x",
+        "text": "K4 CROSS-PACE VALIDATION (round-5 claim 2 — answers registration-v4's transfer caveat): re-derive tau from the SAME law 1 - tau = K4*LAT/lr (K4 = 1.5e-6 UNCHANGED) at lr = 0.15 (tau 0.99996) and lr = 0.5 (tau 0.999988) and run the full R2 protocol + learning guards there. The claim asserts the law transfers: stationarity holds at both pace points, and all learning guards hold at lr = 0.5. The lr = 0.15 G-gate result is a REGISTERED FINDING (predicted > 0.5 — the G window is pace-locked), receipted and gating nothing here.",
+        "verdict_rule": "PASS iff drift/norm < 0.01 at BOTH lr=0.15 and lr=0.5 AND g_ratio < 0.5 AND r1_ratio < 0.5 AND var_ratio >= 0.5 at lr=0.5; else FAIL with all numbers including the lr=0.15 G finding"
+      },
+      {
+        "id": "RHOR",
+        "text": "FINITE-HORIZON DIVERGENCE (round-5 claim 3): the registered operating point is executed on world2 to min(5e5, D+2000) where D = the first non-finite loss step. The claim asserts a finite lifetime with a two-phase shape: (phase 1) slow |Wc| inflation at < 1e-4/step while the loss sits at the closed-form floor (null-space diffusion of the Wp/Wc factors); (phase 2) a self-exciting runaway >= 100x faster ending in non-finite loss; and the round-4 laws (stationarity, no-collapse) still hold at a FIXED depth-2000 scoring window BEFORE divergence. Weight-death dynamics and the four registered contrast arms (tau=0.999; lr=0.15; lr=0.5; trivial world, cap 1e5) are RECEIPTED, gate nothing.",
+        "verdict_rule": "PASS iff D in [2.5e4, 4e4] AND D == design5 D bit-exact AND drift_at_depth_2000 < 0.01 AND var_ratio_at_depth_2000 >= 0.5 AND slow_inflation_rate < 1e-4 AND rate_ratio_runaway_over_slow > 100; else FAIL with all numbers"
+      },
+      {
+        "id": "R4",
+        "text": "Determinism crown, round-5 form: two full executions byte-identical (sha256 of canonical metrics JSON equal), every carried metric bit-equal to receipts/run4.json, and every new metric bit-equal to receipts/design5.json — probe == run == run-twin == prior-round-run.",
+        "verdict_rule": "PASS iff the two metrics shas are equal AND zero mismatches on either cross-check list; else FAIL with the differing values"
+      },
+      {
+        "id": "R5",
+        "text": "Mesh conservation law carried unchanged: diffusion-only mesh steps (lambda=0.2) loaded from the round-5 R3-window per-cell surprise at tick 530, total energy conserved within 1e-6 relative and variance strictly non-increasing over 100 steps.",
+        "verdict_rule": "PASS iff max relative total drift <= 1e-6 AND variance non-increasing; else FAIL with the first violating step"
+      },
+      {
+        "id": "R6v4",
+        "text": "Impact-sensitive zero self-repair with the L3 precondition and the CORRECTED frozen-state invariant (carried, unchanged from registration-v4): corr > 0.3 over top-26 impact-ranked cells, jump > 1.5, sha at corruption time == sha after 50 idle ticks, recheck delta <= 1e-9.",
+        "verdict_rule": "PASS iff corr_precondition > 0.3 AND jump > 1.5 AND sha_idle == sha_at_corruption AND |probe_loss_recheck - probe_loss_corrupted| <= 1e-9; else FAIL with all numbers"
+      }
+    ],
+    "seal_discipline": "this file sealed BEFORE any run via tools/seal-file.mjs (v2): seal.self_sha256_masked = sha256 of these exact bytes with the mask value replaced by 64 zeros; mtime forced to fixedMs after last write. run5.mjs RE-VERIFIES both at startup (masked-sha recomputation + mtime equality) and refuses to run otherwise (fail-closed).",
+    "seal": {
+      "self_sha256_masked": "d5b27af15311048b3a6bbc34a653207629260deae6aff85c7e47408194c00f3c",
+      "mtime_local_ms": 1790625527953,
+      "sealed_by": "lane 55-a (resumed 54-a lane), wave 55, before first round-5 run"
+    }
+  }
+}
