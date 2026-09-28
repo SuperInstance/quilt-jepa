@@ -1,0 +1,46 @@
+{
+  "registration": {
+    "task": "wave 49-b (executed in wave 51) — quilt-jepa ROUND 2: the three design laws paid for by round-1's honest FAILs, re-registered as falsifiable claims on a hard world. Round-1 verdict (3/6) receipted: (a) surprise needs a hard world, (b) anomaly detection needs a concentration statistic not a global mean, (c) fault-injection needs impact-sensitive corruption. This registration v2 is a NEW file; v1 (registration.json) is untouched history.",
+    "seal_discipline": "this file sealed BEFORE any run: seal.self_sha256_masked = sha256 of these exact bytes with the seal.self_sha256_masked value replaced by 64 zeros (fixed-position mask); mtime forced to fixedMs after last write so recorded mtime binds sealed bytes and predates every receipt in receipts/run2.json",
+    "seed_provenance": "SAME certified-seed receipt as round 1 (receipts/certified-seed.json, mode FALLBACK-labeled — comet-qrng-v1 cert payload still incomplete upstream); seed_u32 derived identically. Determinism claim (R4) is about the SAME seed twice, so fallback labeling does not affect it.",
+    "law": "same JEPA law as round 1: loss = mean((predicted_latent - target_latent)^2) in latent space ONLY; target encoder EMA tau=0.999; clipped SGD; 16x16 cells, per-cell 4-dim latents; Perona-Malik mesh lambda=0.2. World upgraded: core/world2.js (hard world, above).",
+    "measurement_lesson_receipted": "round-1 P3 measured surprise at each registered anomaly tick BEFORE injecting the intruder into the observation, so the actual prediction-error spike landed on the NEXT transition (tick t+1) which was excluded from BOTH sides of the ratio. The 1.098 FAIL was scored as-registered and stands as honest history, but round 2 corrects the semantics: at an anomaly tick the intruder corrupts the NEW observation BEFORE the surprise is computed (the model is surprised by a transition it could not have predicted). Round-1's global-mean dilution lesson remains independently registered.",
+    "claims": [
+      {
+        "id": "R1",
+        "text": "Hard world, real learning: on world2 the mean latent-prediction loss over the first 10 training steps exceeds 0.05 (the world is NOT pre-solved: round-1's easy world entered at 0.0090), AND the mean loss over the last 10 steps is < 50% of the first-10 mean (learning had something to eat and ate it).",
+        "verdict_rule": "PASS iff lossFirst10 > 0.05 AND lossLast10/lossFirst10 < 0.5; else FAIL with both numbers"
+      },
+      {
+        "id": "R2",
+        "text": "EMA stationarity survives the hard diet: L2 drift of the target encoder from a snapshot at step 200 over 200 further steps is < 1% of its final L2 norm (tau=0.999 fixed-point law on world2).",
+        "verdict_rule": "PASS iff drift/norm < 0.01; else FAIL with the ratio"
+      },
+      {
+        "id": "R3",
+        "text": "Concentration statistic (design law b): define per-cell surprise at a tick as |zPred - zTgt| per cell; the CONCENTRATED surprise of a tick = mean of its top-4 cells (4 = intruder footprint). Mean concentrated surprise at the 3 registered anomaly ticks (intruder applied BEFORE scoring, per the receipted timing fix) exceeds 3x the mean concentrated surprise over 30 baseline ticks in the held-out window (baseline excludes anomaly ticks and their +1 recovery transients). The GLOBAL-mean ratio is also receipted as a contrast observation (round-1's dilution lesson predicts it stays low; it gates nothing).",
+        "verdict_rule": "PASS iff concentrated anomaly_mean / concentrated baseline_mean > 3.0; else FAIL with both ratios (concentrated and global)"
+      },
+      {
+        "id": "R4",
+        "text": "Determinism crown carries to round 2: two full executions of the round-2 core with the same seed produce byte-identical metrics (sha256 of canonical metrics JSON equal).",
+        "verdict_rule": "PASS iff the two metrics shas are equal; else FAIL with both hashes"
+      },
+      {
+        "id": "R5",
+        "text": "Mesh conservation law carries: under diffusion-only mesh steps (lambda=0.2) loaded from a world2 energy field, total energy conserved within 1e-6 relative and energy variance strictly non-increasing across 100 consecutive steps.",
+        "verdict_rule": "PASS iff max relative total drift <= 1e-6 AND variance non-increasing; else FAIL with the first violating step"
+      },
+      {
+        "id": "R6",
+        "text": "Impact-sensitive zero self-repair (design law c): the probe set is a FIXED registered window of 30 (obsT, obsT1) world2 pairs captured from ticks 531-560 (with their live pre-corruption losses). Per-cell impact = mean per-cell latent loss over the probe set; the top-26 cells (26x16 = 416 weights = 10.2% of 4096) are corrupted by sign-flipping ALL their context-encoder weights (deterministic ranking, ties by lower cell index). Then: (i) JUMP — probe-set loss after corruption exceeds 1.5x the pre-corruption probe loss on the SAME fixed pairs (the corruption actually lands; round-1's random flip moved loss -2%); (ii) FROZEN-STATE INVARIANT — with NO further gradient steps, the parameter state is inert: the full weight-state sha256 after 50 further live world ticks (encode/predict/encodeTarget only, no training, no EMA) is identical to the state at corruption time, and the probe-set loss re-evaluated on the fixed pairs at that state equals the post-corruption probe loss within 1e-9 — nothing repairs without a gradient signal, and nothing mutates without one.",
+        "verdict_rule": "PASS iff jump > 1.5 AND state_sha_unchanged AND |probe_loss_recheck - probe_loss_corrupted| <= 1e-9; else FAIL with the numbers"
+      }
+    ],
+    "seal": {
+      "self_sha256_masked": "bc244e7d2f0cc11df9d0bf6342b5edd04a5c71b0d727466bc318aa27f3b5c1c7",
+      "mtime_local_ms": 1790608465680,
+      "sealed_by": "keeper, wave 51, before first round-2 run"
+    }
+  }
+}

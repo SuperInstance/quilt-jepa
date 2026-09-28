@@ -1,0 +1,177 @@
+{
+ "schema": "quilt-jepa/run-receipt-v2",
+ "seed_u32": 2133245488,
+ "claims_passed": 3,
+ "claims_total": 6,
+ "verdicts": {
+  "R1_hard_world_learning": false,
+  "R2_ema_stationarity": true,
+  "R3_concentration": false,
+  "R4_determinism": true,
+  "R5_mesh_conservation": true,
+  "R6_impact_sensitive_no_repair": false
+ },
+ "metrics": {
+  "r1_hardGate": 0.009398932689444875,
+  "r1_ratio": 0.9981100360222694,
+  "r2_drift_ratio": 0.00010809165244588881,
+  "r3_conc_ratio": 1.2760340606681173,
+  "r3_glob_ratio": 1.0933650476213856,
+  "r6_jump": 0.9892558086980512,
+  "r6_state_sha_unchanged": false,
+  "r6_recheck_delta": 0,
+  "r5_total_drift_rel": 1.9724328570250698e-8,
+  "r5_variance_non_increasing": true,
+  "lossFirst10": 0.009398932689444875,
+  "lossLast10": 0.00938116904523271,
+  "r3_conc_anomaly": 0.24800803139805794,
+  "r3_conc_baseline": 0.19435847289860247,
+  "r6_loss_pre": 0.00956867974306008,
+  "r6_loss_corrupted": 0.00946587201739356
+ },
+ "chain": [
+  {
+   "i": 0,
+   "id": "header#0",
+   "type": "header",
+   "payload": {
+    "repo": "quilt-jepa",
+    "round": 2,
+    "executed_in": "wave 51",
+    "seed_u32": 2133245488,
+    "seed_receipt": {
+     "label": "quilt-jepa-wave49-seed",
+     "mode": "FALLBACK",
+     "schema": "moth-seal/receipt-v1",
+     "note": ""
+    },
+    "registration": "registration-v2.json (sealed pre-run, self_sha256_masked + mtime)",
+    "law": "same JEPA law as round 1; world upgraded to core/world2.js (hard world: dual-frequency drifting wave, 16-tick turbulence at +/-0.05, ball speed 2, occluder bar 2 ticks every 80)",
+    "measurement_lesson": "round-1 P3 scored surprise at anomaly ticks BEFORE intruder injection (spike landed on the un-measured t+1); round 2 applies the intruder BEFORE scoring, per the receipted timing fix"
+   },
+   "prev": "JEPA-GENESIS-1",
+   "sha": "109632e4377b136c5d6ae138c16f07fb432c4e89d132fdd30cf7ead128b8e0ab"
+  },
+  {
+   "i": 1,
+   "id": "R1_hard_world_learning#1",
+   "type": "R1_hard_world_learning",
+   "payload": {
+    "hardGate_lossFirst10": 0.009398932689444875,
+    "ratio": 0.9981100360222694,
+    "claim": "lossFirst10 > 0.05 AND last10/first10 < 0.5",
+    "pass": false,
+    "lossLast10": 0.00938116904523271
+   },
+   "prev": "109632e4377b136c5d6ae138c16f07fb432c4e89d132fdd30cf7ead128b8e0ab",
+   "sha": "441790f0babf15d1c139ad0119cb22db0814c1ca977969d9565fd253050b81f1"
+  },
+  {
+   "i": 2,
+   "id": "R2_ema_stationarity#2",
+   "type": "R2_ema_stationarity",
+   "payload": {
+    "drift_ratio": 0.00010809165244588881,
+    "claim": "drift/norm < 0.01 (snapshot at step 200, 200 steps, world2)",
+    "pass": true
+   },
+   "prev": "441790f0babf15d1c139ad0119cb22db0814c1ca977969d9565fd253050b81f1",
+   "sha": "50bef9af9db46c4b704f5481a8cf759b00a20228409ca4c9f56503f7bded7827"
+  },
+  {
+   "i": 3,
+   "id": "R3_concentration#3",
+   "type": "R3_concentration",
+   "payload": {
+    "conc_ratio": 1.2760340606681173,
+    "glob_ratio": 1.0933650476213856,
+    "conc_anomaly": 0.24800803139805794,
+    "conc_baseline": 0.19435847289860247,
+    "glob_anomaly": 0.04281588980802553,
+    "glob_baseline": 0.03915973891901103,
+    "claim": "concentrated(top-4) anomaly/baseline > 3.0 (global ratio receipted as contrast, gates nothing)",
+    "pass": false,
+    "anomalyTicks": [
+     430,
+     465,
+     500
+    ]
+   },
+   "prev": "50bef9af9db46c4b704f5481a8cf759b00a20228409ca4c9f56503f7bded7827",
+   "sha": "715299d9cbdac673e4c19ba9cd7eb8c179f09debc4390fd399b23f7167fe9485"
+  },
+  {
+   "i": 4,
+   "id": "R4_determinism#4",
+   "type": "R4_determinism",
+   "payload": {
+    "claim": "two runs byte-identical metrics",
+    "pass": true,
+    "sha_run1": "c9eb3796016feade8c83899070b6eb0183283cff92bc023b30b539a14841e178",
+    "sha_run2": "c9eb3796016feade8c83899070b6eb0183283cff92bc023b30b539a14841e178"
+   },
+   "prev": "715299d9cbdac673e4c19ba9cd7eb8c179f09debc4390fd399b23f7167fe9485",
+   "sha": "3ac1bcce43e547685a7403f51507b680b66bde498b8c0a18ead19a348f76fe2f"
+  },
+  {
+   "i": 5,
+   "id": "R5_mesh_conservation#5",
+   "type": "R5_mesh_conservation",
+   "payload": {
+    "total_drift_rel": 1.9724328570250698e-8,
+    "variance_non_increasing": true,
+    "first_violating": -1,
+    "claim": "total conserved within 1e-6 rel AND variance non-increasing over 100 steps (world2 energy)",
+    "pass": true
+   },
+   "prev": "3ac1bcce43e547685a7403f51507b680b66bde498b8c0a18ead19a348f76fe2f",
+   "sha": "575c6865c9eb65eb9bb4bfdb92c7ec25af88bf0a5e60e0fd3f8cf38d3da8241d"
+  },
+  {
+   "i": 6,
+   "id": "R6_impact_sensitive_no_repair#6",
+   "type": "R6_impact_sensitive_no_repair",
+   "payload": {
+    "jump": 0.9892558086980512,
+    "loss_pre": 0.00956867974306008,
+    "loss_corrupted": 0.00946587201739356,
+    "state_sha_unchanged": false,
+    "recheck_delta": 0,
+    "flipped": 416,
+    "top26": [
+     200,
+     218,
+     105,
+     23,
+     214,
+     137,
+     123,
+     124,
+     42,
+     220,
+     216,
+     117,
+     107,
+     199,
+     40,
+     203,
+     24,
+     121,
+     39,
+     204,
+     27,
+     90,
+     101,
+     202,
+     44,
+     122
+    ],
+    "claim": "jump > 1.5 AND state sha unchanged AND |recheck - corrupted| <= 1e-9",
+    "pass": false
+   },
+   "prev": "575c6865c9eb65eb9bb4bfdb92c7ec25af88bf0a5e60e0fd3f8cf38d3da8241d",
+   "sha": "985f32278e75794858ca58d44093643999ae4ec203b64d227b30f731ae10e256"
+  }
+ ],
+ "tip": "985f32278e75794858ca58d44093643999ae4ec203b64d227b30f731ae10e256"
+}
