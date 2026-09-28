@@ -1,0 +1,270 @@
+{
+ "schema": "quilt-jepa/run-receipt-v4",
+ "seed_u32": 2133245488,
+ "lr_registered": 0.3,
+ "tau_registered": 0.99998,
+ "seal_verified_at_startup": {
+  "masked_sha": "29e74d162748bdf5c62321dcea6d49c145fc84296bab979ed7b16137258bc9fe",
+  "mtime": 1790622581918
+ },
+ "claims_passed": 8,
+ "claims_total": 8,
+ "verdicts": {
+  "G_learning_sanity_gate": true,
+  "L2_difficulty_meter": true,
+  "R1_hard_world_learning": true,
+  "R2v4_pace_aware_ema": true,
+  "R3v4_percentile_normalized_surprise": true,
+  "R4_determinism": true,
+  "R5_mesh_conservation": true,
+  "R6v4_impact_sensitive_no_repair": true
+ },
+ "metrics": {
+  "g_ratio": 0.34923244770336087,
+  "g_last10": 0.002753790128275017,
+  "l2_floor_trivial": 0.0002696956247429777,
+  "l2_floor_hard": 0.0004284808386273881,
+  "l2_ratio_trivial": 0.029520126256367397,
+  "l2_ratio_hard": 0.04325338123347421,
+  "r1_ratio": 0.1693138758473519,
+  "r1_first10": 0.008204023586316903,
+  "r1_last10": 0.0013890550309424068,
+  "r2_drift_ratio": 0.0026397133338834375,
+  "r2v4_wc_disp_200_400_rel": 0.16056800416046071,
+  "r2v4_wt_total_move_rel_400": 0.004258257316654435,
+  "r2v4_var_ratio": 1.0024850692069596,
+  "r3v4_z_ratio": 3.540717612984098,
+  "r3v4_z_anomaly_mean": 14.076616731036117,
+  "r3v4_z_sample_mean": 3.9756394803742676,
+  "r3v4_raw_ratio": 1.8496141357514475,
+  "r3v4_mad_ratio": 3.6111297062612198,
+  "r3v4_rank_ratio_selfsel": 1.0099090538889643,
+  "r3v4_rank_ratio_rawsel": 1.0368760515984299,
+  "r3v4_own_max_anomaly": 6.666666666666667,
+  "r3v4_own_max_sample": 2.9,
+  "r3v4_rank_excess_diff": 0.035349462365591555,
+  "r6_corr_mean": 0.6342727488089809,
+  "r6_jump": 2.7548573357019737,
+  "r6_sha_invariant": true,
+  "r6_recheck_delta": 0,
+  "r5_total_drift_rel": 9.468186588477004e-9,
+  "r5_variance_non_increasing": true
+ },
+ "chain": [
+  {
+   "i": 0,
+   "id": "header#0",
+   "type": "header",
+   "payload": {
+    "repo": "quilt-jepa",
+    "round": 4,
+    "executed_in": "wave 54",
+    "seed_u32": 2133245488,
+    "seed_receipt": {
+     "label": "quilt-jepa-wave49-seed",
+     "mode": "FALLBACK",
+     "schema": "moth-seal/receipt-v1",
+     "note": ""
+    },
+    "registration": "registration-v4.json (sealed pre-run, self_sha256_masked + mtime; RE-VERIFIED fail-closed at this run's startup)",
+    "laws": "R2v4 pace-aware EMA window (tau=0.99998, 1-tau = K4*LAT/lr, K4=1.5e-6; round-2 drift gate UNCHANGED at 0.01) + R3v4 percentile-normalized surprise (per-cell z against own 124-tick baseline; gate UNCHANGED at 3.0); lr = 0.3 carried; core/jepa3.js byte-untouched",
+    "carries": "L2 gate meter, R4 determinism, R5 mesh conservation unchanged; R6 uses the corrected frozen-state invariant (registration-v3-addendum1) as-registered",
+    "retired": "nothing this round — round-3 registered laws G/L2/R1/R4/R5/R6 stand; R2/R3 are the two repaired claims"
+   },
+   "prev": "JEPA-GENESIS-1",
+   "sha": "5dcdcd0cd1df293bcea71490a2021e97be5a4827776ef91949251cde9fd9028c"
+  },
+  {
+   "i": 1,
+   "id": "G_learning_sanity_gate#1",
+   "type": "G_learning_sanity_gate",
+   "payload": {
+    "ratio": 0.34923244770336087,
+    "first10": 0.00788526423127239,
+    "last10": 0.002753790128275017,
+    "lr": 0.3,
+    "tau": 0.99998,
+    "steps": 100,
+    "world": "trivial (core/world.js)",
+    "claim": "last10/first10 < 0.5 on the trivial world at 100 steps (L1 law) at the registered tau",
+    "pass": true,
+    "gate_note": "gate OPEN — downstream claims scored"
+   },
+   "prev": "5dcdcd0cd1df293bcea71490a2021e97be5a4827776ef91949251cde9fd9028c",
+   "sha": "210107d25e4a65154d9d74bc4baa2439d97a304ad27a40544462200a52609603"
+  },
+  {
+   "i": 2,
+   "id": "L2_difficulty_meter#2",
+   "type": "L2_difficulty_meter",
+   "payload": {
+    "floor_trivial": 0.0002696956247429777,
+    "floor_hard": 0.0004284808386273881,
+    "ratio_trivial": 0.029520126256367397,
+    "ratio_hard": 0.04325338123347421,
+    "init_trivial": 0.009135991574047053,
+    "init_hard": 0.00990629695085624,
+    "claim": "hard world linear floor exceeds trivial (absolute and relative) — the round-4 gate meter (unchanged law)",
+    "pass": true
+   },
+   "prev": "210107d25e4a65154d9d74bc4baa2439d97a304ad27a40544462200a52609603",
+   "sha": "2cfde099379d439891dd93203a2d18a62f86c7f1638bdcf7a730d799e3fa21a9"
+  },
+  {
+   "i": 3,
+   "id": "R1_hard_world_learning#3",
+   "type": "R1_hard_world_learning",
+   "payload": {
+    "ratio": 0.1693138758473519,
+    "first10": 0.008204023586316903,
+    "last10": 0.0013890550309424068,
+    "lr": 0.3,
+    "tau": 0.99998,
+    "steps": 400,
+    "claim": "last10/first10 < 0.5 on world2 at the registered tau (no absolute gate — L2 law)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "2cfde099379d439891dd93203a2d18a62f86c7f1638bdcf7a730d799e3fa21a9",
+   "sha": "b315e41f6d69f3c4dc23d065483e983ae170ecea07630a50182c5067d7eeea25"
+  },
+  {
+   "i": 4,
+   "id": "R2v4_pace_aware_ema#4",
+   "type": "R2v4_pace_aware_ema",
+   "payload": {
+    "drift_ratio": 0.0026397133338834375,
+    "drift_gate": 0.01,
+    "tau": 0.99998,
+    "tau_law": "1 - tau = K4*LAT/lr, K4 = 1.5e-6, p = lr/LAT = 0.075",
+    "round3_reference": "tau=0.999 at the same pace: drift 1.061e-1 (registration-v3 R2 FAIL of record)",
+    "g_ratio": 0.34923244770336087,
+    "r1_ratio": 0.1693138758473519,
+    "var_ratio": 1.0024850692069596,
+    "var_gate": 0.5,
+    "wc_disp_200_400_rel": 0.16056800416046071,
+    "wt_total_move_rel_400": 0.004258257316654435,
+    "claim": "PACE-AWARE EMA LAW: drift/norm < 0.01 (round-2 threshold UNCHANGED) AND g<0.5 AND r1<0.5 AND var_ratio>=0.5; wc_disp and wt_move receipted, gate nothing (declared cost)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "b315e41f6d69f3c4dc23d065483e983ae170ecea07630a50182c5067d7eeea25",
+   "sha": "cf50aaaa4ceb16d5804a546106c6a4d35858a4729e03c18e875a1910103b0970"
+  },
+  {
+   "i": 5,
+   "id": "R3v4_percentile_normalized_surprise#5",
+   "type": "R3v4_percentile_normalized_surprise",
+   "payload": {
+    "z_ratio": 3.540717612984098,
+    "gate": 3,
+    "z_anomaly_mean": 14.076616731036117,
+    "z_sample_mean": 3.9756394803742676,
+    "contrasts_gate_nothing": {
+     "raw_ratio": 1.8496141357514475,
+     "raw_anomaly_mean": 0.12258696649223566,
+     "raw_sample_mean": 0.06627704888427009,
+     "mad_ratio": 3.6111297062612198,
+     "rank_ratio_selfsel": 1.0099090538889643,
+     "rank_ratio_rawsel": 1.0368760515984299,
+     "own_max_cells_anomaly_mean": 6.666666666666667,
+     "own_max_cells_sample_mean": 2.9,
+     "rank_excess_diff": 0.035349462365591555,
+     "baseline_n": 124,
+     "sample_n": 30
+    },
+    "round3_reference": "raw law at tau=0.999: 1.919 (registration-v3 R3 FAIL of record)",
+    "claim": "PERCENTILE-NORMALIZED SURPRISE LAW: per-cell z vs own 124-tick baseline BEFORE concentration; top-4-by-z anomaly/baseline > 3.0 (gate UNCHANGED)",
+    "pass": true,
+    "anomalyTicks": [
+     430,
+     465,
+     500
+    ],
+    "void_as_gated": false
+   },
+   "prev": "cf50aaaa4ceb16d5804a546106c6a4d35858a4729e03c18e875a1910103b0970",
+   "sha": "7356c14c5db5a86f8709b2c8f64daa92eb9d75a4888e3acbc8afb5fd08edac45"
+  },
+  {
+   "i": 6,
+   "id": "R4_determinism#6",
+   "type": "R4_determinism",
+   "payload": {
+    "claim": "two runs byte-identical metrics AND all shared metrics bit-equal to the design4 probe receipt (probe==run==run)",
+    "pass": true,
+    "sha_run1": "986514ff6055e6d6a3690486c6305d7602e1bdfb6cfc4121d82c6657dde26fa1",
+    "sha_run2": "986514ff6055e6d6a3690486c6305d7602e1bdfb6cfc4121d82c6657dde26fa1",
+    "probe_cross_check": {
+     "shared": 17,
+     "mismatches": []
+    }
+   },
+   "prev": "7356c14c5db5a86f8709b2c8f64daa92eb9d75a4888e3acbc8afb5fd08edac45",
+   "sha": "b35205a60c143a4fd9e04765b4f000160d098d75e752ea7af9ea6920ffc00483"
+  },
+  {
+   "i": 7,
+   "id": "R5_mesh_conservation#7",
+   "type": "R5_mesh_conservation",
+   "payload": {
+    "total_drift_rel": 9.468186588477004e-9,
+    "variance_non_increasing": true,
+    "first_violating": -1,
+    "claim": "total conserved within 1e-6 rel AND variance non-increasing over 100 steps (world2 energy from the round-4 R3 window)",
+    "pass": true
+   },
+   "prev": "b35205a60c143a4fd9e04765b4f000160d098d75e752ea7af9ea6920ffc00483",
+   "sha": "0054b77d7c9ff82755ed317439a51471dfcd15ed117f312ccca5e603fb75478f"
+  },
+  {
+   "i": 8,
+   "id": "R6v4_impact_sensitive_no_repair#8",
+   "type": "R6v4_impact_sensitive_no_repair",
+   "payload": {
+    "corr_mean": 0.6342727488089809,
+    "corr_min": -0.008137254564441311,
+    "jump": 2.7548573357019737,
+    "loss_pre": 0.0012608681904543331,
+    "loss_corrupted": 0.0034735119838263926,
+    "sha_invariant": true,
+    "recheck_delta": 0,
+    "flipped": 416,
+    "top26": [
+     158,
+     218,
+     147,
+     42,
+     59,
+     146,
+     100,
+     213,
+     246,
+     131,
+     61,
+     87,
+     141,
+     1,
+     163,
+     129,
+     212,
+     130,
+     162,
+     69,
+     174,
+     116,
+     25,
+     76,
+     60,
+     231
+    ],
+    "claim": "L3 precondition corr > 0.3 AND jump > 1.5 AND corrected frozen-state invariant (sha at corruption time == sha after 50 idle ticks) AND |recheck - corrupted| <= 1e-9",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "0054b77d7c9ff82755ed317439a51471dfcd15ed117f312ccca5e603fb75478f",
+   "sha": "e2fa482b88b36189169c02c0ea8d1ed149ae9d45c22eb787d22e6e0e7fe08daa"
+  }
+ ],
+ "tip": "e2fa482b88b36189169c02c0ea8d1ed149ae9d45c22eb787d22e6e0e7fe08daa"
+}
