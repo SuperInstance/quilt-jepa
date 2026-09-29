@@ -1,0 +1,29 @@
+{
+  "packet_id": "rung-stranger-02",
+  "decidable": true,
+  "verdict": "FAIL_CONFIRMED",
+  "checked": {
+    "predicate_pre_stated": true,
+    "fail_branch_priced_pre_run": true,
+    "rho20_values_found": true,
+    "interval_arithmetic_correct": true,
+    "conjunction_logic_correct": true,
+    "verdict_row_consistent": true,
+    "saturation_reading_supported": true
+  },
+  "evidence": [
+    "registration-v8.json:10 — P-MECH pre-states the compounding gate verbatim: 'rho20_2 = ratio2(3e-4, 20k) / ratio2(wd0, 20k) < rho20_1 (the run7-bound 0.9311659387409014) AND rho20_2 < 1.0 AND ratio2(3e-4, 20k) < 1.0' and prices the FAIL branch 'rho20_2 in [rho20_1, 1) — the advantage SATURATES: the cure's plasticity benefit is a one-time re-balancing, not a compounding asset'",
+    "registration-v8.json:35 — MECH verdict_rule: 'PASS iff ... AND rho20_2 < rho20_1 AND rho20_2 < 1.0 AND ratio2(3e-4) < 1.0 ...'; else FAIL with the measured Spearman, rho20_2, and both second-switch ratios",
+    "receipts/run8.json:440 — r8_rho20_1 = 0.9311659387409014",
+    "receipts/run8.json:441 — r8_rho20_2 = 0.955013877487518",
+    "receipts/run8.json:1328-1329 — second_switch block rho20_1/rho20_2 at identical full precision; both values reproduce exactly from the raw legs (0.6644108562180416/0.7135257300287862 and 1.1268925734915027/1.17997507686084, verified arithmetically)",
+    "receipts/run8.json:1336 — recorded self-check 'rho20_2_lt_rho20_1': false; :1338 'rho20_2_lt_1': true; :1339 'ratio2_3e4_lt_1': false; :1349 'pass': false",
+    "receipts/run8.json:1309-1310 — spearman = 1, spearman_gate = 0.75 (leg-1 held)",
+    "receipts/run8.json:1347 — receipt restates the pre-priced branches: 'rho20_2 in [rho20_1, 1) = advantage SATURATES (one-time re-balancing); rho20_2 >= 1 = advantage REVERSES'",
+    "verdict-v8.md:19 — 'Scorecard: 21/22 — MECH is an HONEST FAIL on its pre-priced saturation branch'; :38 MECH row = FAIL, 'rho20_2 = 0.955014 ∈ [rho20_1 = 0.931166, 1)'; all other 21 rows PASS",
+    "git log quilt-jepa: b5bc818 (2026-09-29T16:07:25Z, registration-v8 SEALED pre-run) precedes e187902 (2026-09-29T16:53:39Z, round-8 results 21/22) — ordering check passes"
+  ],
+  "reasoning": "The compounding predicate is pre-stated in registration-v8.json (P-MECH line 10 and the MECH verdict_rule line 35) exactly as sealed, and the saturation FAIL branch ('rho20_2 in [rho20_1, 1) — one-time re-balancing, not a compounding asset') was priced before the run, confirmed by git ordering (seal commit b5bc818 at 16:07:25Z precedes results commit e187902 at 16:53:39Z). run8.json records r8_rho20_1 = 0.9311659387409014 (line 440) and r8_rho20_2 = 0.955013877487518 (line 441), and both reproduce exactly from the raw second-switch legs, so the values are internally consistent. Arithmetic: 0.955013877487518 < 0.9311659387409014 is FALSE (first conjunct fails) while < 1.0 is TRUE (second conjunct holds), so rho20_2 ∈ [rho20_1, 1.0) and the AND-predicate fails; the run's own self-check agrees (line 1336 false, line 1338 true, line 1349 pass: false). Leg-1 held (Spearman = 1 ≥ 0.75, lines 1309-1310), so the compound MECH claim fails on leg-2 alone; verdict-v8.md line 38 records MECH FAIL inside a 21/22 scorecard whose only FAIL is MECH. The saturation reading is supported by the numbers alone: 'persists' is rho20_2 < 1.0 and 'does not grow' is rho20_2 >= rho20_1 — a restatement of interval membership, pre-priced verbatim at registration line 10 and receipt line 1347, not a post-hoc claim. One nuance disclosed without affecting the verdict: the receipt also records ratio2_3e4_lt_1 = false (line 1339, ratio2(3e-4) = 1.1268925734915027 ≥ 1), a second failed MECH gate the sealed claim does not mention, but it does not alter the sealed FAIL's arithmetic, the fired saturation branch, or the row's consistency.",
+  "decided_by": "isolated-stranger-02",
+  "isolation_held": true
+}
