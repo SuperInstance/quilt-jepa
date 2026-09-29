@@ -1,0 +1,59 @@
+{
+ "schema": "quilt-jepa/design-probe-v7",
+ "note": "PRE-SEAL pipeline validation for round 7 — GATES NOTHING. All identities are pipeline checks against already-receipted values; no round-7 claim value (dose-arm rates, PLAST ratios, plateau depth studies, GWIN grid) is measured here. The new dose arms (1.5e-4, 2e-4, 2.5e-4), the PLAST probes, the depth plateau studies at amp 1.2, and the GWIN grid points are measured for the FIRST time inside run7.",
+ "seed_u32": 2133245488,
+ "identities": {
+  "seed_u32": 2133245488,
+  "I7_jepa4_wd0_identity": {
+   "steps": 400,
+   "losses_bit_exact": true,
+   "weights_bit_exact": true,
+   "weights_sha": "c8c3c06bf3d6dfb5ab230da65c8c9222864df62783e4649312c53e52c590dd8b"
+  },
+  "I2_wd0_anchor_via_horizonRun5": {
+   "D": 30174,
+   "D_bit_exact_vs_design6": true,
+   "executed_to": 30174,
+   "exec_bit_exact": true,
+   "slow": 0.000019382458307633484,
+   "slow_bit_exact": true,
+   "wc400": 12.17949620862212,
+   "wc400_bit_exact": true,
+   "wc20000": 17.808040736570447,
+   "wc20000_bit_exact": true,
+   "drift_last200": 0.9999976213398036,
+   "drift_bit_exact": true
+  },
+  "I1_continuation_reconstruction": {
+   "snapshot_step": 20000,
+   "wd": 0.0003,
+   "capture_bit_exact_cross_execution": true,
+   "snapshot_weights_sha": "d250eb0b6f76223840c4223edae55703778fa0c3387401e47a85aaee9c3d6017",
+   "world2_reconstruction_vs_live_arm_400_bit_exact": true,
+   "trivial_reconstruction_deterministic_400_bit_exact": true,
+   "trivial_continuation_ratio": 0.6644108562180416,
+   "snapshot_wc_norm": 9.769638164817229
+  },
+  "I3_collectDepthAmp_identity": {
+   "S_bit_exact": true,
+   "AT_equal": true,
+   "z_ratio_bit_exact": true,
+   "z_ratio": 3.540717612984098
+  },
+  "I4_finding_site_2200": {
+   "z": 2.5480705541027127,
+   "z_bit_exact_vs_design5": true
+  },
+  "I5_gwin_anchor": {
+   "g": 0.34923244770336087,
+   "g_bit_exact_vs_run4": true
+  },
+  "I6_shallow_plateau_amp12": {
+   "z": 3.540717612984098,
+   "z_bit_exact_vs_run5_ladder": true,
+   "run5_ladder_reference": 3.540717612984098
+  }
+ },
+ "all_identities_pass": true,
+ "wall_ms": 10429
+}
