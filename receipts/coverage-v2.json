@@ -1,0 +1,548 @@
+{
+ "instrument": "archive_coverage.mjs v2 (registered upgrade of v1 — see registration-coverage-v2.json; v1 instrument + receipt byte-untouched)",
+ "laws": {
+  "M8": "coverage field must exist for every registered round verdict; missing field = M8 FAIL event",
+  "M11": "tags registered pre-resolution (v1); resolution procedure receipted in the v1 instrument header"
+ },
+ "rounds": [
+  {
+   "round": 4,
+   "claims_sealed": 8,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [],
+   "depth_tokens": [],
+   "verdict_headline": "8/8",
+   "cells_named_v1": 1
+  },
+  {
+   "round": 5,
+   "claims_sealed": 11,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [],
+   "depth_tokens": [],
+   "verdict_headline": "11/11",
+   "cells_named_v1": 1
+  },
+  {
+   "round": 6,
+   "claims_sealed": 14,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "RLONG",
+    "R3D",
+    "GWIN",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [
+    "0"
+   ],
+   "depth_tokens": [],
+   "verdict_headline": "14/14",
+   "cells_named_v1": 2
+  },
+  {
+   "round": 7,
+   "claims_sealed": 18,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "RLONG",
+    "R3D",
+    "GWIN",
+    "RLONG7",
+    "PLAST",
+    "R3DxR3L",
+    "GWIN7",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [
+    "0"
+   ],
+   "depth_tokens": [],
+   "verdict_headline": "18/18",
+   "cells_named_v1": 2
+  },
+  {
+   "round": 8,
+   "claims_sealed": 22,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "RLONG",
+    "R3D",
+    "GWIN",
+    "RLONG7",
+    "PLAST",
+    "R3DxR3L",
+    "GWIN7",
+    "MECH",
+    "GWIN8",
+    "REDOSE",
+    "OVERDECAY",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [],
+   "depth_tokens": [],
+   "verdict_headline": "21/22",
+   "cells_named_v1": 1
+  }
+ ],
+ "coverage": {
+  "per_round": [
+   {
+    "round": 4,
+    "claims_sealed": 8,
+    "verdict_headline": "8/8",
+    "cells_named_v1": 1
+   },
+   {
+    "round": 5,
+    "claims_sealed": 11,
+    "verdict_headline": "11/11",
+    "cells_named_v1": 1
+   },
+   {
+    "round": 6,
+    "claims_sealed": 14,
+    "verdict_headline": "14/14",
+    "cells_named_v1": 2
+   },
+   {
+    "round": 7,
+    "claims_sealed": 18,
+    "verdict_headline": "18/18",
+    "cells_named_v1": 2
+   },
+   {
+    "round": 8,
+    "claims_sealed": 22,
+    "verdict_headline": "21/22",
+    "cells_named_v1": 1
+   }
+  ],
+  "cumulative_claims_sealed": 73
+ },
+ "cells_v2": {
+  "total": 40,
+  "by_axis": {
+   "pace": 8,
+   "dose": 8,
+   "depth": 8,
+   "plasticity": 10,
+   "guard": 6
+  },
+  "definition": "distinct (axis, dose, depth, readout) cells with a sealed finite numeric result, extracted from receipts/run4.json, design5.json, design6.json, run6.json, design7.json, run7.json, design8.json, run8.json — fail-closed",
+  "cells": [
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W300",
+    "readout": "g_ratio",
+    "value": 0.2763398780999859,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W200",
+    "readout": "g_ratio",
+    "value": 0.30409957215062605,
+    "receipt": "design6.partC_gwindow"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W150",
+    "readout": "g_ratio",
+    "value": 0.25369541417668573,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W120",
+    "readout": "g_ratio",
+    "value": 0.3505612327666269,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W100",
+    "readout": "g_ratio",
+    "value": 0.34923244770336087,
+    "receipt": "run4.metrics (anchor)"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W75",
+    "readout": "g_ratio",
+    "value": 0.4033493702247352,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W60",
+    "readout": "g_ratio",
+    "value": 0.43412447386917424,
+    "receipt": "design6.partC_gwindow"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W50",
+    "readout": "g_ratio",
+    "value": 0.42714909329375844,
+    "receipt": "run7.metrics_round7 (edge, gate-nothing)"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd0",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": 0.000019382458307633484,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd1e-4",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": 0.0000053037500730242976,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd1.5e-4",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": 2.982035306975962e-7,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd2e-4",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": -0.000003778708210171146,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd2.5e-4",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": -0.000007163695533815242,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd3e-4",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": -0.000010025999770806105,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd3e-4",
+    "depth": "100000",
+    "readout": "slow_rate",
+    "value": -0.0000076771378118419,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd1e-3",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": -0.000028887182146357943,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp0.9",
+    "depth": "400",
+    "readout": "z_anchored",
+    "value": 3.540717612984098,
+    "receipt": "design6.partB"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp1.2",
+    "depth": "400",
+    "readout": "z_anchored",
+    "value": 3.540717612984098,
+    "receipt": "run7.chain R3DxR3L"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp0.9",
+    "depth": "1200",
+    "readout": "z_anchored",
+    "value": 2.261371983689926,
+    "receipt": "design6.partB"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp1.2",
+    "depth": "1200",
+    "readout": "z_anchored",
+    "value": 2.261371983689926,
+    "receipt": "run7.chain R3DxR3L"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp0.9",
+    "depth": "2000",
+    "readout": "z_anchored",
+    "value": 3.4081658202992458,
+    "receipt": "design6.partB"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp1.2",
+    "depth": "2000",
+    "readout": "z_anchored",
+    "value": 3.4081658202992458,
+    "receipt": "run7.chain R3DxR3L"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp0.9",
+    "depth": "2200",
+    "readout": "z_anchored",
+    "value": 3.192747264380909,
+    "receipt": "design6.partB"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp1.2",
+    "depth": "2200",
+    "readout": "z_anchored",
+    "value": 3.192747264380909,
+    "receipt": "run7.chain R3DxR3L"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd0",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.7135257300287862,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd1e-4",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.7017204255152192,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd1.5e-4",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.6932745971950486,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd2e-4",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.6841500024733943,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd2.5e-4",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.6744102403950979,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd3e-4",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.6644108562180416,
+    "receipt": "run8.metrics_round8 (== design7 disclosed pin)"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd1e-3",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.570098169081971,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd3e-4",
+    "depth": "100000",
+    "readout": "switch_ratio",
+    "value": 0.5957770637776008,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd3e-4",
+    "depth": "500000",
+    "readout": "switch_ratio",
+    "value": 0.5864036049443728,
+    "receipt": "run7.metrics_round7 (edge)"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd1e-3",
+    "depth": "100000",
+    "readout": "switch_ratio",
+    "value": 0.50858843397239,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd0",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.1693138758473519,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd1e-4",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.1698125845205748,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd1.5e-4",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.17006279337297014,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd2e-4",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.1703136029297766,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd2.5e-4",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.170564930215658,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd3e-4",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.17081682633549816,
+    "receipt": "design6.partA"
+   }
+  ]
+ },
+ "m11_round8_resolution_inputs": [
+  {
+   "item": "plasticity-ADVANTAGE mechanism",
+   "claim": "MECH_plasticity_advantage_mechanism",
+   "verdict": "FAIL",
+   "definitive": true
+  },
+  {
+   "item": "GWIN grid lr-non-monotonicity",
+   "claim": "GWIN8_low_pace_dip",
+   "verdict": "PASS",
+   "definitive": true
+  },
+  {
+   "item": "RLONG at wd 2e-4 as candidate re-registration of the main dose",
+   "claim": "REDOSE_main_dose_reregistration",
+   "verdict": "PASS",
+   "definitive": true
+  },
+  {
+   "item": "1e-3 arm's long-horizon plasticity",
+   "claim": "OVERDECAY_over_decay_plasticity",
+   "verdict": "PASS",
+   "definitive": true
+  }
+ ],
+ "determinism_note": "stdlib Node, no wall-clock in output, fail-closed on missing rounds/receipt paths (exit 2); re-runs byte-identical on the same tree",
+ "receipt": "receipts/coverage-v2.json",
+ "predecessor": "receipts/coverage-v1.json (rounds 4-7, v1 metric — cited by verdict-v8.md per COV1)"
+}

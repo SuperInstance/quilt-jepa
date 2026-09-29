@@ -1,0 +1,66 @@
+{
+  "resolution": {
+    "task": "wave 62 (lane 62-a) — quilt-jepa M8/M11 RESOLUTION DOCUMENT for round 8, sealed AFTER the round-8 receipt of record (receipts/run8.json, chain tip c37d617c1482c71ec9184446332fc040bd32771bae6d676b496f515a79e67cde; independently reproduced byte-identical by a fresh full execution this lane) and AFTER the v2 instrument's sealed registration (registration-coverage-v2.json, ea74809ffda6ce7f…) and receipt-of-record run (receipts/coverage-v2.json, two runs byte-identical). Sources of authority: registration-coverage.json (sealed 45523e54…, commit 4ed0527) — the M11 tag rule and the resolution procedure receipted in the v1 instrument header (scripts/archive_coverage.mjs); registration-coverage-v2.json (sealed this lane) — COV2 and M11RES.",
+    "m8": {
+      "field_of_record": "receipts/coverage-v2.json (v2 instrument, rounds 4-8, receipts-level cells; predecessor receipts/coverage-v1.json rounds 4-7 cited by verdict-v8.md per COV1)",
+      "per_round_claims_sealed": [8, 11, 14, 18, 22],
+      "cumulative_claims_sealed": 73,
+      "verdict_headlines": ["8/8", "11/11", "14/14", "18/18", "21/22"],
+      "cells_v2": { "total": 40, "by_axis": { "pace": 8, "dose": 8, "depth": 8, "plasticity": 10, "guard": 6 }, "definition": "distinct (axis, dose, depth, readout) cells with a sealed finite numeric result, extracted fail-closed from receipts/run4.json, design5.json, design6.json, run6.json, design7.json, run7.json, design8.json, run8.json" },
+      "m8_status": "HELD — round 8 carries the coverage field (verdict-v8.md cites coverage-v1.json per COV1; this resolution cites the registered v2 upgrade per COV2). The registered M8 FAIL event — a registered round verdict lacking the coverage measurement once the field exists — did NOT fire for round 8. The round-8 headline honestly carries its FAIL (21/22)."
+    },
+    "m11": {
+      "tags_of_record": "ALL FOUR round-8 agenda items tagged SEALED-MEASURABLE pre-resolution (registration-coverage.json TAG1, sealed at 4ed0527 BEFORE any round-8 run; tags registered in scripts/archive_coverage.mjs)",
+      "resolutions": [
+        {
+          "item": "plasticity-ADVANTAGE mechanism (why does decay speed re-adaptation: null-space room vs Wt/Wc re-balancing at smaller |Wc|)",
+          "claim": "MECH (registration-v8)",
+          "verdict": "FAIL",
+          "definitive": true,
+          "note": "leg 1 (DOSE-ORDERING) HELD at the ceiling of its gate: Spearman rank correlation between the trivial-world switch ratio at the shared 20k depth and end-of-decay |Wc| across the seven-dose grid = 1.0 (>= 0.75), with all three receipted dose ratios reproduced run7 bit-exactly (0.7135257300287862 / 0.7017204255152192 / 0.6644108562180416) and all seven first10/last10 finite — smaller end-of-decay |Wc| orders faster re-adaptation, monotonically (17.808 → 6.394 |Wc| maps to 0.7135 → 0.5701 ratio). leg 2 (COMPOUNDING) FAILED on the PRE-PRICED SATURATION branch: on the second world switch (fresh World2(seedB = 1657638767) from its own t=0, entered from the END state of the registered first switch, no weight reset) rho20_2 = 0.955013877487518 lies in [rho20_1 = 0.9311659387409014, 1) — the advantage PERSISTS (0.9550 < 1.0) but does NOT grow; ratio2(3e-4) = 1.1268925734915027 >= 1.0 (neither arm re-adapts below its first-10 loss on the second switch) and ratio2(wd0) = 1.17997507686084 bit-exact == the design8 I-C disclosed value. Sealed FAIL verbatim; the branch and its interpretation were priced in registration-v8 P-MECH BEFORE the run; no threshold surgery. Finding of record: the cure's plasticity benefit is a one-time re-balancing, not a compounding asset."
+        },
+        {
+          "item": "GWIN grid lr-non-monotonicity (dip at lr 0.2, receipted for round-8 pace-law refinement)",
+          "claim": "GWIN8 (registration-v8)",
+          "verdict": "PASS",
+          "definitive": true,
+          "note": "g(0.1, W = round(30/0.1) = 300, tau from the carried K4 law) = 0.2763398780999859 < 0.5 — the window law extends to the unexplored low-pace region; g(0.1) > g(0.2) = 0.25369541417668573 (bit-exact == run7) — the receipted lr-0.2 dip is a LOCAL MINIMUM of the pace grid; the declared re-scoring leg binds: (g(0.15) + g(0.25))/2 - g(0.2) = 0.0736349882819407 >= 0.05 with g(0.15) = 0.30409957215062605 bit-exact == design6 and g(0.25) = 0.3505612327666269 bit-exact == run7. The non-monotonicity is now a registered law at the threshold fixed pre-run."
+        },
+        {
+          "item": "RLONG at wd 2e-4 (steepest lifetime-per-decay point) as candidate re-registration of the main dose",
+          "claim": "REDOSE (registration-v8)",
+          "verdict": "PASS",
+          "definitive": true,
+          "note": "designed ENTIRELY from round-7 dose receipts per the round-6 registered rules, no new threshold surgery: cure re-bound bit-exact (rate(2e-4) === -3.778708210171146e-6 < 0, design8 I-B additionally binds the registered-prefix slice); round-6 longevity factor gate on the verbatim constant: D(2e-4) = 85387 >= 60348 = 2 x 30174 (2.83x, inside the registered 2-10x band); guards UNRELAXED at 2e-4 with existing gate constants only (g 0.3502784478845342 < 0.5, r1 0.1703136029297766 < 0.5, drift 0.002617433483223252 < 0.01); guards at 2.5e-4 receipted adjacent, gate nothing. DECISION of record (the registered rule, executed in verdict-v8.md): wd 2e-4 is re-registered as the PLASTICITY-OPTIMAL CURED-DOSE CANDIDATE for round 9's dose-selection registration, WITH the registered disclosure that the two-phase law PERSISTS at 2e-4 (runaway 0.07013985167825404 at D = 85387) — wd 3e-4 REMAINS the longevity main dose (the only receipted dose whose two-phase is eliminated within the 5e5 window)."
+        },
+        {
+          "item": "1e-3 arm's long-horizon plasticity (does over-decay eventually pay?)",
+          "claim": "OVERDECAY (registration-v8)",
+          "verdict": "PASS",
+          "definitive": true,
+          "note": "neither priced FAIL branch fired: (a) ENGAGE — learning still engages from heavily over-decayed states: ratio_switch(1e-3, 20k) = 0.570098169081971 < 1.0 AND ratio_switch(1e-3, 100k) = 0.50858843397239 < 1.0; (b) NO-REVERSAL — ratio_switch(1e-3, 20k) = 0.570098169081971 <= ratio_switch(3e-4, 20k) = 0.6644108562180416 (the receipted main-dose value): the plasticity advantage does not reverse at 3.3x the main dose — on this readout it GROWS. Arm re-bound bit-exact (D === null, executed_to === 100000, slow rate -2.8887182146357943e-5 === design6 bit-exact); capture path validated: captured snapshot |Wc| 6.393625949660193 @20k and 2.70821011403129 @100k equal the arm's own receipted checkpoint norms bit-exactly; all first10/last10 finite. Over-decay is not toxic at 1e-3."
+        }
+      ],
+      "leg1": { "registered_requirement": ">= 3 of the 4 tagged SEALED-MEASURABLE items resolve to a definitive PASS/FAIL in verdict-v8.md", "measured": "4 of 4 definitive (1 FAIL, 3 PASS)", "satisfied": true },
+      "leg2": {
+        "clause": "sealed-vs-unsealed defer-rate comparison",
+        "unsealed_set": "EMPTY — no round-8 item was re-registered qualitatively (all four items carry numeric pre-registered thresholds in registration-v8.json); the tags of record are unchanged",
+        "recorded_as": "NOT-APPLICABLE, exactly per the procedure receipted in advance at 4ed0527 (scripts/archive_coverage.mjs header: 'If the UNSEALED set is EMPTY, the rate comparison is ILL-POSED (receipted here in advance): the binding test is leg (1) alone, and the comparison clause is recorded as not-applicable, NOT as an automatic refutation.')",
+        "retagged_unsealed": 0
+      },
+      "m11_status": "RESOLVED — the M11 round-8 prediction ('leg (1) binds always — >= 3 of the 4 tagged items resolve to definitive PASS/FAIL in verdict-v8.md') is SATISFIED 4/4, with the empty-unsealed-set procedure followed verbatim and leg 2 recorded not-applicable per the advance receipt. Round 8's four items all carried numeric pre-registered thresholds written from rounds-4-7 machinery — measurability as RSI-eligibility is exactly what this round executed."
+    },
+    "provenance": {
+      "round8_receipt": "receipts/run8.json (chain tip c37d617c1482c71ec9184446332fc040bd32771bae6d676b496f515a79e67cde; sha256 0d08ca2d4ad822b1…; reproduced BYTE-IDENTICAL by an independent fresh full execution of the unchanged committed runner this lane — twin-bound in-run by R4 and re-proven across lanes)",
+      "registration_seal": "registration-v8.json self_sha256_masked 260c01ba… mtime 1790682000000 re-verified fail-closed by the runner at startup and re-verified by this lane post-hoc (masked-sha recomputation INTACT)",
+      "instrument_receipt": "receipts/coverage-v2.json — generated by scripts/archive_coverage_v2.mjs twice this lane, byte-identical both times (determinism proof); an earlier-dated intermediate output from the prior incarnation's script iteration was superseded by this receipt-of-record run (the final instrument script is the one of record; its header documents the upgrade)",
+      "honest_fail": "MECH is the round's honest FAIL, sealed verbatim on its pre-priced saturation branch — 11 of its 13 registered checks passed (including all three run7 bit-exact bindings, the bit-exact probe2 stage-1 on both paths, and the bit-exact control second-switch leg); the two compounding gates failed exactly as the saturation branch predicted"
+    },
+    "seal_discipline": "this file sealed AFTER its inputs existed (round-8 receipt + v2 coverage receipt) via tools/seal-file.mjs (v2): self_sha256_masked = sha256 of these exact bytes with the mask value replaced by 64 zeros; mtime forced to fixedMs after last write.",
+    "seal": {
+      "self_sha256_masked": "beceb96a10d667ff4db3a19ede64de08eaaae0b61ab8a4f5bb79ddf9261f4680",
+      "mtime_local_ms": 1790689200000,
+      "sealed_by": "lane 62-a (wave 62), M11/M8 resolution of record"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "registration": {
+    "task": "wave 62 (lane 62-a) — quilt-jepa INSTRUMENT REGISTRATION v2 (not a round): the registered v2 UPGRADE of the wave-61 M8 archive-coverage instrument, executed along registration-coverage.json COV1's own registered upgrade path ('the receipts-level depth-x-dose-x-pace cell extraction is ceded to the round-8 lane, which may upgrade the metric by registering the upgrade, never by editing this one'). This registration is sealed BEFORE the v2 instrument's receipt-of-record run. The v1 instrument (scripts/archive_coverage.mjs) and its receipt (receipts/coverage-v1.json) are byte-untouched history and remain cited by verdict-v8.md per COV1's rule.",
+    "instrument": {
+      "path": "scripts/archive_coverage_v2.mjs",
+      "receipt": "receipts/coverage-v2.json",
+      "determinism": "stdlib Node, no wall-clock in output, fail-closed on missing rounds 4..8, missing receipt paths, non-finite cell values, or duplicate cell keys (exit 2); re-runs byte-identical on the same tree",
+      "upgrade_v2_over_v1": "(1) ROUNDS extended 4..8 — round 8 joins the M8 archive-coverage field (registration-v8.json claims array + verdict-v8.md headline, both existing at seal time); (2) cells_v2 — the receipts-level extraction: distinct (axis, dose, depth, readout) cells with a SEALED finite numeric result, extracted mechanically and fail-closed from receipts/run4.json, design5.json, design6.json, run6.json, design7.json, run7.json, design8.json, run8.json (the depth-x-dose-x-pace cells v1 could only name coarsely in registration text); (3) m11_round8_resolution_inputs — the four round-8 agenda items' verdicts read mechanically from receipts/run8.json, as the inputs to the M11 tag-resolution procedure receipted in the v1 instrument header (scripts/archive_coverage.mjs: leg 1 binds — >= 3 of 4 tagged SEALED-MEASURABLE items resolve definitively; leg 2, the sealed-vs-unsealed defer-rate comparison, binds ONLY over a NON-EMPTY unsealed set, else recorded not-applicable, not an auto-refutation)",
+      "scope_note": "this registration gates nothing that runs the model; it registers a deterministic read-only instrument over already-receipted artifacts"
+    },
+    "claims": [
+      {
+        "id": "COV2",
+        "text": "The M8 archive-coverage field EXISTS for rounds 4-8 at receipts level (receipts/coverage-v2.json): per-round claims_sealed [8, 11, 14, 18, 22] (the claims arrays of the sealed registrations, cumulative 73), verdict headlines including round 8's honest 21/22 (the headline carries its MECH FAIL), and a receipts-level cells_v2 extraction; verdict-v8.md cites coverage-v1.json per COV1 and the round-8 resolution cites this v2 receipt per COV2 — the M8 FAIL event (a registered round verdict lacking any coverage field) did NOT fire for round 8.",
+        "verdict_rule": "PASS iff receipts/coverage-v2.json exists with per-round claims_sealed exactly [8, 11, 14, 18, 22], cumulative_claims_sealed exactly 73, the round-8 verdict_headline '21/22', and a cells_v2 extraction that is non-empty, all-finite, and duplicate-free (the instrument itself fail-closes on any of those); else FAIL with the actual numbers."
+      },
+      {
+        "id": "M11RES",
+        "text": "M11 RESOLUTION (executed per the v1-registered procedure — the empty-unsealed-set procedure receipted in advance at 4ed0527): the four round-8 agenda items, ALL tagged SEALED-MEASURABLE pre-resolution in the v1 instrument, resolve in receipts/run8.json verdicts as MECH FAIL, GWIN8 PASS, REDOSE PASS, OVERDECAY PASS — FOUR of FOUR definitive (leg 1 required >= 3). No item was re-registered qualitatively (all four carry numeric pre-registered thresholds in registration-v8.json), so the UNSEALED set is EMPTY and leg 2 (defer-rate comparison) is recorded NOT-APPLICABLE exactly as receipted in advance — not an auto-refutation. The M11 prediction ('>= 3 of the 4 tagged items resolve to definitive PASS/FAIL') resolves SATISFIED.",
+        "verdict_rule": "PASS iff the sealed resolution document (resolution-m8-m11.json) records 4/4 definitive resolutions (>= the registered 3), zero RETAGGED-UNSEALED items, and leg 2 recorded not-applicable over the empty unsealed set per the v1 procedure; else FAIL with the actual counts."
+      }
+    ],
+    "seal_discipline": "this file sealed BEFORE the v2 instrument's receipt-of-record run via tools/seal-file.mjs (v2): self_sha256_masked = sha256 of these exact bytes with the mask value replaced by 64 zeros; mtime forced to fixedMs after last write.",
+    "seal": {
+      "self_sha256_masked": "ea74809ffda6ce7fdab15d458534b62ec196dfbb187e8e9e47e6d5d9344fd1ef",
+      "mtime_local_ms": 1790685600000,
+      "sealed_by": "lane 62-a (wave 62), before the archive_coverage_v2.mjs receipt-of-record run"
+    }
+  }
+}
