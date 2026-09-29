@@ -1,0 +1,73 @@
+{
+ "identities": {
+  "IE_jepa4_wd0_identity": {
+   "steps": 400,
+   "losses_bit_exact": true,
+   "weights_bit_exact": true,
+   "weights_sha": "c8c3c06bf3d6dfb5ab230da65c8c9222864df62783e4649312c53e52c590dd8b"
+  },
+  "IA_capture_extension": {
+   "D": 30174,
+   "D_bit_exact_vs_design6": true,
+   "executed_to": 30174,
+   "exec_bit_exact": true,
+   "slow": 0.000019382458307633484,
+   "slow_bit_exact": true,
+   "wc400": 12.17949620862212,
+   "wc400_bit_exact": true,
+   "wc20000": 17.808040736570447,
+   "wc20000_bit_exact": true,
+   "captured_at": [
+    20000
+   ],
+   "snapshot_wc_norm": 17.808040736570447,
+   "snapshot_wc_norm_bit_exact_vs_receipted_20000": true
+  },
+  "IB_wd2e4_registered_prefix": {
+   "T": 20000,
+   "stop_rule": "registered",
+   "D": null,
+   "executed_to": 20000,
+   "wc400": 11.985902658422406,
+   "wc20000": 11.130270846539293,
+   "slow": -0.000003778708210171146,
+   "receipted_run7_rate_wd2e4": -0.000003778708210171146,
+   "slow_bit_exact_vs_run7": true
+  },
+  "IC_second_switch_determinism": {
+   "snapshot_step": 20000,
+   "wd": 0,
+   "capture_bit_exact_cross_execution": true,
+   "snapshot_weights_sha": "e53fd67c41cf1c63eb44c78ae403ea0b152c4a6b119d4482a07e9550d643d9b3",
+   "stage1_carried_ratio": 0.7135257300287862,
+   "stage1_probe2_ratio": 0.7135257300287862,
+   "stage1_arithmetic_identity_bit_exact": true,
+   "stage1_vs_run7_receipted_ctrl20k_bit_exact": true,
+   "receipted_run7_ctrl20k": 0.7135257300287862,
+   "full_path_bit_exact_cross_execution": true,
+   "seed_b": 1657638767,
+   "DISCLOSED_control_second_switch_ratio": 1.17997507686084,
+   "disclosed_note": "the control leg of the round-8 MECH second-switch readout — computed here because the I-C identity unavoidably executes the full control path (round-7 I1 disclosure pattern); the DECAYED leg is measured for the first time inside run8; this value gates nothing by itself (the MECH gates act on rho20_2 = decayed/control)",
+   "control_second_switch_first10": 0.0007870548837814303,
+   "control_second_switch_last10": 0.0009287051469836927
+  },
+  "ID_gwin_anchor": {
+   "g": 0.34923244770336087,
+   "run4_pin": 0.34923244770336087,
+   "bit_exact": true
+  }
+ },
+ "schema": "quilt-jepa/design-probe-v8",
+ "note": "PRE-SEAL pipeline validation for round 8 — GATES NOTHING. All identities are pipeline checks against already-receipted values (design6, run7, run4); no round-8 claim value is measured here except the DISCLOSED control second-switch ratio (I-C, the round-7 I1 disclosure pattern). The round-8 measurements (the four new dose-curve switch ratios, the Spearman correlation, the decayed second-switch leg, rho20_2, the guards at 2e-4/2.5e-4, g(0.1, W300)) happen for the FIRST time inside run8.",
+ "seed_u32": 2133245488,
+ "seed_b": 1657638767,
+ "seed_b_derivation": "seedB = parseInt(sha256(JSON.stringify(certified-seed.chosen.selected) + \"|round8-worldB\").slice(0, 8), 16) >>> 0 — deterministic derivation from the SAME certified seed receipt as rounds 1-7 (no new entropy; the round-8 second-switch world is a fresh World2 at seedB from its own t=0)",
+ "disclosed_pipeline_values": {
+  "control_second_switch_ratio": 1.17997507686084,
+  "control_first_switch_ratio": 0.7135257300287862,
+  "control_snapshot_weights_sha": "e53fd67c41cf1c63eb44c78ae403ea0b152c4a6b119d4482a07e9550d643d9b3"
+ },
+ "all_identities_pass": true,
+ "identity_count": 5,
+ "wall_ms": 11924
+}
