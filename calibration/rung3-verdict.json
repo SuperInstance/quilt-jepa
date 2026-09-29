@@ -1,0 +1,30 @@
+{
+  "packet_id": "rung-stranger-01",
+  "decidable": true,
+  "verdict": "PASS",
+  "checked": {
+    "pre_registered_predicate_found": true,
+    "registration_precedes_results": true,
+    "value_a_rebound_found": true,
+    "value_b_factor_gate_found": true,
+    "value_c_guards_found": true,
+    "verdict_row_consistent": true
+  },
+  "evidence": [
+    "registration-v8.json:12 (P-REDOSE pre-states (a) rate === -3.778708210171146e-6 < 0 AND D === 85387; (b) D = 85387 >= 60348 = 2 x 30174; (c) g < 0.5 AND r1 < 0.5 AND drift < 0.01; explicit priced FAIL branch: if (c) fails the main dose stays 3e-4 outright)",
+    "registration-v8.json:45 (REDOSE verdict_rule, identical constants, else-FAIL branch)",
+    "git:b5bc818@2026-09-29T16:07:25Z precedes git:e187902@2026-09-29T16:53:39Z (registration ~16:07 before results ~16:53)",
+    "receipts/run7.json:280 (r7_rate_wd2e4 = -0.000003778708210171146, i.e. -3.778708210171146e-6 in positional notation)",
+    "receipts/run7.json:283 (r7_D_wd2e4 = 85387)",
+    "receipts/run7.json:175 (rlong_D_wd0 = 30174)",
+    "receipts/run8.json:391 (r8_rate_wd2e4 = -0.000003778708210171146 — bit-exact re-bind of run7.json:280)",
+    "receipts/run8.json:392 (r8_D_wd2e4 = 85387 — bit-exact re-bind of run7.json:283)",
+    "receipts/run8.json:1395 (registered law text pins 60348 = 2 x D_wd0 verbatim)",
+    "receipts/run8.json:395-397 (r8_g_wd2e4 = 0.3502784478845342, r8_r1_wd2e4 = 0.1703136029297766, r8_drift_wd2e4 = 0.002617433483223252)",
+    "receipts/run8.json:1414-1423 (all seven REDOSE sub-checks true, all_checks_pass true, pass true)",
+    "verdict-v8.md:40 (REDOSE row PASS with the same measured numbers)"
+  ],
+  "reasoning": "The REDOSE predicate is fully pre-registered in registration-v8.json:12 (P-REDOSE) with the exact constants — rate -3.778708210171146e-6, D 85387, 60348 = 2 x 30174, gate constants 0.5/0.5/0.01 — plus an explicit priced FAIL branch, and git timestamps show registration commit b5bc818 (2026-09-29T16:07:25Z) precedes the results commit e187902 (2026-09-29T16:53:39Z). Every needed number exists in the allowed receipts: run7.json:280/283/175 and run8.json:391-397, with 60348 in the registered law text at run8.json:1395. Applying the predicate: (a) rate(2e-4) re-binds bit-exactly (run7.json:280 == run8.json:391, stored in equivalent positional notation -0.000003778708210171146) and is negative, D(2e-4) re-binds bit-exactly at 85387; (b) 85387 >= 60348 (2.83x the undecayed D = 30174); (c) g = 0.3502784478845342 < 0.5, r1 = 0.1703136029297766 < 0.5, drift = 0.002617433483223252 < 0.01 — guards unrelaxed at pre-existing constants. (a) AND (b) AND (c) holds, so the registered FAIL branch (main dose stays 3e-4) does not fire; run8.json:1414-1423 independently records all seven sub-checks true, and the REDOSE PASS row in verdict-v8.md:40 matches the artifacts exactly.",
+  "decided_by": "isolated-stranger-01",
+  "isolation_held": true
+}
