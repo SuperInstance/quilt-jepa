@@ -1,0 +1,1272 @@
+{
+ "schema": "quilt-jepa/run-receipt-v7",
+ "seed_u32": 2133245488,
+ "lr_registered": 0.3,
+ "tau_registered": 0.99998,
+ "K4_registered": 0.0000015,
+ "amp_registered": 0.9,
+ "round6_constants": {
+  "wd_main": 0.0003,
+  "rlong_ckpts": [
+   400,
+   1000,
+   5000,
+   10000,
+   20000,
+   30000,
+   40000,
+   50000,
+   75000,
+   100000,
+   150000,
+   200000,
+   300000,
+   400000,
+   500000
+  ],
+  "depths": [
+   400,
+   1200,
+   2000,
+   2200
+  ],
+  "horizon_T": 500000,
+  "contrast_cap": 100000
+ },
+ "round7_constants": {
+  "wd_arms": [
+   0.00015,
+   0.0002,
+   0.00025
+  ],
+  "plast_main_capture": [
+   20000,
+   100000,
+   500000
+  ],
+  "plast_steps": 400,
+  "plast_probe_value_disclosed": 0.6644108562180416
+ },
+ "operating_point_note": "UNCHANGED from round 4/5/6 — round 7 adds RLONG7/PLAST/R3DxR3L/GWIN7 at the same operating point; carried claims must reproduce run4.json (29/29) AND run5.json (92/92) bit-exactly; round-6 claims must reproduce design6.json AND run6.json bit-exactly; the disclosed design7 pipeline values bind bit-exactly",
+ "seal_verified_at_startup": {
+  "masked_sha": "2ef8f39397ed3e9a70981f2a03e4c0a5acdc1ebce2233752c9f90b177d2b6d21",
+  "mtime": 1790644800000
+ },
+ "claims_passed": 18,
+ "claims_total": 18,
+ "verdicts": {
+  "G_learning_sanity_gate": true,
+  "L2_difficulty_meter": true,
+  "R1_hard_world_learning": true,
+  "R2v4_pace_aware_ema": true,
+  "R3v4_percentile_normalized_surprise": true,
+  "R3L_ladder_saturation": true,
+  "R2x_k4_cross_pace": true,
+  "RHOR_finite_horizon_divergence": true,
+  "RLONG_longevity_law": true,
+  "R3D_depth_window_law": true,
+  "GWIN_g_window_law": true,
+  "RLONG7_dose_response": true,
+  "PLAST_plasticity_cost": true,
+  "R3DxR3L_composition": true,
+  "GWIN7_full_grid": true,
+  "R4_determinism": true,
+  "R5_mesh_conservation": true,
+  "R6v4_impact_sensitive_no_repair": true
+ },
+ "metrics": {
+  "g_ratio": 0.34923244770336087,
+  "g_last10": 0.002753790128275017,
+  "l2_floor_trivial": 0.0002696956247429777,
+  "l2_floor_hard": 0.0004284808386273881,
+  "l2_ratio_trivial": 0.029520126256367397,
+  "l2_ratio_hard": 0.04325338123347421,
+  "r1_ratio": 0.1693138758473519,
+  "r1_first10": 0.008204023586316903,
+  "r1_last10": 0.0013890550309424068,
+  "r2_drift_ratio": 0.0026397133338834375,
+  "r2v4_wc_disp_200_400_rel": 0.16056800416046071,
+  "r2v4_wt_total_move_rel_400": 0.004258257316654435,
+  "r2v4_var_ratio": 1.0024850692069596,
+  "r3v4_z_ratio": 3.540717612984098,
+  "r3v4_z_anomaly_mean": 14.076616731036117,
+  "r3v4_z_sample_mean": 3.9756394803742676,
+  "r3v4_raw_ratio": 1.8496141357514475,
+  "r3v4_mad_ratio": 3.6111297062612198,
+  "r3v4_rank_ratio_selfsel": 1.0099090538889643,
+  "r3v4_rank_ratio_rawsel": 1.0368760515984299,
+  "r3v4_own_max_anomaly": 6.666666666666667,
+  "r3v4_own_max_sample": 2.9,
+  "r3v4_rank_excess_diff": 0.035349462365591555,
+  "r6_corr_mean": 0.6342727488089809,
+  "r6_jump": 2.7548573357019737,
+  "r6_sha_invariant": true,
+  "r6_recheck_delta": 0,
+  "r5_total_drift_rel": 9.468186588477004e-9,
+  "r5_variance_non_increasing": true,
+  "r3l_z_0": 1.0342504185275474,
+  "r3l_z_0_1": 1.0677299242125713,
+  "r3l_z_0_2": 1.2323130172135066,
+  "r3l_z_0_3": 1.687135333362526,
+  "r3l_z_0_45": 2.5305055451148752,
+  "r3l_z_0_6": 3.166808736910162,
+  "r3l_z_0_75": 3.501945930078974,
+  "r3l_z_0_9": 3.540717612984098,
+  "r3l_z_1_2": 3.540717612984098,
+  "r3l_raw_0_9": 1.8496141357514475,
+  "r3l_raw_1_2": 1.8496141357514475,
+  "r3l_mad_0_9": 3.6111297062612198,
+  "r3l_mad_1_2": 3.6111297062612198,
+  "r3l_sat_bit_exact": true,
+  "r2x_0_15_tau": 0.99996,
+  "r2x_0_15_drift": 0.004428545205078809,
+  "r2x_0_15_g": 0.5692660186806099,
+  "r2x_0_15_r1": 0.21237181800862215,
+  "r2x_0_15_z": 3.879667500687105,
+  "r2x_0_15_var": 1.0034723082456949,
+  "r2x_0_15_wcdisp": 0.15586912091252547,
+  "r2x_0_15_wtmove": 0.006584278355008626,
+  "r2x_0_5_tau": 0.999988,
+  "r2x_0_5_drift": 0.0017608179568816096,
+  "r2x_0_5_g": 0.2286213846892445,
+  "r2x_0_5_r1": 0.14567856315712555,
+  "r2x_0_5_z": 3.43008622021181,
+  "r2x_0_5_var": 1.0016584413577045,
+  "r2x_0_5_wcdisp": 0.18841066172555032,
+  "r2x_0_5_wtmove": 0.002928149913162613,
+  "rhor_D": 30174,
+  "rhor_executed_to": 32174,
+  "rhor_D_mod80": 14,
+  "rhor_loss_finite_again": 21,
+  "rhor_all_nan_step": null,
+  "rhor_nan_absorbing": false,
+  "rhor_weights_all_nan_at_end": false,
+  "rhor_slow_rate": 0.000019382458307633484,
+  "rhor_runaway_rate": 0.07290041942913189,
+  "rhor_rate_ratio": 3761.1544558525466,
+  "rhor_wc_norm_last": 55374836904458270000,
+  "rhor_drift_last200": 0.9999976213398036,
+  "rhor_first10": 0.008204023586316903,
+  "rhor_ckpt_400_wt": 0.004258257316654435,
+  "rhor_ckpt_400_wcnorm": 12.17949620862212,
+  "rhor_ckpt_400_loss500": 0.0024915332105346646,
+  "rhor_ckpt_1000_loss500": 0.0007844690561419031,
+  "rhor_ckpt_5000_wcnorm": 15.439670506486136,
+  "rhor_ckpt_5000_loss500": 0.0004440682122302101,
+  "rhor_ckpt_10000_wcnorm": 16.24302570594884,
+  "rhor_ckpt_20000_wcnorm": 17.808040736570447,
+  "rhor_ckpt_20000_loss500": 0.0004675783274632795,
+  "rhor_ckpt_30000_wcnorm": 53514577209592.18,
+  "rhor_depth2000_drift": 0.0038874393945087246,
+  "rhor_depth2000_var": 1.0217532266155713,
+  "rhor_depth2000_z": 2.5480705541027127,
+  "rhor_depth2000_wcdisp": 0.03541951624868526,
+  "rhor_c_tau999_D": 9653,
+  "rhor_c_lr015_D": 68434,
+  "rhor_c_lr05_D": 13052,
+  "rhor_c_trivial_D": 30562,
+  "rhor_c_lr015_slow": 0.000022099921843162118,
+  "rhor_c_trivial_slow": 0.00001795598361529933
+ },
+ "metrics_round6": {
+  "id_losses_bit_exact": true,
+  "id_weights_bit_exact": true,
+  "id_weights_sha": "c8c3c06bf3d6dfb5ab230da65c8c9222864df62783e4649312c53e52c590dd8b",
+  "rlong_D_wd0": 30174,
+  "rlong_exec_wd0": 30174,
+  "rlong_slow_wd0": 0.000019382458307633484,
+  "rlong_runaway_wd0": 0.07290041942913189,
+  "rlong_drift_last200_wd0": 0.9999976213398036,
+  "rlong_first10_wd0": 0.008204023586316903,
+  "rlong_D_main": null,
+  "rlong_exec_main": 500000,
+  "rlong_slow_main": -0.000010025999770806105,
+  "rlong_slow_main_100k": -0.0000076771378118419,
+  "rlong_first10_main": 0.008204165043600227,
+  "rlong_main_wc_400": 11.891085783057619,
+  "rlong_main_wc_20000": 9.769638164817229,
+  "rlong_main_wc_100000": 5.535301850188262,
+  "rlong_main_wc_500000": 0.7387048214166075,
+  "rlong_main_wp_400": 12.090201573925834,
+  "rlong_main_wp_20000": 22.660694952763663,
+  "rlong_main_wc_last": null,
+  "rlong_D_wd1e4": 48091,
+  "rlong_exec_wd1e4": 50091,
+  "rlong_slow_wd1e4": 0.0000053037500730242976,
+  "rlong_runaway_wd1e4": 0.07922435292937978,
+  "rlong_rr_wd1e4": 14937.421982292723,
+  "rlong_D_wd1e3": null,
+  "rlong_exec_wd1e3": 100000,
+  "rlong_slow_wd1e3": -0.000028887182146357943,
+  "rlong_g_wd": 0.35080207176693745,
+  "rlong_r1_wd": 0.17081682633549816,
+  "rlong_drift_wd": 0.0026070231808889704,
+  "rlong_g_wd1e4": 0.34975524165223104,
+  "rlong_r1_wd1e4": 0.1698125845205748,
+  "rlong_drift_wd1e4": 0.002628327812371415,
+  "rlong_g_wd0": 0.34923244770336087,
+  "rlong_r1_wd0": 0.1693138758473519,
+  "rlong_drift_wd0": 0.0026397133338834375,
+  "r3d_z_carried_400": 3.540717612984098,
+  "r3d_z_carried_1200": 1.5918769063530553,
+  "r3d_z_carried_2000": 2.204604995230523,
+  "r3d_z_carried_2200": 2.5480705541027127,
+  "r3d_sd_sum_400": 1.7285097927065063,
+  "r3d_sd_sum_1200": 1.2167723140024025,
+  "r3d_sd_sum_2000": 1.1181032626432044,
+  "r3d_sd_sum_2200": 1.379490620635662,
+  "r3d_raw_gap_400": 0.05630991760796557,
+  "r3d_raw_gap_1200": 0.030802329598615563,
+  "r3d_raw_gap_2000": -0.00458782812735687,
+  "r3d_raw_gap_2200": 0.02984016308716187,
+  "r3d_var_carried_400": 1.0024850692069596,
+  "r3d_var_carried_1200": 1.010308878291164,
+  "r3d_var_carried_2000": 1.0194662895305606,
+  "r3d_var_carried_2200": 1.0217532266155713,
+  "r3d_candD_z_400": 3.540717612984098,
+  "r3d_candD_z_1200": 2.5781352264121717,
+  "r3d_candD_z_2000": 4.805173316853757,
+  "r3d_candD_z_2200": 1.218740343695452,
+  "r3d_candD_n_400": 124,
+  "r3d_candD_n_1200": 384,
+  "r3d_candD_n_2000": 644,
+  "r3d_candD_n_2200": 709,
+  "r3d_candD_var_400": 1.0024850692069596,
+  "r3d_candD_var_1200": 1.0102647582866313,
+  "r3d_candD_var_2000": 1.0191647172912754,
+  "r3d_candD_var_2200": 1.0215642663755673,
+  "r3d_candA_z_400": 3.540717612984098,
+  "r3d_candA_z_1200": 1.536115986942694,
+  "r3d_candA_z_2000": 1.4771704795932012,
+  "r3d_candA_z_2200": 3.341289039384384,
+  "r3d_candA_var_400": 1.0024850692069596,
+  "r3d_candA_var_1200": 1.0101769074410945,
+  "r3d_candA_var_2000": 1.0194009478093757,
+  "r3d_candA_var_2200": 1.0212971158254596,
+  "r3d_candD_round_z_2200": 2.1827599553158157,
+  "r3d_assert_candD400_bitexact": true,
+  "r3d_multiplier_400": 1,
+  "r3d_multiplier_1200": 1.4205696273782027,
+  "r3d_multiplier_2000": 1.5459303719589337,
+  "r3d_multiplier_2200": 1.2530058318990367,
+  "r3d_z_anchored_400": 3.540717612984098,
+  "r3d_z_anchored_1200": 2.261371983689926,
+  "r3d_z_anchored_2000": 3.4081658202992458,
+  "r3d_z_anchored_2200": 3.192747264380909,
+  "r3d_deficit_400": 1,
+  "r3d_deficit_1200": 0.44959160270661347,
+  "r3d_deficit_2000": 0.6226435531447236,
+  "r3d_deficit_2200": 0.7196480579978284,
+  "r3d_sdcollapse_400": 1,
+  "r3d_sdcollapse_1200": 0.7039429681779104,
+  "r3d_sdcollapse_2000": 0.6468596633707667,
+  "r3d_sdcollapse_2200": 0.7980808824204872,
+  "r3d_gapcollapse_400": 1,
+  "r3d_gapcollapse_1200": 0.5470142899704453,
+  "r3d_gapcollapse_2000": -0.08147460202832686,
+  "r3d_gapcollapse_2200": 0.5299273086299224,
+  "gwin_g_anchor": 0.34923244770336087,
+  "gwin_g_anchor_first10": 0.00788526423127239,
+  "gwin_g_anchor_last10": 0.002753790128275017,
+  "gwin_g_015": 0.30409957215062605,
+  "gwin_g_015_first10": 0.008413473279370472,
+  "gwin_g_015_last10": 0.0025585336245572852,
+  "gwin_g_05": 0.43412447386917424,
+  "gwin_g_05_first10": 0.007267738349647025,
+  "gwin_g_05_last10": 0.0031551030872593354
+ },
+ "metrics_round7": {
+  "r7_rate_wd1_5e4": 2.982035306975962e-7,
+  "r7_rate_wd2e4": -0.000003778708210171146,
+  "r7_rate_wd2_5e4": -0.000007163695533815242,
+  "r7_D_wd1_5e4": 62383,
+  "r7_D_wd2e4": 85387,
+  "r7_D_wd2_5e4": null,
+  "r7_exec_wd1_5e4": 62383,
+  "r7_exec_wd2e4": 85387,
+  "r7_exec_wd2_5e4": 100000,
+  "r7_runaway_wd1_5e4": 0.0709951983727395,
+  "r7_runaway_wd2e4": 0.07013985167825404,
+  "r7_runaway_wd2_5e4": null,
+  "r7_monotone_seven": true,
+  "r7_bracket": true,
+  "r7_g_wd1_5e4": 0.35001678597797703,
+  "r7_r1_wd1_5e4": 0.17006279337297014,
+  "r7_drift_wd1_5e4": 0.002622817157509699,
+  "plast_ratio_20k": 0.6644108562180416,
+  "plast_ratio_100k": 0.5957770637776008,
+  "plast_ratio_500k": 0.5864036049443728,
+  "plast_ratio_ctrl20k": 0.7135257300287862,
+  "plast_ratio_wd1e4_20k": 0.7017204255152192,
+  "plast_first10_20k": 0.0004499849251276307,
+  "plast_first10_100k": 0.0002193773365421421,
+  "plast_first10_500k": 0.000004074230277196593,
+  "plast_first10_ctrl20k": 0.0006501350887065685,
+  "plast_first10_wd1e4_20k": 0.0005449883696688159,
+  "plast_last10_20k": 0.0002989748693892605,
+  "plast_last10_100k": 0.00013069998542442797,
+  "plast_last10_500k": 0.0000023891433219215935,
+  "plast_last10_ctrl20k": 0.00046388811378668393,
+  "plast_last10_wd1e4_20k": 0.00038242947066484704,
+  "plast_rho20": 0.9311659387409014,
+  "plast_snapshot_wc_20000": 9.769638164817229,
+  "plast_snapshot_wc_100000": 5.535301850188262,
+  "plast_snapshot_wc_500000": 0.7387048214166075,
+  "plast_all_finite": true,
+  "plat_sd_eq_400": true,
+  "plat_sd_eq_1200": true,
+  "plat_sd_eq_2000": true,
+  "plat_sd_eq_2200": true,
+  "plat_z_eq_400": true,
+  "plat_z_eq_1200": true,
+  "plat_z_eq_2000": true,
+  "plat_z_eq_2200": true,
+  "plat_anch_eq_400": true,
+  "plat_anch_eq_1200": true,
+  "plat_anch_eq_2000": true,
+  "plat_anch_eq_2200": true,
+  "plat_var_eq_400": true,
+  "plat_var_eq_1200": true,
+  "plat_var_eq_2000": true,
+  "plat_var_eq_2200": true,
+  "plat_rawgap_eq_400": true,
+  "plat_rawgap_eq_1200": true,
+  "plat_rawgap_eq_2000": true,
+  "plat_rawgap_eq_2200": true,
+  "plat_mult400_12": 1,
+  "plat_mult400_09": 1,
+  "plat_anch12_400": 3.540717612984098,
+  "plat_anch12_1200": 2.261371983689926,
+  "plat_anch12_2000": 3.4081658202992458,
+  "plat_anch12_2200": 3.192747264380909,
+  "plat_sd12_400": 1.7285097927065063,
+  "plat_sd12_1200": 1.2167723140024025,
+  "plat_sd12_2000": 1.1181032626432044,
+  "plat_sd12_2200": 1.379490620635662,
+  "plat_z12_400": 3.540717612984098,
+  "plat_z12_1200": 1.5918769063530553,
+  "plat_z12_2000": 2.204604995230523,
+  "plat_z12_2200": 2.5480705541027127,
+  "plat_var12_400": 1.0024850692069596,
+  "plat_var12_1200": 1.010308878291164,
+  "plat_var12_2000": 1.0194662895305606,
+  "plat_var12_2200": 1.0217532266155713,
+  "gwin7_g_02": 0.25369541417668573,
+  "gwin7_g_025": 0.3505612327666269,
+  "gwin7_g_04": 0.4033493702247352,
+  "gwin7_g_06": 0.42714909329375844,
+  "gwin7_g_02_first10": 0.008229716585739082,
+  "gwin7_g_025_first10": 0.00805400146468142,
+  "gwin7_g_04_first10": 0.0075658968242045335,
+  "gwin7_g_06_first10": 0.006988677844943382,
+  "gwin7_g_02_last10": 0.0020878413577758164,
+  "gwin7_g_025_last10": 0.002823420682162937,
+  "gwin7_g_04_last10": 0.0030516997192282227,
+  "gwin7_g_06_last10": 0.0029852074047897435
+ },
+ "chain": [
+  {
+   "i": 0,
+   "id": "header#0",
+   "type": "header",
+   "payload": {
+    "repo": "quilt-jepa",
+    "round": 7,
+    "executed_in": "wave 57 (lane 57-e, keeper)",
+    "seed_u32": 2133245488,
+    "seed_receipt": {
+     "label": "quilt-jepa-wave49-seed",
+     "mode": "FALLBACK",
+     "schema": "moth-seal/receipt-v1",
+     "note": ""
+    },
+    "registration": "registration-v7.json (sealed pre-run, self_sha256_masked 2ef8f393… + mtime 1790644800000; RE-VERIFIED fail-closed at this run's startup)",
+    "scope": "round-4/5/6 operating point UNCHANGED (lr 0.3, tau 0.99998, K4 1.5e-6, amp 0.9) — carried claims re-scored (run4 29/29, run5 92/92, design6 AND run6 bit-exact) + 4 new claims: RLONG7 dose-response (cure zero-crossing bracket), PLAST plasticity cost (warm-state switch continuations; probe value 0.6644108562180416 DISCLOSED pre-run in registration-v7/design7), R3DxR3L composition closure (plateau extends to depth), GWIN7 full grid (lr 0.6 edge receipted gate-nothing)",
+    "probe_provenance": "probe7.mjs/design7.json receipted pre-seal with 7 fail-closed pipeline identities (I7 Jepa4-wd0; I2 horizonRun5==design6 anchor bit-exact; I1 capture/reconstruction 3-leg incl. snapshot==live-state and world-stream purity; I3 collectDepthAmp identity; I4 finding site; I5 GWIN anchor; I6 shallow plateau amp-1.2 == run5 ladder) — ALL TRUE; the I1 identity unavoidably computed one PLAST-class value (trivial-continuation ratio 0.6644108562180416 from the 20k-decayed snapshot) which is DISCLOSED in registration-v7 and bound bit-exact here; no other round-7 claim value measured pre-seal"
+   },
+   "prev": "JEPA-GENESIS-1",
+   "sha": "6acc41d76e71558c044ee106278e512d45daa051195a318e56b82a730eb3283d"
+  },
+  {
+   "i": 1,
+   "id": "G_learning_sanity_gate#1",
+   "type": "G_learning_sanity_gate",
+   "payload": {
+    "ratio": 0.34923244770336087,
+    "first10": 0.00788526423127239,
+    "last10": 0.002753790128275017,
+    "lr": 0.3,
+    "tau": 0.99998,
+    "steps": 100,
+    "world": "trivial (core/world.js)",
+    "claim": "last10/first10 < 0.5 on the trivial world at 100 steps (L1 law, carried)",
+    "pass": true,
+    "gate_note": "gate OPEN — downstream claims scored"
+   },
+   "prev": "6acc41d76e71558c044ee106278e512d45daa051195a318e56b82a730eb3283d",
+   "sha": "249ddb54907aef0a20533828adb9c4c2297c3d5f5f5b3e134a4c0d152e39b82c"
+  },
+  {
+   "i": 2,
+   "id": "L2_difficulty_meter#2",
+   "type": "L2_difficulty_meter",
+   "payload": {
+    "floor_trivial": 0.0002696956247429777,
+    "floor_hard": 0.0004284808386273881,
+    "ratio_trivial": 0.029520126256367397,
+    "ratio_hard": 0.04325338123347421,
+    "init_trivial": 0.009135991574047053,
+    "init_hard": 0.00990629695085624,
+    "claim": "hard world linear floor exceeds trivial (absolute and relative) — the gate meter (carried)",
+    "pass": true
+   },
+   "prev": "249ddb54907aef0a20533828adb9c4c2297c3d5f5f5b3e134a4c0d152e39b82c",
+   "sha": "97e27d24fb0fd19cd953d65bb892bc927ad4e1aa332cd36b49f92e0d50d8aa77"
+  },
+  {
+   "i": 3,
+   "id": "R1_hard_world_learning#3",
+   "type": "R1_hard_world_learning",
+   "payload": {
+    "ratio": 0.1693138758473519,
+    "first10": 0.008204023586316903,
+    "last10": 0.0013890550309424068,
+    "lr": 0.3,
+    "tau": 0.99998,
+    "steps": 400,
+    "claim": "last10/first10 < 0.5 on world2 (carried)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "97e27d24fb0fd19cd953d65bb892bc927ad4e1aa332cd36b49f92e0d50d8aa77",
+   "sha": "34e31ffebc721bdd3e63e644cb189804f2f9424bfa73777c93b022297ea94943"
+  },
+  {
+   "i": 4,
+   "id": "R2v4_pace_aware_ema#4",
+   "type": "R2v4_pace_aware_ema",
+   "payload": {
+    "drift_ratio": 0.0026397133338834375,
+    "drift_gate": 0.01,
+    "tau": 0.99998,
+    "g_ratio": 0.34923244770336087,
+    "r1_ratio": 0.1693138758473519,
+    "var_ratio": 1.0024850692069596,
+    "var_gate": 0.5,
+    "wc_disp_200_400_rel": 0.16056800416046071,
+    "wt_total_move_rel_400": 0.004258257316654435,
+    "claim": "PACE-AWARE EMA LAW (carried): drift/norm < 0.01 AND g<0.5 AND r1<0.5 AND var_ratio>=0.5",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "34e31ffebc721bdd3e63e644cb189804f2f9424bfa73777c93b022297ea94943",
+   "sha": "efe9c6b9270a14328ce778575910677eab81a48d09899bc8bd49110b52dc54ab"
+  },
+  {
+   "i": 5,
+   "id": "R3v4_percentile_normalized_surprise#5",
+   "type": "R3v4_percentile_normalized_surprise",
+   "payload": {
+    "z_ratio": 3.540717612984098,
+    "gate": 3,
+    "z_anomaly_mean": 14.076616731036117,
+    "z_sample_mean": 3.9756394803742676,
+    "contrasts_gate_nothing": {
+     "raw_ratio": 1.8496141357514475,
+     "mad_ratio": 3.6111297062612198,
+     "rank_ratio_selfsel": 1.0099090538889643,
+     "rank_ratio_rawsel": 1.0368760515984299,
+     "own_max_cells_anomaly_mean": 6.666666666666667,
+     "own_max_cells_sample_mean": 2.9,
+     "rank_excess_diff": 0.035349462365591555
+    },
+    "claim": "PERCENTILE-NORMALIZED SURPRISE LAW (carried): per-cell z vs own 124-tick baseline BEFORE concentration; top-4-by-z > 3.0",
+    "pass": true,
+    "anomalyTicks": [
+     430,
+     465,
+     500
+    ],
+    "void_as_gated": false
+   },
+   "prev": "efe9c6b9270a14328ce778575910677eab81a48d09899bc8bd49110b52dc54ab",
+   "sha": "9318100198f49d951aa6aa894a4ead3f91c7e962b4e96345d89f9e89834a3fa4"
+  },
+  {
+   "i": 6,
+   "id": "R3L_ladder_saturation#6",
+   "type": "R3L_ladder_saturation",
+   "payload": {
+    "ladder_z": {
+     "0": 1.0342504185275474,
+     "0.1": 1.0677299242125713,
+     "0.2": 1.2323130172135066,
+     "0.3": 1.687135333362526,
+     "0.45": 2.5305055451148752,
+     "0.6": 3.166808736910162,
+     "0.75": 3.501945930078974,
+     "0.9": 3.540717612984098,
+     "1.2": 3.540717612984098
+    },
+    "ladder_raw": {
+     "0": 0.7327541540995385,
+     "0.1": 0.7327541540995385,
+     "0.2": 0.7440278451925231,
+     "0.3": 0.7834194239234958,
+     "0.45": 1.01993801577223,
+     "0.6": 1.4208352127134833,
+     "0.75": 1.781668946034062,
+     "0.9": 1.8496141357514475,
+     "1.2": 1.8496141357514475
+    },
+    "ladder_var": {
+     "0": 1.0024890884456237,
+     "0.1": 1.0024889573906772,
+     "0.2": 1.0024886843717724,
+     "0.3": 1.002488269674619,
+     "0.45": 1.0024875803856914,
+     "0.6": 1.0024871136667557,
+     "0.75": 1.0024854332429138,
+     "0.9": 1.0024850692069596,
+     "1.2": 1.0024850692069596
+    },
+    "z_null_anchor": 1.0342504185275474,
+    "z_null_band": [
+     0.9,
+     1.15
+    ],
+    "monotone_up_to_anchor": true,
+    "sat_bit_exact": true,
+    "z_0_75": 3.501945930078974,
+    "claim": "ANOMALY-STRENGTH LADDER: null anchor carries no signal, ratio non-decreasing to the anchor, anchor at the clamp plateau (1.2 == 0.9 bit-exact on z/raw/mad), plateau above gate — REFUTES the widen-by-amplitude lever",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "9318100198f49d951aa6aa894a4ead3f91c7e962b4e96345d89f9e89834a3fa4",
+   "sha": "0208d5ab5fcb1a182d603cbba1041344f93b1a38ded70a78940f41a964feefd3"
+  },
+  {
+   "i": 7,
+   "id": "R2x_k4_cross_pace#7",
+   "type": "R2x_k4_cross_pace",
+   "payload": {
+    "lr_0_15": {
+     "tau": 0.99996,
+     "pace": 0.0375,
+     "drift": 0.004428545205078809,
+     "g": 0.5692660186806099,
+     "r1": 0.21237181800862215,
+     "z": 3.879667500687105,
+     "var": 1.0034723082456949,
+     "wcdisp": 0.15586912091252547,
+     "wtmove": 0.006584278355008626
+    },
+    "lr_0_5": {
+     "tau": 0.999988,
+     "pace": 0.125,
+     "drift": 0.0017608179568816096,
+     "g": 0.2286213846892445,
+     "r1": 0.14567856315712555,
+     "z": 3.43008622021181,
+     "var": 1.0016584413577045,
+     "wcdisp": 0.18841066172555032,
+     "wtmove": 0.002928149913162613
+    },
+    "g_pace_lock_finding": {
+     "lr": 0.15,
+     "g_ratio": 0.5692660186806099,
+     "gate": 0.5,
+     "exceeds": true,
+     "note": "REGISTERED FINDING, gates nothing here: the L1 G gate's fixed 100-step window is pace-locked; prices the round-6 candidate law G window ∝ 1/pace"
+    },
+    "claim": "K4 CROSS-PACE: same law constant transfers — drift < 0.01 at both second pace points AND all learning guards hold at lr=0.5",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "0208d5ab5fcb1a182d603cbba1041344f93b1a38ded70a78940f41a964feefd3",
+   "sha": "005d495640b5c5dde54ccfe7eb30d886b6c7c1623d519514c357d4abf82d5b4f"
+  },
+  {
+   "i": 8,
+   "id": "RHOR_finite_horizon_divergence#8",
+   "type": "RHOR_finite_horizon_divergence",
+   "payload": {
+    "D": 30174,
+    "D_band": [
+     25000,
+     40000
+    ],
+    "D_mod80": 14,
+    "executed_to": 32174,
+    "probe_identity": true,
+    "slow_inflation_rate": 0.000019382458307633484,
+    "slow_gate": 0.0001,
+    "runaway_rate": 0.07290041942913189,
+    "rate_ratio": 3761.1544558525466,
+    "ratio_gate": 100,
+    "wc_norm_at_last_finite": 55374836904458270000,
+    "drift_last200": 0.9999976213398036,
+    "loss_ratio_at_20000": 0.07518584732274115,
+    "depth2000": {
+     "drift": 0.0038874393945087246,
+     "var": 1.0217532266155713,
+     "z": 2.5480705541027127,
+     "wcdisp": 0.03541951624868526
+    },
+    "weight_death_receipt": {
+     "all_nan_step": null,
+     "all_nan_at_end": false,
+     "absorbing": false,
+     "loss_finite_again": 21
+    },
+    "contrasts_gate_nothing": {
+     "tau0.999_lr0.3": {
+      "D": 9653,
+      "slow": null,
+      "rate": 0.08526432973022445,
+      "mod80": 53
+     },
+     "lr0.15_tau_law": {
+      "D": 68434,
+      "slow": 0.000022099921843162118,
+      "rate": 0.015921841405126168,
+      "mod80": 34
+     },
+     "lr0.5_tau_law": {
+      "D": 13052,
+      "slow": null,
+      "rate": 0.17289240406047499,
+      "mod80": 12
+     },
+     "trivial_lr0.3": {
+      "D": 30562,
+      "slow": 0.00001795598361529933,
+      "rate": 0.05649610144967517,
+      "mod80": 2
+     }
+    },
+    "claim": "FINITE-HORIZON DIVERGENCE: D in [2.5e4, 4e4] AND == design5 bit-exact AND depth-2000 laws hold (drift < 0.01, var >= 0.5) AND two-phase shape (slow < 1e-4, runaway > 100x). Findings receipted, gate nothing: depth-2000 z < 3.0 (statistic is depth-sensitive), weight death slower than the D+2000 window, all four contrasts diverge (fast EMA shortens life, slow pace lengthens it, trivial world ~ world2 — optimizer-borne)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "005d495640b5c5dde54ccfe7eb30d886b6c7c1623d519514c357d4abf82d5b4f",
+   "sha": "3f6da81079d3dc5bf165563162fa5a80bc1972287321a1666c19351a37ea82a6"
+  },
+  {
+   "i": 9,
+   "id": "RLONG_longevity_law#9",
+   "type": "RLONG_longevity_law",
+   "payload": {
+    "wd_main": 0.0003,
+    "stop_rule": "min(5e5, D+2000); contrasts capped at 1e5",
+    "arms": {
+     "wd0_anchor": {
+      "D": 30174,
+      "executed_to": 30174,
+      "slow": 0.000019382458307633484,
+      "runaway": 0.07290041942913189
+     },
+     "wd3e4_main": {
+      "D": null,
+      "executed_to": 500000,
+      "diverged": false,
+      "censoring_floor_x": 16.570557433552064,
+      "slow_20k": -0.000010025999770806105,
+      "slow_100k": -0.0000076771378118419,
+      "wc_norm": {
+       "at400": 11.891085783057619,
+       "at20000": 9.769638164817229,
+       "at100000": 5.535301850188262,
+       "at500000": 0.7387048214166075
+      },
+      "wp_norm": {
+       "at400": 12.090201573925834,
+       "at20000": 22.660694952763663
+      }
+     },
+     "wd1e4_dose_response": {
+      "D": 48091,
+      "executed_to": 50091,
+      "slow": 0.0000053037500730242976,
+      "runaway": 0.07922435292937978,
+      "rate_ratio": 14937.421982292723,
+      "two_phase_persists": true
+     },
+     "wd1e3_mechanism_contrast": {
+      "D": null,
+      "executed_to": 100000,
+      "slow": -0.000028887182146357943
+     }
+    },
+    "guards_wd3e4_unrelaxed": {
+     "g": 0.35080207176693745,
+     "r1": 0.17081682633549816,
+     "drift": 0.0026070231808889704
+    },
+    "dose_response_finding_gate_nothing": {
+     "slow_rates_per_step": {
+      "wd0": 0.000019382458307633484,
+      "wd1e4": 0.0000053037500730242976,
+      "wd3e4": -0.000010025999770806105,
+      "wd1e3": -0.000028887182146357943
+     },
+     "note": "slow-phase rate flips sign between wd 1e-4 and 3e-4 — steep monotone longevity response; wd=1e-4 extends only 1.5938x (below the 2x band floor) and two-phase PERSISTS there (ratio 14937.4)"
+    },
+    "checks": {
+     "anchor_D_30174": true,
+     "anchor_D_design6_bit_exact": true,
+     "extension_gate_censored_or_2x": true,
+     "D_main_design6_bit_exact_incl_null": true,
+     "executed_to_main_design6_bit_exact": true,
+     "no_runaway_within_window_main": true,
+     "D_wd1e4_design6_bit_exact": true,
+     "D_wd1e4_ge_1_5x_undecayed": true,
+     "runaway_wd1e4_ge_100x_slow": true,
+     "g_wd_lt_0_5": true,
+     "r1_wd_lt_0_5": true,
+     "drift_wd_lt_0_01": true,
+     "g_wd_tight_band_0_345_0_357": true,
+     "r1_wd_tight_band_0_165_0_177": true,
+     "jepa4_wd0_identity_fail_closed": true
+    },
+    "all_checks_pass": true,
+    "claim": "LONGEVITY LAW: weight decay on Wc only, main dose 3e-4 — REGISTERED EXPECTATION: two-phase ELIMINATED-WITHIN-WINDOW at main dose (cap-censored > 16.5706x lifetime), PERSISTS at 1e-4; plasticity gates UNRELAXED in the decayed arm; registered factor gate >= 2x (band 2-10x)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "3f6da81079d3dc5bf165563162fa5a80bc1972287321a1666c19351a37ea82a6",
+   "sha": "ef2b44789c915ae0cf8e3161fd5b0cbd3ffab41b03b670bf11e5bff4a0307d2a"
+  },
+  {
+   "i": 10,
+   "id": "R3D_depth_window_law#10",
+   "type": "R3D_depth_window_law",
+   "payload": {
+    "law": "SCALE-ANCHORED SURPRISE: z_anchored(depth) = z_carried(depth) x [sd_sum(400)/sd_sum(depth)] — multiplier EXACTLY 1 at depth 400; removes ONLY the residual-scale-aliasing component",
+    "sites": {
+     "400": {
+      "k": 1,
+      "carried_z": 3.540717612984098,
+      "sd_sum": 1.7285097927065063,
+      "raw_gap": 0.05630991760796557,
+      "multiplier": 1,
+      "z_anchored": 3.540717612984098,
+      "candD_z": 3.540717612984098,
+      "candD_baseline_n": 124,
+      "candA_z": 3.540717612984098
+     },
+     "1200": {
+      "k": 3,
+      "carried_z": 1.5918769063530553,
+      "sd_sum": 1.2167723140024025,
+      "raw_gap": 0.030802329598615563,
+      "multiplier": 1.4205696273782027,
+      "z_anchored": 2.261371983689926,
+      "candD_z": 2.5781352264121717,
+      "candD_baseline_n": 384,
+      "candA_z": 1.536115986942694
+     },
+     "2000": {
+      "k": 5,
+      "carried_z": 2.204604995230523,
+      "sd_sum": 1.1181032626432044,
+      "raw_gap": -0.00458782812735687,
+      "multiplier": 1.5459303719589337,
+      "z_anchored": 3.4081658202992458,
+      "candD_z": 4.805173316853757,
+      "candD_baseline_n": 644,
+      "candA_z": 1.4771704795932012
+     },
+     "2200": {
+      "k": 5.5,
+      "carried_z": 2.5480705541027127,
+      "sd_sum": 1.379490620635662,
+      "raw_gap": 0.02984016308716187,
+      "multiplier": 1.2530058318990367,
+      "z_anchored": 3.192747264380909,
+      "candD_z": 1.218740343695452,
+      "candD_baseline_n": 709,
+      "candA_z": 3.341289039384384
+     }
+    },
+    "mechanism_decomposition_gate_nothing": {
+     "deficit_factor": {
+      "400": 1,
+      "1200": 0.44959160270661347,
+      "2000": 0.6226435531447236,
+      "2200": 0.7196480579978284
+     },
+     "sd_collapse_factor": {
+      "400": 1,
+      "1200": 0.7039429681779104,
+      "2000": 0.6468596633707667,
+      "2200": 0.7980808824204872
+     },
+     "raw_gap_collapse_factor": {
+      "400": 1,
+      "1200": 0.5470142899704453,
+      "2000": -0.08147460202832686,
+      "2200": 0.5299273086299224
+     },
+     "honest_limits": "k=3 site (depth 1200) stays BELOW the gate (z_anchored 2.2614 < 3.0) — novelty-dominated deficit, no fix claimed; pure window-scaling candidates candD/candA are SITE-FRAGILE (candD: 4.8052 at nominal-2000 but 1.2187 at the finding site; candA: 3.3413 at the finding site but 1.4772 at nominal-2000) — neither survives both sites, neither is the law; REJECTED as registered"
+    },
+    "checks": {
+     "multiplier_at_400_exact_ieee_1": true,
+     "z_anchored_400_run4_bit_exact": true,
+     "z_carried_2200_design5_bit_exact": true,
+     "z_anchored_2200_ge_gate": true,
+     "z_anchored_2200_band_3_10_3_30": true,
+     "z_anchored_2000_ge_gate": true,
+     "z_anchored_2000_band_3_31_3_51": true
+    },
+    "design6_identities": {
+     "z_carried_400_design6": true,
+     "sd_sum_400_design6": true,
+     "candD_z_400_design6": true,
+     "candA_z_400_design6": true,
+     "multiplier_400_design6": true,
+     "z_anchored_400_design6": true,
+     "z_carried_1200_design6": true,
+     "sd_sum_1200_design6": true,
+     "candD_z_1200_design6": true,
+     "candA_z_1200_design6": true,
+     "multiplier_1200_design6": true,
+     "z_anchored_1200_design6": true,
+     "z_carried_2000_design6": true,
+     "sd_sum_2000_design6": true,
+     "candD_z_2000_design6": true,
+     "candA_z_2000_design6": true,
+     "multiplier_2000_design6": true,
+     "z_anchored_2000_design6": true,
+     "z_carried_2200_design6": true,
+     "sd_sum_2200_design6": true,
+     "candD_z_2200_design6": true,
+     "candA_z_2200_design6": true,
+     "multiplier_2200_design6": true,
+     "z_anchored_2200_design6": true,
+     "candD_round_rule_2200_design6": true
+    },
+    "all_checks_pass": true,
+    "claim": "DEPTH/WINDOW LAW: deficit = sd-aliasing x novelty-gap; registered fix restores the UNCHANGED 3.0 gate at BOTH depth-2000-class sites (2200 finding site and nominal 2000); carried statistic bit-identical at all sites",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "ef2b44789c915ae0cf8e3161fd5b0cbd3ffab41b03b670bf11e5bff4a0307d2a",
+   "sha": "2361a21ddbb3a1a35e5a3fa5e8c7432bbe2d02af0dc2b644a27cf781e0db2b20"
+  },
+  {
+   "i": 11,
+   "id": "GWIN_g_window_law#11",
+   "type": "GWIN_g_window_law",
+   "payload": {
+    "law": "W(lr) = round(30/lr) steps (1/pace, anchored lr 0.3 -> 100); tau from the carried K4 law at each pace",
+    "values": {
+     "anchor_lr0_3_w100": 0.34923244770336087,
+     "pace_lock_reference": 0.5692660186806099,
+     "lr0_15_w200": 0.30409957215062605,
+     "lr0_5_w60": 0.43412447386917424
+    },
+    "pace_lock_closed": true,
+    "checks": {
+     "g_015_w200_lt_0_5": true,
+     "g_015_w200_band_0_295_0_315": true,
+     "g_05_w60_lt_0_5": true,
+     "g_05_w60_band_0_42_0_45": true,
+     "g_anchor_run4_bit_exact": true,
+     "g_anchor_design6_bit_exact": true,
+     "g_015_design6_bit_exact": true,
+     "g_05_design6_bit_exact": true
+    },
+    "all_checks_pass": true,
+    "claim": "G-WINDOW LAW: the fixed 100-step window was pace-locked (round-5 finding g=0.5693>0.5 at lr 0.15); W(lr)=round(30/lr) restores the UNCHANGED 0.5 gate at both second pace points; carried anchor untouched and bit-exact vs run4",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "2361a21ddbb3a1a35e5a3fa5e8c7432bbe2d02af0dc2b644a27cf781e0db2b20",
+   "sha": "a0f369a91d9b351f92212d0f49c6c7116d92fcd7bed1684d63a8127203d611f3"
+  },
+  {
+   "i": 12,
+   "id": "RLONG7_dose_response#12",
+   "type": "RLONG7_dose_response",
+   "payload": {
+    "law": "slow-phase |Wc| inflation rate strictly decreasing in wd; cure zero-crossing wd* bracketed inside (1.5e-4, 2.5e-4)",
+    "rates_per_step": {
+     "wd0": 0.000019382458307633484,
+     "wd1e4": 0.0000053037500730242976,
+     "wd1_5e4": 2.982035306975962e-7,
+     "wd2e4": -0.000003778708210171146,
+     "wd2_5e4": -0.000007163695533815242,
+     "wd3e4": -0.000010025999770806105,
+     "wd1e3": -0.000028887182146357943
+    },
+    "new_arms_receipt_gate_nothing": {
+     "wd1_5e4": {
+      "D": 62383,
+      "executed_to": 62383,
+      "runaway": 0.0709951983727395,
+      "rate_ratio": 238076.31722756053
+     },
+     "wd2e4": {
+      "D": 85387,
+      "executed_to": 85387,
+      "runaway": 0.07013985167825404,
+      "rate_ratio": -18561.859708949916
+     },
+     "wd2_5e4": {
+      "D": null,
+      "executed_to": 100000,
+      "runaway": null,
+      "rate_ratio": null
+     }
+    },
+    "guards_wd1_5e4_gate_nothing": {
+     "g": 0.35001678597797703,
+     "r1": 0.17006279337297014,
+     "drift": 0.002622817157509699
+    },
+    "checks": {
+     "anchor_D_wd0_design6_bit_exact": true,
+     "slow_wd0_design6_bit_exact": true,
+     "D_wd1e4_design6_bit_exact": true,
+     "slow_wd1e4_design6_bit_exact": true,
+     "D_main_design6_bit_exact_incl_null": true,
+     "exec_main_design6_bit_exact": true,
+     "slow_main_design6_bit_exact": true,
+     "D_wd1e3_design6_bit_exact_incl_null": true,
+     "slow_wd1e3_design6_bit_exact": true,
+     "monotone_seven_dose": true,
+     "bracket_rate15e4_positive": true,
+     "bracket_rate25e4_negative": true,
+     "jepa4_wd0_identity_fail_closed": true
+    },
+    "all_checks_pass": true,
+    "claim": "DOSE-RESPONSE LAW: monotone 7-dose rate ordering + zero-crossing bracket (1.5e-4, 2.5e-4); four receipted doses bit-exact vs design6/run6; registered risk (disclosed): sublinearity could push the crossing below 1.5e-4",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "a0f369a91d9b351f92212d0f49c6c7116d92fcd7bed1684d63a8127203d611f3",
+   "sha": "cec21dcdbea38b005b90dad6fd414b8ac91b7b52a12460b419f9914e806f1eb4"
+  },
+  {
+   "i": 13,
+   "id": "PLAST_plasticity_cost#13",
+   "type": "PLAST_plasticity_cost",
+   "payload": {
+    "readout": "trivial-world switch continuation (400 steps) from warm states; ratio = last10/first10",
+    "probes": {
+     "main_20k": {
+      "ratio": 0.6644108562180416,
+      "first10": 0.0004499849251276307,
+      "last10": 0.0002989748693892605
+     },
+     "main_100k": {
+      "ratio": 0.5957770637776008,
+      "first10": 0.0002193773365421421,
+      "last10": 0.00013069998542442797
+     },
+     "main_500k_edge_gate_nothing": {
+      "ratio": 0.5864036049443728,
+      "first10": 0.000004074230277196593,
+      "last10": 0.0000023891433219215935,
+      "wc_norm": 0.7387048214166075
+     },
+     "control_20k": {
+      "ratio": 0.7135257300287862,
+      "first10": 0.0006501350887065685,
+      "last10": 0.00046388811378668393
+     },
+     "wd1e4_20k_gate_nothing": {
+      "ratio": 0.7017204255152192,
+      "first10": 0.0005449883696688159,
+      "last10": 0.00038242947066484704
+     }
+    },
+    "rho20": 0.9311659387409014,
+    "probe_run_binding": {
+     "disclosed": 0.6644108562180416,
+     "run": 0.6644108562180416,
+     "bit_exact": true
+    },
+    "domain_note": "the control diverges at 30174 so no 100k control exists — the cost readout is honestly asymmetric; the 500k edge probe (|Wc| 0.7387, 16x below init) prices the extreme-depth question for round 8",
+    "checks": {
+     "probe_run_bit_exact_20k": true,
+     "engage_20k_decayed": true,
+     "engage_100k_decayed": true,
+     "engage_20k_control": true,
+     "rho20_lt_2": true,
+     "all_finite": true,
+     "snapshot_wc_20000_design6_bit_exact": true,
+     "snapshot_wc_100000_design6_bit_exact": true,
+     "snapshot_wc_500000_design6_bit_exact": true
+    },
+    "all_checks_pass": true,
+    "claim": "PLASTICITY COST LAW: learning engages from every registered warm state (ratio < 1.0) at a bounded cost (rho20 < 2.0); probe==run bit-exact on the disclosed value; the 20k decayed ratio also equals the design7 I1 pipeline value by construction (same snapshot path)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "cec21dcdbea38b005b90dad6fd414b8ac91b7b52a12460b419f9914e806f1eb4",
+   "sha": "58a7ac1474318a0179b6d787ed18cd908f7ae02e9b8b1f8e8bf8d60bbc622712"
+  },
+  {
+   "i": 14,
+   "id": "R3DxR3L_composition#14",
+   "type": "R3DxR3L_composition",
+   "payload": {
+    "law": "the R3L clamp plateau extends to ALL depth sites; the anchored statistic inherits it bit-exactly; the anchored 3.0 restoration SURVIVES at the plateau",
+    "per_depth": {
+     "400": {
+      "z09": 3.540717612984098,
+      "z12": 3.540717612984098,
+      "sd09": 1.7285097927065063,
+      "sd12": 1.7285097927065063,
+      "mult09": 1,
+      "mult12": 1,
+      "anchored09": 3.540717612984098,
+      "anchored12": 3.540717612984098,
+      "var09": 1.0024850692069596,
+      "var12": 1.0024850692069596,
+      "equalities": {
+       "sd": true,
+       "z": true,
+       "anchored": true,
+       "var": true,
+       "raw_gap": true
+      }
+     },
+     "1200": {
+      "z09": 1.5918769063530553,
+      "z12": 1.5918769063530553,
+      "sd09": 1.2167723140024025,
+      "sd12": 1.2167723140024025,
+      "mult09": 1.4205696273782027,
+      "mult12": 1.4205696273782027,
+      "anchored09": 2.261371983689926,
+      "anchored12": 2.261371983689926,
+      "var09": 1.010308878291164,
+      "var12": 1.010308878291164,
+      "equalities": {
+       "sd": true,
+       "z": true,
+       "anchored": true,
+       "var": true,
+       "raw_gap": true
+      }
+     },
+     "2000": {
+      "z09": 2.204604995230523,
+      "z12": 2.204604995230523,
+      "sd09": 1.1181032626432044,
+      "sd12": 1.1181032626432044,
+      "mult09": 1.5459303719589337,
+      "mult12": 1.5459303719589337,
+      "anchored09": 3.4081658202992458,
+      "anchored12": 3.4081658202992458,
+      "var09": 1.0194662895305606,
+      "var12": 1.0194662895305606,
+      "equalities": {
+       "sd": true,
+       "z": true,
+       "anchored": true,
+       "var": true,
+       "raw_gap": true
+      }
+     },
+     "2200": {
+      "z09": 2.5480705541027127,
+      "z12": 2.5480705541027127,
+      "sd09": 1.379490620635662,
+      "sd12": 1.379490620635662,
+      "mult09": 1.2530058318990367,
+      "mult12": 1.2530058318990367,
+      "anchored09": 3.192747264380909,
+      "anchored12": 3.192747264380909,
+      "var09": 1.0217532266155713,
+      "var12": 1.0217532266155713,
+      "equalities": {
+       "sd": true,
+       "z": true,
+       "anchored": true,
+       "var": true,
+       "raw_gap": true
+      }
+     }
+    },
+    "checks": {
+     "sd_400": true,
+     "z_400": true,
+     "anchored_400": true,
+     "anchored09_design6_400": true,
+     "sd_1200": true,
+     "z_1200": true,
+     "anchored_1200": true,
+     "anchored09_design6_1200": true,
+     "sd_2000": true,
+     "z_2000": true,
+     "anchored_2000": true,
+     "anchored09_design6_2000": true,
+     "sd_2200": true,
+     "z_2200": true,
+     "anchored_2200": true,
+     "anchored09_design6_2200": true,
+     "mult400_amp12_exact_1": true,
+     "mult400_amp09_exact_1": true,
+     "anchored12_gate_2000": true,
+     "anchored12_gate_2200": true,
+     "carried_2200_design5_bit_exact": true
+    },
+    "all_checks_pass": true,
+    "claim": "COMPOSITION CLOSURE: plateau (amp 1.2 == 0.9 bit-exact) extends to every registered depth; anchored 3.0-gate restoration survives at the plateau — the two laws compose",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "58a7ac1474318a0179b6d787ed18cd908f7ae02e9b8b1f8e8bf8d60bbc622712",
+   "sha": "cd28d61383721a49f70a66acc329e86144cbeb66846c7ebd90ac04b3f0f39bd6"
+  },
+  {
+   "i": 15,
+   "id": "GWIN7_full_grid#15",
+   "type": "GWIN7_full_grid",
+   "payload": {
+    "law": "W(lr) = round(30/lr) holds g < 0.5 across the core pace grid",
+    "grid": {
+     "lr0.15_w200": 0.30409957215062605,
+     "lr0.2_w150": 0.25369541417668573,
+     "lr0.25_w120": 0.3505612327666269,
+     "lr0.3_w100_anchor": 0.34923244770336087,
+     "lr0.4_w75": 0.4033493702247352,
+     "lr0.5_w60": 0.43412447386917424
+    },
+    "edge_receipt_gate_nothing": {
+     "lr0.6_w50": 0.42714909329375844,
+     "note": "the receipted trend rises with pace (0.3041 -> 0.3492 -> 0.4341); the edge prices the law's domain for round 8 — g >= 0.5 here registers a domain boundary 0.15 <= lr <= 0.5 as a FINDING, not a refutation of the tested core"
+    },
+    "checks": {
+     "g_02_w150_lt_0_5": true,
+     "g_025_w120_lt_0_5": true,
+     "g_04_w75_lt_0_5": true,
+     "g_anchor_lt_0_5": true,
+     "g_015_w200_design6_bit_exact": true,
+     "g_05_w60_design6_bit_exact": true,
+     "g_anchor_run4_bit_exact": true
+    },
+    "all_checks_pass": true,
+    "claim": "FULL-GRID G-WINDOW LAW: g < 0.5 at every core grid point with anchors bit-exact; the lr 0.6 boundary probe is receipted gate-nothing",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "cd28d61383721a49f70a66acc329e86144cbeb66846c7ebd90ac04b3f0f39bd6",
+   "sha": "b182c09939f342f0351b1a04d62f566f0a4d533526512c34b9cabe2e019c49c1"
+  },
+  {
+   "i": 16,
+   "id": "R4_determinism#16",
+   "type": "R4_determinism",
+   "payload": {
+    "claim": "two FULL executions byte-identical (carried + round-6 + round-7 metrics) AND every round-4 metric bit-equal to run4.json (29/29) AND every round-5 metric bit-equal to run5.json (92/92) AND every round-6 metric bit-equal to design6.json AND run6.json AND every disclosed round-7 pipeline value bit-equal to design7.json — probe == run == run-twin == round-4-run == round-5-run == round-6-run",
+    "pass": true,
+    "sha_carried_run1": "ff60c2113b48c9a92d34589b69ac9874bc56fd85fa3ae956aa18de9a8b39cc99",
+    "sha_carried_run2": "ff60c2113b48c9a92d34589b69ac9874bc56fd85fa3ae956aa18de9a8b39cc99",
+    "sha_round6_run1": "7a20e61373e394a32530183268c23dc0d0043d0e5e122345ed0b383432872633",
+    "sha_round6_run2": "7a20e61373e394a32530183268c23dc0d0043d0e5e122345ed0b383432872633",
+    "sha_round7_run1": "30657dbe8f0f489b80858971ef32baf61e9ce1e1a63c33f920b4e5429cfce88f",
+    "sha_round7_run2": "30657dbe8f0f489b80858971ef32baf61e9ce1e1a63c33f920b4e5429cfce88f",
+    "sha_all_run1": "f938138edff8ea7bfc657aa366792994833f98552626e7730d4bec9e4c95a8bf",
+    "sha_all_run2": "f938138edff8ea7bfc657aa366792994833f98552626e7730d4bec9e4c95a8bf",
+    "carried_cross_check": {
+     "shared": 29,
+     "mismatches": []
+    },
+    "run5_cross_check": {
+     "shared": 92,
+     "mismatches": []
+    },
+    "probe_cross_check": {
+     "shared": 63,
+     "mismatches": []
+    },
+    "probe6_cross_check": {
+     "shared": 101,
+     "mismatches": []
+    },
+    "run6_cross_check": {
+     "shared": 105,
+     "mismatches": []
+    },
+    "run6_carried_cross_check": {
+     "shared": 92,
+     "mismatches": []
+    },
+    "design7_cross_check": {
+     "shared": 2,
+     "mismatches": []
+    }
+   },
+   "prev": "b182c09939f342f0351b1a04d62f566f0a4d533526512c34b9cabe2e019c49c1",
+   "sha": "97d1fe801d38f5b47cbb37dd8e34cd5701de5e7ef63daaf7f0685fa36fbef71d"
+  },
+  {
+   "i": 17,
+   "id": "R5_mesh_conservation#17",
+   "type": "R5_mesh_conservation",
+   "payload": {
+    "total_drift_rel": 9.468186588477004e-9,
+    "variance_non_increasing": true,
+    "first_violating": -1,
+    "claim": "total conserved within 1e-6 rel AND variance non-increasing over 100 steps (carried)",
+    "pass": true
+   },
+   "prev": "97d1fe801d38f5b47cbb37dd8e34cd5701de5e7ef63daaf7f0685fa36fbef71d",
+   "sha": "7dbb59f32b5cf0da0d35d1f0697562525291aaeca2594a4e5105c29c8b279078"
+  },
+  {
+   "i": 18,
+   "id": "R6v4_impact_sensitive_no_repair#18",
+   "type": "R6v4_impact_sensitive_no_repair",
+   "payload": {
+    "corr_mean": 0.6342727488089809,
+    "corr_min": -0.008137254564441311,
+    "jump": 2.7548573357019737,
+    "loss_pre": 0.0012608681904543331,
+    "loss_corrupted": 0.0034735119838263926,
+    "sha_invariant": true,
+    "recheck_delta": 0,
+    "flipped": 416,
+    "top26": [
+     158,
+     218,
+     147,
+     42,
+     59,
+     146,
+     100,
+     213,
+     246,
+     131,
+     61,
+     87,
+     141,
+     1,
+     163,
+     129,
+     212,
+     130,
+     162,
+     69,
+     174,
+     116,
+     25,
+     76,
+     60,
+     231
+    ],
+    "claim": "L3 precondition corr > 0.3 AND jump > 1.5 AND corrected frozen-state invariant AND |recheck - corrupted| <= 1e-9 (carried)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "7dbb59f32b5cf0da0d35d1f0697562525291aaeca2594a4e5105c29c8b279078",
+   "sha": "e10a2221d6e0cb3875f90411496e2c702dc8f075b02263759b22d5d1479a1939"
+  }
+ ],
+ "tip": "e10a2221d6e0cb3875f90411496e2c702dc8f075b02263759b22d5d1479a1939"
+}
