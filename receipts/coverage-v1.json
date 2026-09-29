@@ -1,0 +1,168 @@
+{
+ "instrument": "archive_coverage.mjs v1",
+ "laws": {
+  "M8": "coverage field must exist before round-8; missing field in a registered round verdict = M8 FAIL event",
+  "M11": "tags registered pre-resolution; resolution procedure receipted in this file header"
+ },
+ "rounds": [
+  {
+   "round": 4,
+   "claims_sealed": 8,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [],
+   "depth_tokens": [],
+   "verdict_headline": "8/8",
+   "cells_named_v1": 1
+  },
+  {
+   "round": 5,
+   "claims_sealed": 11,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [],
+   "depth_tokens": [],
+   "verdict_headline": "11/11",
+   "cells_named_v1": 1
+  },
+  {
+   "round": 6,
+   "claims_sealed": 14,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "RLONG",
+    "R3D",
+    "GWIN",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [
+    "0"
+   ],
+   "depth_tokens": [],
+   "verdict_headline": "14/14",
+   "cells_named_v1": 2
+  },
+  {
+   "round": 7,
+   "claims_sealed": 18,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "RLONG",
+    "R3D",
+    "GWIN",
+    "RLONG7",
+    "PLAST",
+    "R3DxR3L",
+    "GWIN7",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [
+    "0"
+   ],
+   "depth_tokens": [],
+   "verdict_headline": "18/18",
+   "cells_named_v1": 2
+  }
+ ],
+ "coverage": {
+  "per_round": [
+   {
+    "round": 4,
+    "claims_sealed": 8,
+    "cells_named_v1": 1
+   },
+   {
+    "round": 5,
+    "claims_sealed": 11,
+    "cells_named_v1": 1
+   },
+   {
+    "round": 6,
+    "claims_sealed": 14,
+    "cells_named_v1": 2
+   },
+   {
+    "round": 7,
+    "claims_sealed": 18,
+    "cells_named_v1": 2
+   }
+  ],
+  "cumulative_claims_sealed": 51
+ },
+ "m11_round8_tags": [
+  {
+   "item": "plasticity-ADVANTAGE mechanism (why does decay speed re-adaptation: null-space room vs Wt/Wc re-balancing at smaller |Wc|)",
+   "tag": "SEALED-MEASURABLE",
+   "rationale": "numeric claim writable with existing machinery: re-adaptation advantage at 20k (rho20 readout, round-7 receipts) vs end-of-decay |Wc| across the dose grid — correlation threshold registerable with no new instrument"
+  },
+  {
+   "item": "GWIN grid lr-non-monotonicity (dip at lr 0.2, receipted for round-8 pace-law refinement)",
+   "tag": "SEALED-MEASURABLE",
+   "rationale": "numeric claim writable: g(lr) values on the existing grid with a stated fit/divergence threshold (e.g. deviation from monotone interpolation >= X with X pre-registered) using the round-6/7 GWIN readout"
+  },
+  {
+   "item": "RLONG at wd 2e-4 (steepest lifetime-per-decay point) as candidate re-registration of the main dose",
+   "tag": "SEALED-MEASURABLE",
+   "rationale": "numeric claim writable: lifetime-per-decay at 2e-4 vs the registered bracket endpoints using the existing RLONG/dose machinery"
+  },
+  {
+   "item": "1e-3 arm's long-horizon plasticity (does over-decay eventually pay?)",
+   "tag": "SEALED-MEASURABLE",
+   "rationale": "numeric claim writable: rho20-style re-adaptation readout for the 1e-3 arm vs undecayed control using the existing PLAST control machinery (round-7 already captured the wd0 control weights)"
+  }
+ ],
+ "tag_counts": {
+  "SEALED-MEASURABLE": 4
+ },
+ "m11_resolution_note": "UNSEALED set is EMPTY (all four items tag SEALED-MEASURABLE under the registered rule — the round-7 agenda lives entirely inside existing numeric machinery). Per the pre-registered procedure: leg (1) binds (>= 3 of 4 resolve definitively), the rate-comparison clause is recorded not-applicable, not an auto-refutation. If the round-8 lane re-registers an item qualitatively (no numeric threshold), that item is RETAGGED UNSEALED in verdict-v8 and both legs bind.",
+ "receipt": "receipts/coverage-v1.json"
+}

@@ -1,0 +1,30 @@
+{
+  "registration": {
+    "task": "wave-61 (keeper lane) — quilt-jepa INSTRUMENT REGISTRATION (not a round): the M8 archive-coverage field and the M11 round-8 eligibility tags, registered BEFORE round-8 runs so both mines' predictions are judgeable at resolution. Sources: fleet-seeds/lode/mines.jsonl M8 (archive, not population: 'the FAIL event is a registered round verdict lacking the coverage measurement once the field exists') and M11 (measurability is the RSI-eligibility criterion; engine-born, QRNG-drawn candidate c4 of lode engine run-4). No core/ file is touched; this registration gates nothing that runs the model — it registers a deterministic instrument and a tagging rule.",
+    "instrument": {
+      "path": "scripts/archive_coverage.mjs",
+      "receipt": "receipts/coverage-v1.json",
+      "determinism": "stdlib Node, no wall-clock in output, fail-closed on missing rounds (exit 2); re-runs byte-identical on the same tree",
+      "coverage_field_v1": "per registered round r in {4..7}: claims_sealed (count of registration-vN.json claims array), verdict_headline (the verdict's own Score N/N), cells_named_v1 (distinct lr/wd/depth tokens named in the registration text — coarse; the receipts-level depth-x-dose-x-pace cell extraction is ceded to the round-8 lane, which may upgrade the metric by registering the upgrade, never by editing this one)",
+      "coverage_observed": { "per_round_claims_sealed": [8, 11, 14, 18], "cumulative_claims_sealed": 51, "verdict_headlines": ["8/8", "11/11", "14/14", "18/18"] }
+    },
+    "claims": [
+      {
+        "id": "COV1",
+        "text": "The M8 archive-coverage field EXISTS for rounds 4-7 as of this registration (receipts/coverage-v1.json, values above), and every subsequent registered round verdict (round 8 onward) must carry it or cite the registered upgrade; a registered round verdict lacking any coverage field is the M8 FAIL event, per that mine's own pre-registered wording.",
+        "verdict_rule": "Round-8 resolution: verdict-v8.md (or its registration addendum) cites coverage-v1.json or a registered successor with per-round coverage numbers; PASS iff present, FAIL iff a registered round verdict carries no coverage field after this registration's existence."
+      },
+      {
+        "id": "TAG1",
+        "text": "The round-8 agenda (four items priced by the round-7 verdict) is tagged pre-resolution by the registered TAG RULE (SEALED-MEASURABLE iff a numeric PASS/FAIL threshold is writable using only rounds-4-7 machinery plus a stated numeric claim): ALL FOUR items tag SEALED-MEASURABLE (plasticity-advantage mechanism via rho20-vs-|Wc| correlation; GWIN lr-non-monotonicity via registered fit/divergence threshold on the existing grid; RLONG at wd 2e-4 via existing dose machinery; 1e-3 over-decay via existing PLAST control machinery). The UNSEALED contrast set is therefore EMPTY unless the round-8 lane re-registers an item qualitatively (no numeric threshold), in which case that item is RETAGGED UNSEALED in verdict-v8 and both M11 legs bind.",
+        "verdict_rule": "M11 resolution per the procedure receipted in scripts/archive_coverage.mjs: leg (1) binds always — >= 3 of the 4 tagged items resolve to definitive PASS/FAIL in verdict-v8.md; leg (2) the sealed-vs-unsealed defer-rate comparison binds ONLY over a NON-EMPTY unsealed set; with an empty set it is recorded not-applicable, not an auto-refutation (receipted here BEFORE round-8 to make the resolution judgeable, not to pre-write it)."
+      }
+    ],
+    "seal_discipline": "this file sealed BEFORE any round-8 run via tools/seal-file.mjs (v2): seal.self_sha256_masked = sha256 of these exact bytes with the mask value replaced by 64 zeros; mtime forced to seal.mtime_local_ms afterwards. Verification: tools/verify.mjs family re-derives the masked sha fail-closed."
+  },
+  "seal": {
+    "self_sha256_masked": "45523e54ac22bc9c6ef8a71f4996cbabd421785480be6c0a639266a0a48fddaf",
+    "mtime_local_ms": 1790668200000,
+    "sealed_by": "keeper lane, wave-61 (lode engine run-4 follow-through; mines M8 + M11)"
+  }
+}
