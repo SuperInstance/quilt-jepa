@@ -1,0 +1,115 @@
+{
+ "identities": {
+  "IE9_jepa4_wd0_identity": {
+   "steps": 400,
+   "losses_bit_exact": true,
+   "weights_bit_exact": true,
+   "weights_sha": "c8c3c06bf3d6dfb5ab230da65c8c9222864df62783e4649312c53e52c590dd8b"
+  },
+  "IA9_cure_capture_extension": {
+   "capture_at": [
+    20000,
+    75000
+   ],
+   "D": 85387,
+   "D_bit_exact_vs_receipts": true,
+   "executed_to": 85387,
+   "exec_bit_exact": true,
+   "slow": -0.000003778708210171146,
+   "slow_bit_exact": true,
+   "wc400": 11.985902658422406,
+   "wc400_bit_exact": true,
+   "wc20000": 11.130270846539293,
+   "wc20000_bit_exact": true,
+   "wc75000": 8.691686529662682,
+   "captured_at": [
+    20000,
+    75000
+   ],
+   "snapshot_wc_norm_20000": 11.130270846539293,
+   "snapshot_wc_norm_20000_bit_exact_vs_own_ckpt": true,
+   "snapshot_wc_norm_75000": 8.691686529662682,
+   "snapshot_wc_norm_75000_bit_exact_vs_own_ckpt": true,
+   "cross_execution_snapshots_bit_identical": true,
+   "snapshot_sha_20000": "57b2c76dfce646ce92bd4c851120828ecf80f4db9798e9a75aa76818e805044d",
+   "snapshot_sha_75000": "6d314586d9e9ca433ef7f2f731fbbac1484fd761dc34fbf01c73dfbf872fbba0",
+   "DISCLOSED_wc75000": 8.691686529662682,
+   "disclosed_note": "the cured-dose arm's 75000-checkpoint |Wc| and both snapshot shas — computed here because the I-A9 identity unavoidably executes the extended-capture path (round-7/8 disclosure pattern); the cured-dose 75000 SWITCH ratios are NOT measured anywhere pre-seal (first measured inside run9)"
+  },
+  "IB9_saturation_stage_path": {
+   "snapshot_step": 20000,
+   "wd": 0,
+   "capture_bit_exact_cross_execution": true,
+   "snapshot_weights_sha": "e53fd67c41cf1c63eb44c78ae403ea0b152c4a6b119d4482a07e9550d643d9b3",
+   "stage1_ratio": 0.7135257300287862,
+   "stage1_bit_exact_vs_run7_ctrl20k": true,
+   "stage2_ratio": 1.17997507686084,
+   "stage2_bit_exact_vs_run8_ratio2_wd0": true,
+   "stage1_end_sha": "b929579e3159fa5e7e5b5f530c0277140fa9089be76ca64e6751987fcb7c7c85",
+   "stage1_end_sha_bit_exact_vs_run8": true,
+   "full_path_bit_exact_cross_execution": true,
+   "seed_b": 1657638767,
+   "seed_c": 2856986428,
+   "seed_c_derivation": "seedC = parseInt(sha256(JSON.stringify(certified-seed.chosen.selected) + \"|round9-worldC\").slice(0, 8), 16) >>> 0 — deterministic derivation from the SAME certified seed receipt (no new entropy; the round-8 seedB pattern)",
+   "DISCLOSED_control_third_switch_ratio": 0.7354070016984524,
+   "disclosed_note": "the control leg of the round-9 SAT9 third-switch readout — computed here because the I-B9 identity unavoidably executes the full control path (round-7/8 disclosure pattern); the DECAYED leg is measured for the first time inside run9; this value gates nothing by itself (the SAT9 gates act on rho20_3 = ratio3(3e-4)/ratio3(wd0))",
+   "control_third_switch_first10": 0.0010478111106102445,
+   "control_third_switch_last10": 0.0007705676272002054,
+   "control_end2_norms": {
+    "wc_norm": 17.693144881570092,
+    "wp_norm": 15.517918058206886,
+    "wt_norm": 10.80188623447669
+   },
+   "control_end3_norms": {
+    "wc_norm": 17.679359103847727,
+    "wp_norm": 15.429208352982956,
+    "wt_norm": 10.841445472913785
+   }
+  },
+  "ID9_gwin_anchor": {
+   "g": 0.34923244770336087,
+   "run4_pin": 0.34923244770336087,
+   "bit_exact": true
+  },
+  "IF9_dip9_row_anchors": {
+   "g_02_w150": 0.25369541417668573,
+   "g_02_bit_exact_vs_run7": true,
+   "g_015_w200": 0.30409957215062605,
+   "g_015_bit_exact_vs_design6": true,
+   "g_025_w120": 0.3505612327666269,
+   "g_025_bit_exact_vs_run7": true,
+   "dip_magnitude_1x": 0.0736349882819407,
+   "dip_magnitude_1x_bit_exact_vs_run8": true
+  }
+ },
+ "schema": "quilt-jepa/design-probe-v9",
+ "note": "PRE-SEAL pipeline validation for round 9 — GATES NOTHING. All identities are pipeline checks against already-receipted values (design6, design8, run4, run7, run8); no round-9 claim value is measured here except the DISCLOSED control third-switch ratio (I-B9) and the cured-dose arm's 75000-checkpoint |Wc| + snapshot shas (I-A9) — the round-7/8 disclosure patterns. The round-9 measurements (the decayed third-switch leg, rho20_3, the saturation-curve increments, the end-of-stage Wc compositions, the cured-dose 75000 switch ratios on both arms, the six DIP9 window-scaled g points) happen for the FIRST time inside run9.",
+ "seed_u32": 2133245488,
+ "seed_b": 1657638767,
+ "seed_c": 2856986428,
+ "seed_c_derivation": "seedC = parseInt(sha256(JSON.stringify(certified-seed.chosen.selected) + \"|round9-worldC\").slice(0, 8), 16) >>> 0 — deterministic derivation from the SAME certified seed receipt as rounds 1-8 (no new entropy; the round-9 third-switch world is a fresh World2 at seedC from its own t=0)",
+ "disclosed_pipeline_values": {
+  "control_third_switch_ratio": 0.7354070016984524,
+  "control_third_switch_first10": 0.0010478111106102445,
+  "control_third_switch_last10": 0.0007705676272002054,
+  "control_first_switch_ratio": 0.7135257300287862,
+  "control_second_switch_ratio": 1.17997507686084,
+  "control_snapshot_weights_sha": "e53fd67c41cf1c63eb44c78ae403ea0b152c4a6b119d4482a07e9550d643d9b3",
+  "control_end2_norms": {
+   "wc_norm": 17.693144881570092,
+   "wp_norm": 15.517918058206886,
+   "wt_norm": 10.80188623447669
+  },
+  "control_end3_norms": {
+   "wc_norm": 17.679359103847727,
+   "wp_norm": 15.429208352982956,
+   "wt_norm": 10.841445472913785
+  },
+  "cure_wc75000": 8.691686529662682,
+  "cure_snapshot_sha_20000": "57b2c76dfce646ce92bd4c851120828ecf80f4db9798e9a75aa76818e805044d",
+  "cure_snapshot_sha_75000": "6d314586d9e9ca433ef7f2f731fbbac1484fd761dc34fbf01c73dfbf872fbba0"
+ },
+ "all_identities_pass": true,
+ "identity_count": 5,
+ "wall_ms": 29255
+}
