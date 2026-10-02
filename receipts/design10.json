@@ -1,0 +1,266 @@
+{
+ "identities": {
+  "IE10_jepa4_wd0_identity": {
+   "steps": 400,
+   "losses_bit_exact": true,
+   "weights_bit_exact": true,
+   "weights_sha": "c8c3c06bf3d6dfb5ab230da65c8c9222864df62783e4649312c53e52c590dd8b"
+  },
+  "IA10a_cure_capture_extension": {
+   "capture_at": [
+    20000,
+    30000,
+    40000,
+    50000,
+    75000
+   ],
+   "D": 85387,
+   "D_bit_exact_vs_receipts": true,
+   "executed_to": 85387,
+   "exec_bit_exact": true,
+   "slow": -0.000003778708210171146,
+   "slow_bit_exact": true,
+   "wc400": 11.985902658422406,
+   "wc400_bit_exact": true,
+   "wc20000": 11.130270846539293,
+   "wc20000_bit_exact": true,
+   "wc75000": 8.691686529662682,
+   "wc75000_bit_exact": true,
+   "captured_at": [
+    20000,
+    30000,
+    40000,
+    50000,
+    75000
+   ],
+   "norm_checks": {
+    "20000": {
+     "snapshot_wc_norm": 11.130270846539293,
+     "bit_exact_vs_own_ckpt": true
+    },
+    "30000": {
+     "snapshot_wc_norm": 10.284571782125024,
+     "bit_exact_vs_own_ckpt": true
+    },
+    "40000": {
+     "snapshot_wc_norm": 9.687502951781555,
+     "bit_exact_vs_own_ckpt": true
+    },
+    "50000": {
+     "snapshot_wc_norm": 9.25800362624802,
+     "bit_exact_vs_own_ckpt": true
+    },
+    "75000": {
+     "snapshot_wc_norm": 8.691686529662682,
+     "bit_exact_vs_own_ckpt": true
+    }
+   },
+   "all_snapshot_norms_bit_exact_vs_own_ckpts": true,
+   "cross_execution_snapshots_bit_identical": true,
+   "DISCLOSED_cure_wc_30000": 10.284571782125024,
+   "DISCLOSED_cure_wc_40000": 9.687502951781555,
+   "DISCLOSED_cure_wc_50000": 9.25800362624802,
+   "disclosed_note": "the cured-dose arm's interior checkpoint |Wc| norms (30000/40000/50000) — computed here because the I-A10a identity unavoidably executes the extended-capture path (round-7/8/9 disclosure pattern); the cured-dose interior SWITCH RATIOS (the DOSE10 ordering curve) are NOT measured anywhere pre-seal (first measured inside run10)"
+  },
+  "IA10b_main_capture_extension": {
+   "capture_at": [
+    20000,
+    30000,
+    40000,
+    50000,
+    75000,
+    100000,
+    500000
+   ],
+   "D": null,
+   "D_null_bit_exact": true,
+   "executed_to": 500000,
+   "exec_bit_exact": true,
+   "slow": -0.000010025999770806105,
+   "slow_bit_exact": true,
+   "slow100k": -0.0000076771378118419,
+   "slow100k_bit_exact": true,
+   "first10": 0.008204165043600227,
+   "first10_bit_exact": true,
+   "wc400": 11.891085783057619,
+   "wc400_bit_exact": true,
+   "wc20000": 9.769638164817229,
+   "wc20000_bit_exact": true,
+   "wc75000": 6.443616949719879,
+   "wc75000_bit_exact": true,
+   "wc100000": 5.535301850188262,
+   "wc100000_bit_exact": true,
+   "wc500000": 0.7387048214166075,
+   "wc500000_bit_exact": true,
+   "captured_at": [
+    20000,
+    30000,
+    40000,
+    50000,
+    75000,
+    100000,
+    500000
+   ],
+   "norm_checks": {
+    "20000": {
+     "snapshot_wc_norm": 9.769638164817229,
+     "bit_exact_vs_own_ckpt": true
+    },
+    "30000": {
+     "snapshot_wc_norm": 8.803594735118917,
+     "bit_exact_vs_own_ckpt": true
+    },
+    "40000": {
+     "snapshot_wc_norm": 8.107602218267036,
+     "bit_exact_vs_own_ckpt": true
+    },
+    "50000": {
+     "snapshot_wc_norm": 7.5690166212299825,
+     "bit_exact_vs_own_ckpt": true
+    },
+    "75000": {
+     "snapshot_wc_norm": 6.443616949719879,
+     "bit_exact_vs_own_ckpt": true
+    },
+    "100000": {
+     "snapshot_wc_norm": 5.535301850188262,
+     "bit_exact_vs_own_ckpt": true
+    },
+    "500000": {
+     "snapshot_wc_norm": 0.7387048214166075,
+     "bit_exact_vs_own_ckpt": true
+    }
+   },
+   "all_snapshot_norms_bit_exact_vs_own_ckpts": true,
+   "cross_execution_snapshots_bit_identical": true,
+   "DISCLOSED_main_wc_30000": 8.803594735118917,
+   "DISCLOSED_main_wc_40000": 8.107602218267036,
+   "DISCLOSED_main_wc_50000": 7.5690166212299825,
+   "disclosed_note": "the main-dose arm's interior checkpoint |Wc| norms (30000/40000/50000) — computed here because the I-A10b identity unavoidably executes the extended-capture path; the main-dose interior SWITCH RATIOS (the DOSE10 ordering curve) are NOT measured anywhere pre-seal (first measured inside run10)"
+  },
+  "IB10_fourth_switch_stage_path": {
+   "snapshot_step": 20000,
+   "wd": 0,
+   "capture_bit_exact_cross_execution": true,
+   "snapshot_weights_sha": "e53fd67c41cf1c63eb44c78ae403ea0b152c4a6b119d4482a07e9550d643d9b3",
+   "snapshot_sha_bit_exact_vs_design9_control": true,
+   "dc_stage1_ratio": 0.7135257300287862,
+   "dc_stage1_bit_exact_vs_run7_ctrl20k": true,
+   "dc_stage2_ratio": 1.17997507686084,
+   "dc_stage2_bit_exact_vs_run8_ratio2_wd0": true,
+   "dc_stage3_ratio": 0.7354070016984524,
+   "dc_stage3_bit_exact_vs_run9_ratio3_wd0": true,
+   "dc_stage1_end_sha": "b929579e3159fa5e7e5b5f530c0277140fa9089be76ca64e6751987fcb7c7c85",
+   "dc_stage1_end_sha_bit_exact_vs_run8": true,
+   "dc_end2_norms_bit_exact_vs_design9": true,
+   "dc_end3_norms_bit_exact_vs_design9": true,
+   "dc_full_path_bit_exact_cross_execution": true,
+   "seed_b": 1657638767,
+   "seed_c": 2856986428,
+   "seed_d": 808219675,
+   "seed_d_derivation": "seedD = parseInt(sha256(JSON.stringify(certified-seed.chosen.selected) + \"|round10-worldD\").slice(0, 8), 16) >>> 0 — deterministic derivation from the SAME certified seed receipt (no new entropy; the round-8/9 pattern)",
+   "DISCLOSED_control_fourth_switch_ratio": 0.976422859819224,
+   "dc_control_fourth_switch_first10": 0.0008566096964317725,
+   "dc_control_fourth_switch_last10": 0.0008364132895387887,
+   "dc_control_end4_norms": {
+    "wc_norm": 17.760185404934926,
+    "wp_norm": 15.44965865785695,
+    "wt_norm": 10.881454432202531
+   },
+   "ec_stage1_ratio": 0.7339388216462988,
+   "ec_stage2_ratio": 1.1899577897104565,
+   "ec_stage3_ratio": 0.7320487218963793,
+   "ec_stage4_ratio": 0.9776795481211076,
+   "ec_stage1_first10": 0.0011696976612871703,
+   "ec_stage1_last10": 0.0008584865232075373,
+   "ec_stage4_first10": 0.0008490242254007265,
+   "ec_stage4_last10": 0.0008300736210336557,
+   "ec_full_path_bit_exact_cross_execution": true,
+   "seed_e": 3972732037,
+   "seed_e_derivation": "seedE = parseInt(sha256(JSON.stringify(certified-seed.chosen.selected) + \"|round10-worldE\").slice(0, 8), 16) >>> 0 — deterministic derivation from the SAME certified seed receipt (no new entropy; the different-probe-world first-switch window is a fresh World2 at seedE from its own t=0)",
+   "DISCLOSED_control_ecascade_stage_ratios": {
+    "stage1": 0.7339388216462988,
+    "stage2": 1.1899577897104565,
+    "stage3": 0.7320487218963793,
+    "stage4": 0.9776795481211076
+   },
+   "ec_control_end4_norms": {
+    "wc_norm": 17.76983578233187,
+    "wp_norm": 15.456297581120012,
+    "wt_norm": 10.881913590502025
+   },
+   "disclosed_note": "the CONTROL legs of the round-10 SAT10 fourth-switch readouts (registered cascade stage 4 = fresh World2(seedD); E-cascade = the all-hard-world path with the stage-1 window on a fresh World2(seedE)) — computed here because the I-B10 identity unavoidably executes the full control paths (round-7/8/9 disclosure pattern); the DECAYED legs are measured for the first time inside run10; these values gate nothing by themselves (the SAT10 gates act on rho20_4 = ratio4(3e-4)/ratio4(wd0) and rho20_4^E = ratio4^E(3e-4)/ratio4^E(wd0))"
+  },
+  "IC10_dip10_row_anchors": {
+   "g_02_w150": 0.25369541417668573,
+   "g_02_bit_exact_vs_run7": true,
+   "g_015_w200": 0.30409957215062605,
+   "g_015_bit_exact_vs_design6": true,
+   "g_025_w120": 0.3505612327666269,
+   "g_025_bit_exact_vs_run7": true,
+   "dip_magnitude_1x": 0.0736349882819407,
+   "dip_magnitude_1x_bit_exact_vs_run8": true,
+   "g_015_w100_0_5x": 0.5692660186806099,
+   "g_015_0_5x_bit_exact_vs_run9": true,
+   "g_02_w75_0_5x": 0.6044818860554356,
+   "g_02_0_5x_bit_exact_vs_run9": true,
+   "g_025_w60_0_5x": 0.6188174436817733,
+   "g_025_0_5x_bit_exact_vs_run9": true,
+   "g_015_w400_2x": 0.13808047549701252,
+   "g_015_2x_bit_exact_vs_run9": true,
+   "g_02_w300_2x": 0.1620743122201559,
+   "g_02_2x_bit_exact_vs_run9": true,
+   "g_025_w240_2x": 0.14797584159818838,
+   "g_025_2x_bit_exact_vs_run9": true
+  },
+  "ID10_gwin_anchor": {
+   "g": 0.34923244770336087,
+   "run4_pin": 0.34923244770336087,
+   "bit_exact": true
+  }
+ },
+ "schema": "quilt-jepa/design-probe-v10",
+ "note": "PRE-SEAL pipeline validation for round 10 — GATES NOTHING. All identities are pipeline checks against already-receipted values (design6, design8, design9, run4, run7, run8, run9); no round-10 claim value is measured here except the DISCLOSED control fourth-switch ratio (registered cascade, I-B10), the DISCLOSED control E-cascade stage ratios (the different-probe-world control path, I-B10), and the interior checkpoint |Wc| norms on the two cured-side arms (I-A10a/I-A10b) — the round-7/8/9 disclosure patterns. The round-10 measurements (the DOSE10 ordering-curve switch ratios at the ladder interior depths 30000/40000/50000 on both arms, the DECAYED fourth-switch legs and rho20_4 on both cascades, the E-cascade decayed path, the 39 DIP10 scan points) happen for the FIRST time inside run10.",
+ "seed_u32": 2133245488,
+ "seed_b": 1657638767,
+ "seed_c": 2856986428,
+ "seed_d": 808219675,
+ "seed_e": 3972732037,
+ "seed_d_derivation": "seedD = parseInt(sha256(JSON.stringify(certified-seed.chosen.selected) + \"|round10-worldD\").slice(0, 8), 16) >>> 0 — deterministic derivation from the SAME certified seed receipt as rounds 1-9 (no new entropy; the round-10 fourth-switch world is a fresh World2 at seedD from its own t=0)",
+ "seed_e_derivation": "seedE = parseInt(sha256(JSON.stringify(certified-seed.chosen.selected) + \"|round10-worldE\").slice(0, 8), 16) >>> 0 — deterministic derivation from the SAME certified seed receipt (no new entropy; the different-probe-world first-switch window is a fresh World2 at seedE from its own t=0)",
+ "disclosed_pipeline_values": {
+  "control_fourth_switch_ratio": 0.976422859819224,
+  "control_fourth_switch_first10": 0.0008566096964317725,
+  "control_fourth_switch_last10": 0.0008364132895387887,
+  "control_end4_norms": {
+   "wc_norm": 17.760185404934926,
+   "wp_norm": 15.44965865785695,
+   "wt_norm": 10.881454432202531
+  },
+  "control_first_switch_ratio": 0.7135257300287862,
+  "control_second_switch_ratio": 1.17997507686084,
+  "control_third_switch_ratio": 0.7354070016984524,
+  "control_ecascade_stage1_ratio": 0.7339388216462988,
+  "control_ecascade_stage2_ratio": 1.1899577897104565,
+  "control_ecascade_stage3_ratio": 0.7320487218963793,
+  "control_ecascade_stage4_ratio": 0.9776795481211076,
+  "control_ecascade_stage1_first10": 0.0011696976612871703,
+  "control_ecascade_stage1_last10": 0.0008584865232075373,
+  "control_ecascade_stage4_first10": 0.0008490242254007265,
+  "control_ecascade_stage4_last10": 0.0008300736210336557,
+  "control_ecascade_end4_norms": {
+   "wc_norm": 17.76983578233187,
+   "wp_norm": 15.456297581120012,
+   "wt_norm": 10.881913590502025
+  },
+  "cure_wc_30000": 10.284571782125024,
+  "cure_wc_40000": 9.687502951781555,
+  "cure_wc_50000": 9.25800362624802,
+  "main_wc_30000": 8.803594735118917,
+  "main_wc_40000": 8.107602218267036,
+  "main_wc_50000": 7.5690166212299825
+ },
+ "all_identities_pass": true,
+ "identity_count": 6,
+ "wall_ms": 168058
+}
