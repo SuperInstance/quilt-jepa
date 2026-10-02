@@ -1630,6 +1630,23 @@ function coreRun8(seedU32) {
   out6.grid9 = grid9;
   console.error('[progress]   r9 dip W-scaling grid done at', Date.now() - T0, 'ms');
 
+  // ---- ROUND-9 REPAIR (63-b-r, runner-level side-channel — zero arithmetic change) -----------
+  // The registered design9 snapshot-sha bindings (P-R4: cure 20000/75000 + control 20000
+  // "bound bit-exact in the run") must be computed from the LIVE snapshots, which staging
+  // drops by design (pack()). The prior incarnation's receipt assembly referenced these
+  // snapshots via coreRun8-internal locals AFTER the staging boundary — a ReferenceError that
+  // killed both the prior execution and the resumed one BEFORE any receipt write. The shas are
+  // computed HERE (same snapSha serialization as probe9/design9) and carried on the execution
+  // object OUTSIDE every metrics layer: metrics6/7/8/9 and their shas are byte-unchanged, so
+  // the R4 sha-level chain still binds the staged first executions (ff60c211/7a20e613/
+  // 30657dbe/34ec241a + the round-9 layer c972511d). The receipt assembly binds them from the
+  // snap_shas-carrying execution, fail-closed.
+  out6.snap_shas = {
+    cure20000: snapSha(arms7['0.0002'].snapshots['20000']),
+    cure75000: snapSha(arms7['0.0002'].snapshots['75000']),
+    ctrl20000: snapSha(m0.snapshots['20000'])
+  };
+
   const metrics6 = {
     // identity
     id_losses_bit_exact: out6.identity.losses_bit_exact, id_weights_bit_exact: out6.identity.weights_bit_exact,
@@ -1857,6 +1874,7 @@ chain.add('header', {
   seed_receipt: { label: seedReceipt.label, mode: seedReceipt.mode, schema: seedReceipt.schema, note: seedReceipt.note },
   registration: 'registration-v9.json (sealed pre-run, self_sha256_masked 84de8046… + mtime 1790900000000; RE-VERIFIED fail-closed at this run\'s startup)',
   scope: 'round-4/5/6/7/8 operating point UNCHANGED (lr 0.3, tau 0.99998, K4 1.5e-6, amp 0.9; core/ byte-untouched) — THE CURED-DOSE ROUND: all nineteen round-4..8 claims re-scored under their UNCHANGED rules (the honest round-8 MECH FAIL carries; run4 29/29, run5 92/92, design6 AND run6 AND run7 AND run8 bit-exact at all four metric layers, sha-level chain to run8.json R4 row ff60c211/7a20e613/30657dbe/34ec241a) + 3 new claims: CURE9 cured-dose re-registration (wd 2e-4 re-bound bit-exact + plasticity at its OWN dose at 20k re-bound and 75000 NEW + dose-ordering extended to 75k + |Wc|-room composition at 75k + D-ratio band [2.5, 3.2] declared re-scoring), SAT9 saturation successor (THIRD switch on fresh World2(seedC = 2856986428): pre-registered CONCAVE-SATURATION curve rho20_3 ∈ [rho20_2, 1) with non-expanding increment + Wc-room persistence through switches), DIP9 dip-law shape (the {0.15, 0.2, 0.25} mini-grid at 0.5x/2x W scalings: local-min survival + depth monotone in W + monotone recovery along W)',
+  resume_repair: '63-b-r lane repair (receipt-assembly only; zero arithmetic, zero gate change, core/ byte-untouched): the prior incarnation died pre-receipt — its staged runner referenced coreRun8-internal locals (arms7/m0) OUT OF SCOPE in the design9 snapshot-sha binding rows, and staging drops snapshot bytes by design (pack()), so both the prior execution and the first resumed one died at a ReferenceError BEFORE any receipt write. Repair: coreRun8 computes the three registered design9 snapshot shas (cure 20000/75000, control 20000 — P-R4 "bound bit-exact in the run") from the LIVE snapshots into the side-channel out6.snap_shas (outside every metrics layer — the five metric-layer shas are byte-unchanged and still bind the staged first executions); the assembly binds them from the snap_shas-carrying execution FAIL-CLOSED (a snap_shas-less staged coreRun8 #2 is re-executed fresh, its metrics re-bound to the staged twin at all five R4 layers). The pre-repair staging state is committed as a receipt (02c5389).',
   probe_provenance: 'probe9.mjs/design9.json receipted PRE-SEAL with 5 fail-closed pipeline identities (I-E9 Jepa4-wd0; I-A9 cured-dose capture-extension on the 2e-4 arm; I-B9 saturation stage-path identity + control third-switch disclosure; I-D9 GWIN anchor; I-F9 DIP9 1x-row anchors) — ALL TRUE; the I-B9 identity unavoidably computed the CONTROL third-switch ratio (0.7354070016984524 — disclosed in registration-v9 and bound bit-exact here; the disclosed fact that the control RE-ADAPTS within the third-switch window, unlike the second, is folded into the SAT9 registration) and the I-A9 identity the cured arm\'s 75000-checkpoint |Wc| (8.691686529662682) and both snapshot shas; no other round-9 claim value measured pre-seal (no decayed third-switch leg, no rho20_3, no saturation increment, no 75000 switch ratio on either arm, no wc75(3e-4), no window-scaled g point)'
 });
 const staging = loadStaging();
@@ -1868,8 +1886,8 @@ if (staging.stages.r2) { r2 = staging.stages.r2; console.error('[resume] coreRun
 else { r2 = coreRun5(seedU32); staging.stages.r2 = pack(r2); saveStaging(staging); console.error('[progress] coreRun5 #2 (twin) done at', Date.now() - T0, 'ms — STAGED'); }
 if (staging.stages.q1) { q1 = staging.stages.q1; console.error('[resume] coreRun8 #1 loaded from staging (sha8 ' + q1.metrics8Sha.slice(0, 12) + '…)'); }
 else { q1 = coreRun8(seedU32); staging.stages.q1 = pack(q1); saveStaging(staging); console.error('[progress] coreRun8 #1 done at', Date.now() - T0, 'ms — STAGED'); }
-if (staging.stages.q2) { q2 = staging.stages.q2; console.error('[resume] coreRun8 #2 (twin) loaded from staging (sha8 ' + q2.metrics8Sha.slice(0, 12) + '…)'); }
-else { q2 = coreRun8(seedU32); staging.stages.q2 = pack(q2); saveStaging(staging); console.error('[progress] coreRun8 #2 (twin) done at', Date.now() - T0, 'ms — STAGED'); }
+if (staging.stages.q2 && staging.stages.q2.snap_shas) { q2 = staging.stages.q2; console.error('[resume] coreRun8 #2 (twin) loaded from staging (sha8 ' + q2.metrics8Sha.slice(0, 12) + '…, snap_shas carried)'); }
+else { if (staging.stages.q2) console.error('[repair] staged coreRun8 #2 predates the snap-sha side-channel — re-executed fresh (its metrics stay bound to the staged twin at R4)'); q2 = coreRun8(seedU32); staging.stages.q2 = pack(q2); saveStaging(staging); console.error('[progress] coreRun8 #2 (twin) done at', Date.now() - T0, 'ms — STAGED (snap_shas carried)'); }
 
 // G gates everything downstream (registered verdict_rule)
 const gPass = r1.g_ratio < 0.5;
@@ -2630,6 +2648,13 @@ const run4 = JSON.parse(fs.readFileSync(path.join(RECEIPTS, 'run4.json'), 'utf8'
     && q1.metrics7Sha === run8R4row.sha_round7_run1 && q2.metrics7Sha === run8R4row.sha_round7_run2
     && q1.metrics8Sha === run8R4row.sha_round8_run1 && q2.metrics8Sha === run8R4row.sha_round8_run2;
   // ROUND-9: the disclosed design9 pipeline values must equal the run bit-exactly (probe == run)
+  // ROUND-9 REPAIR (63-b-r): the three snapshot-sha rows are bound from the snap_shas
+  // side-channel carried by the coreRun8 execution (computed from the LIVE snapshots inside
+  // coreRun8; staging drops snapshot bytes by design). FAIL-CLOSED: a receipt-writing run
+  // requires a snap_shas-carrying coreRun8 #2 — a staged pre-repair twin is re-executed fresh
+  // at the resume boundary (its metrics re-bind to the staged twin at all five R4 layers), so
+  // the binding transfers to the whole run via the sha-level chain.
+  if (!q2.snap_shas) { console.error('SNAP-SHA BINDINGS UNAVAILABLE: coreRun8 #2 carries no snap_shas side-channel (staged pre-repair) — refusing to assemble a receipt whose registered design9 snapshot-sha bindings (cure 20000/75000, control 20000) could not be computed. Re-execute coreRun8 #2 fresh.'); process.exit(2); }
   const design9Pairs = [
     ['probe3.stage1.control', q1.metrics9.r9_stage1_control, design9.disclosed_pipeline_values.control_first_switch_ratio],
     ['probe3.stage2.control', q1.metrics9.r9_stage2_control, design9.disclosed_pipeline_values.control_second_switch_ratio],
@@ -2637,9 +2662,9 @@ const run4 = JSON.parse(fs.readFileSync(path.join(RECEIPTS, 'run4.json'), 'utf8'
     ['probe3.end2wc.control', q1.metrics9.r9_end2_wc_control, design9.disclosed_pipeline_values.control_end2_norms.wc_norm],
     ['probe3.end3wc.control', q1.metrics9.r9_end3_wc_control, design9.disclosed_pipeline_values.control_end3_norms.wc_norm],
     ['cure.wc75000', q1.metrics9.r9_ckpt_wc75_2e4, design9.disclosed_pipeline_values.cure_wc75000],
-    ['cure.snapsha.20000', snapSha(arms7['0.0002'].snapshots['20000']), design9.disclosed_pipeline_values.cure_snapshot_sha_20000],
-    ['cure.snapsha.75000', snapSha(arms7['0.0002'].snapshots['75000']), design9.disclosed_pipeline_values.cure_snapshot_sha_75000],
-    ['ctrl.snapsha.20000', snapSha(m0.snapshots['20000']), design9.disclosed_pipeline_values.control_snapshot_weights_sha]
+    ['cure.snapsha.20000', q2.snap_shas.cure20000, design9.disclosed_pipeline_values.cure_snapshot_sha_20000],
+    ['cure.snapsha.75000', q2.snap_shas.cure75000, design9.disclosed_pipeline_values.cure_snapshot_sha_75000],
+    ['ctrl.snapsha.20000', q2.snap_shas.ctrl20000, design9.disclosed_pipeline_values.control_snapshot_weights_sha]
   ];
   const design9Bad = design9Pairs.filter(([k, a, b]) => a !== b).map(([k, a, b]) => ({ key: k, run: a, design9: b }));
   const shaAll1 = sha(JSON.stringify({ carried: r1.metrics, round6: q1.metrics, round7: q1.metrics7, round8: q1.metrics8, round9: q1.metrics9 }));
