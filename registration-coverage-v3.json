@@ -1,0 +1,30 @@
+{
+ "registration": {
+  "task": "wave 63 (lane 63-b-r) — quilt-jepa INSTRUMENT REGISTRATION v3 (not a round): the registered v3 EXTENSION of the wave-62 M8 archive-coverage instrument, executed along registration-coverage-v2.json COV2's own registered upgrade path ('the round-8 lane may upgrade the metric by registering the upgrade, never by editing this one' — the same rule binds this lane). This registration is sealed BEFORE the v3 instrument's receipt-of-record run. The v1 instrument (scripts/archive_coverage.mjs) + receipt (receipts/coverage-v1.json) and the v2 instrument (scripts/archive_coverage_v2.mjs) + receipt (receipts/coverage-v2.json) are byte-untouched history; verdict-v9.md cites this v3 receipt per COV3 while v2 remains the cited field for rounds 4-8.",
+  "instrument": {
+   "path": "scripts/archive_coverage_v3.mjs",
+   "receipt": "receipts/coverage-v3.json",
+   "determinism": "stdlib Node, no wall-clock in output, fail-closed on missing rounds 4..9, missing receipt paths, non-finite cell values, or duplicate cell keys (exit 2); re-runs byte-identical on the same tree",
+   "upgrade_v3_over_v2": "(1) ROUNDS extended 4..9 — round 9 joins the M8 archive-coverage field (registration-v9.json claims object + verdict-v9.md headline, both existing at seal time; the v2 claims-array reader is generalized to also accept registration-v9's claims OBJECT keyed 0..24, numeric order, without changing the rounds 4-8 reading); (2) cells_v3 — the v2 receipts-level extraction reproduced IDENTICALLY over rounds 4..8 (same 40 cells, byte-same values) plus the round-9 receipts-level cells: the 75000-depth switch ratios on both arms (the CURE9 NEW measurements), the saturation-curve level and increment at the third switch (SAT9), the end-of-life |Wc| composition pair (the round-9 mechanism leg), and the six window-scaled pace points (DIP9, depths tagged with their scaling to stay duplicate-free against the 1x row); (3) round9_resolution_inputs — the three round-9 agenda claims' verdicts read mechanically from receipts/run9.json (the M11-style definitive-resolution inputs for the round-9 items, leg-1 bound: all three tagged SEALED-MEASURABLE in registration-v9)",
+   "scope_note": "this registration gates nothing that runs the model; it registers a deterministic read-only instrument over already-receipted artifacts"
+  },
+  "claims": [
+   {
+    "id": "COV3",
+    "text": "The M8 archive-coverage field EXISTS for rounds 4-9 at receipts level (receipts/coverage-v3.json): per-round claims_sealed [8, 11, 14, 18, 22, 25] (the claims arrays/objects of the sealed registrations, cumulative 98), verdict headlines including round 9's honest 22/25 (the headline carries its CURE9 + DIP9 FAILs), and a receipts-level cells_v3 extraction that extends the v2 cell set with the round-9 measurements; verdict-v9.md cites coverage-v3.json per COV3 — the M8 FAIL event (a registered round verdict lacking any coverage field) did NOT fire for round 9.",
+    "verdict_rule": "PASS iff receipts/coverage-v3.json exists with per-round claims_sealed exactly [8, 11, 14, 18, 22, 25], cumulative_claims_sealed exactly 98, the round-9 verdict_headline '22/25', and a cells_v3 extraction that is non-empty, all-finite, duplicate-free, contains every v2 cell key with a byte-identical value, and contains the round-9 cells (plasticity 75000 switch ratios on both arms, saturation-curve rho20_3 + increment, mechanism wc75 pair, six window-scaled pace points); else FAIL with the actual numbers."
+   },
+   {
+    "id": "R9RES",
+    "text": "The round-9 agenda items resolve DEFINITIVELY from the receipt of record: receipts/run9.json verdicts give CURE9_cured_dose_reregistration, SAT9_saturation_successor, and DIP9_dip_law_window_scaling as booleans (no DEFER) — the M11-style leg-1 bound (>= 3 of 3 tagged SEALED-MEASURABLE items resolve definitively; leg 2, the sealed-vs-unsealed defer-rate comparison, binds only over a NON-EMPTY unsealed set — the round-9 set is fully sealed, so leg 2 is recorded not-applicable per the v1 procedure).",
+    "verdict_rule": "PASS iff all three round-9 agenda inputs in coverage-v3.json carry definitive:true (boolean verdicts read from run9.json), irrespective of PASS/FAIL content — the coverage instrument records outcomes, it does not re-score them; else FAIL with the actual inputs."
+   }
+  ],
+  "seal_discipline": "sealed with tools/seal-file.mjs (self_sha256_masked = sha256 of the final bytes with the mask value zeroed; mtime forced to fixedMs afterwards) BEFORE the archive_coverage_v3.mjs receipt-of-record run; fixedMs 1791000000000 (strictly after registration-v9's 1790900000000)",
+  "seal": {
+   "self_sha256_masked": "2c58e798d16043091d1fedea2b27b6d84c02223c2fb8c4bfaa402af5798b5ff5",
+   "mtime_local_ms": 1791000000000,
+   "sealed_by": "lane 63-b-r (wave 63), before the archive_coverage_v3.mjs receipt-of-record run"
+  }
+ }
+}

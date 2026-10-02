@@ -1,0 +1,694 @@
+{
+ "instrument": "archive_coverage_v3.mjs (registered upgrade of v2 — see registration-coverage-v3.json; v1 + v2 instruments and receipts byte-untouched)",
+ "laws": {
+  "M8": "coverage field must exist for every registered round verdict; missing field = M8 FAIL event",
+  "M11": "tags registered pre-resolution (v1); resolution procedure receipted in the v1 instrument header",
+  "R9RES": "the three round-9 agenda items resolve DEFINITIVELY from receipts/run9.json (leg 1: >= 3 of 3 SEALED-MEASURABLE; leg 2 not-applicable — the round-9 set is fully sealed, no unsealed bound set)"
+ },
+ "rounds": [
+  {
+   "round": 4,
+   "claims_sealed": 8,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [],
+   "depth_tokens": [],
+   "verdict_headline": "8/8",
+   "cells_named_v1": 1
+  },
+  {
+   "round": 5,
+   "claims_sealed": 11,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [],
+   "depth_tokens": [],
+   "verdict_headline": "11/11",
+   "cells_named_v1": 1
+  },
+  {
+   "round": 6,
+   "claims_sealed": 14,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "RLONG",
+    "R3D",
+    "GWIN",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [
+    "0"
+   ],
+   "depth_tokens": [],
+   "verdict_headline": "14/14",
+   "cells_named_v1": 2
+  },
+  {
+   "round": 7,
+   "claims_sealed": 18,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "RLONG",
+    "R3D",
+    "GWIN",
+    "RLONG7",
+    "PLAST",
+    "R3DxR3L",
+    "GWIN7",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [
+    "0"
+   ],
+   "depth_tokens": [],
+   "verdict_headline": "18/18",
+   "cells_named_v1": 2
+  },
+  {
+   "round": 8,
+   "claims_sealed": 22,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "RLONG",
+    "R3D",
+    "GWIN",
+    "RLONG7",
+    "PLAST",
+    "R3DxR3L",
+    "GWIN7",
+    "MECH",
+    "GWIN8",
+    "REDOSE",
+    "OVERDECAY",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [],
+   "depth_tokens": [],
+   "verdict_headline": "21/22",
+   "cells_named_v1": 1
+  },
+  {
+   "round": 9,
+   "claims_sealed": 25,
+   "claim_ids": [
+    "G",
+    "L2",
+    "R1",
+    "R2v4",
+    "R3v4",
+    "R3L",
+    "R2x",
+    "RHOR",
+    "RLONG",
+    "R3D",
+    "GWIN",
+    "RLONG7",
+    "PLAST",
+    "R3DxR3L",
+    "GWIN7",
+    "MECH",
+    "GWIN8",
+    "REDOSE",
+    "OVERDECAY",
+    "CURE9",
+    "SAT9",
+    "DIP9",
+    "R4",
+    "R5",
+    "R6v4"
+   ],
+   "lr_tokens": [
+    "0.3"
+   ],
+   "dose_tokens": [
+    "0"
+   ],
+   "depth_tokens": [],
+   "verdict_headline": "22/25",
+   "cells_named_v1": 2
+  }
+ ],
+ "coverage": {
+  "per_round": [
+   {
+    "round": 4,
+    "claims_sealed": 8,
+    "verdict_headline": "8/8",
+    "cells_named_v1": 1
+   },
+   {
+    "round": 5,
+    "claims_sealed": 11,
+    "verdict_headline": "11/11",
+    "cells_named_v1": 1
+   },
+   {
+    "round": 6,
+    "claims_sealed": 14,
+    "verdict_headline": "14/14",
+    "cells_named_v1": 2
+   },
+   {
+    "round": 7,
+    "claims_sealed": 18,
+    "verdict_headline": "18/18",
+    "cells_named_v1": 2
+   },
+   {
+    "round": 8,
+    "claims_sealed": 22,
+    "verdict_headline": "21/22",
+    "cells_named_v1": 1
+   },
+   {
+    "round": 9,
+    "claims_sealed": 25,
+    "verdict_headline": "22/25",
+    "cells_named_v1": 2
+   }
+  ],
+  "cumulative_claims_sealed": 98
+ },
+ "cells_v3": {
+  "total": 52,
+  "by_axis": {
+   "pace": 14,
+   "dose": 8,
+   "depth": 8,
+   "plasticity": 12,
+   "guard": 6,
+   "saturation": 2,
+   "mechanism": 2
+  },
+  "definition": "distinct (axis, dose, depth, readout) cells with a sealed finite numeric result — the 40 v2 cells reproduced identically over rounds 4-8 (receipts/run4.json, design5.json, design6.json, run6.json, design7.json, run7.json, design8.json, run8.json) PLUS the 12 round-9 receipts-level cells from receipts/run9.json (75000-depth switch ratios both arms = CURE9 NEW; saturation rho20_3 + inc3 = SAT9; mechanism wc75 pair; six window-scaled pace points = DIP9, depth-tagged 0.5x/2x against the 1x row) — fail-closed",
+  "v2_superset_check": {
+   "v2_cells": 40,
+   "byte_identical": true,
+   "round9_cells": 12
+  },
+  "cells": [
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W300",
+    "readout": "g_ratio",
+    "value": 0.2763398780999859,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W200",
+    "readout": "g_ratio",
+    "value": 0.30409957215062605,
+    "receipt": "design6.partC_gwindow"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W150",
+    "readout": "g_ratio",
+    "value": 0.25369541417668573,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W120",
+    "readout": "g_ratio",
+    "value": 0.3505612327666269,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W100",
+    "readout": "g_ratio",
+    "value": 0.34923244770336087,
+    "receipt": "run4.metrics (anchor)"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W75",
+    "readout": "g_ratio",
+    "value": 0.4033493702247352,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W60",
+    "readout": "g_ratio",
+    "value": 0.43412447386917424,
+    "receipt": "design6.partC_gwindow"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W50",
+    "readout": "g_ratio",
+    "value": 0.42714909329375844,
+    "receipt": "run7.metrics_round7 (edge, gate-nothing)"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd0",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": 0.000019382458307633484,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd1e-4",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": 0.0000053037500730242976,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd1.5e-4",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": 2.982035306975962e-7,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd2e-4",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": -0.000003778708210171146,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd2.5e-4",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": -0.000007163695533815242,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd3e-4",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": -0.000010025999770806105,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd3e-4",
+    "depth": "100000",
+    "readout": "slow_rate",
+    "value": -0.0000076771378118419,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "dose",
+    "dose": "wd1e-3",
+    "depth": "20000",
+    "readout": "slow_rate",
+    "value": -0.000028887182146357943,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp0.9",
+    "depth": "400",
+    "readout": "z_anchored",
+    "value": 3.540717612984098,
+    "receipt": "design6.partB"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp1.2",
+    "depth": "400",
+    "readout": "z_anchored",
+    "value": 3.540717612984098,
+    "receipt": "run7.chain R3DxR3L"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp0.9",
+    "depth": "1200",
+    "readout": "z_anchored",
+    "value": 2.261371983689926,
+    "receipt": "design6.partB"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp1.2",
+    "depth": "1200",
+    "readout": "z_anchored",
+    "value": 2.261371983689926,
+    "receipt": "run7.chain R3DxR3L"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp0.9",
+    "depth": "2000",
+    "readout": "z_anchored",
+    "value": 3.4081658202992458,
+    "receipt": "design6.partB"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp1.2",
+    "depth": "2000",
+    "readout": "z_anchored",
+    "value": 3.4081658202992458,
+    "receipt": "run7.chain R3DxR3L"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp0.9",
+    "depth": "2200",
+    "readout": "z_anchored",
+    "value": 3.192747264380909,
+    "receipt": "design6.partB"
+   },
+   {
+    "axis": "depth",
+    "dose": "amp1.2",
+    "depth": "2200",
+    "readout": "z_anchored",
+    "value": 3.192747264380909,
+    "receipt": "run7.chain R3DxR3L"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd0",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.7135257300287862,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd1e-4",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.7017204255152192,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd1.5e-4",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.6932745971950486,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd2e-4",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.6841500024733943,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd2.5e-4",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.6744102403950979,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd3e-4",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.6644108562180416,
+    "receipt": "run8.metrics_round8 (== design7 disclosed pin)"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd1e-3",
+    "depth": "20000",
+    "readout": "switch_ratio",
+    "value": 0.570098169081971,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd3e-4",
+    "depth": "100000",
+    "readout": "switch_ratio",
+    "value": 0.5957770637776008,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd3e-4",
+    "depth": "500000",
+    "readout": "switch_ratio",
+    "value": 0.5864036049443728,
+    "receipt": "run7.metrics_round7 (edge)"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd1e-3",
+    "depth": "100000",
+    "readout": "switch_ratio",
+    "value": 0.50858843397239,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd0",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.1693138758473519,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd1e-4",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.1698125845205748,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd1.5e-4",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.17006279337297014,
+    "receipt": "run7.metrics_round7"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd2e-4",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.1703136029297766,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd2.5e-4",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.170564930215658,
+    "receipt": "run8.metrics_round8"
+   },
+   {
+    "axis": "guard",
+    "dose": "wd3e-4",
+    "depth": "400",
+    "readout": "r1_ratio",
+    "value": 0.17081682633549816,
+    "receipt": "design6.partA"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd2e-4",
+    "depth": "75000",
+    "readout": "switch_ratio",
+    "value": 0.5507446127932,
+    "receipt": "run9.metrics_round9 (CURE9 NEW)"
+   },
+   {
+    "axis": "plasticity",
+    "dose": "wd3e-4",
+    "depth": "75000",
+    "readout": "switch_ratio",
+    "value": 0.5980059011717661,
+    "receipt": "run9.metrics_round9 (CURE9 NEW)"
+   },
+   {
+    "axis": "saturation",
+    "dose": "wd3e-4",
+    "depth": "20000",
+    "readout": "rho20_3",
+    "value": 0.9553466155442152,
+    "receipt": "run9.metrics_round9 (SAT9, third switch)"
+   },
+   {
+    "axis": "saturation",
+    "dose": "wd3e-4",
+    "depth": "20000",
+    "readout": "inc3",
+    "value": 0.0003327380566972016,
+    "receipt": "run9.metrics_round9 (SAT9, third switch)"
+   },
+   {
+    "axis": "mechanism",
+    "dose": "wd2e-4",
+    "depth": "75000",
+    "readout": "wc75",
+    "value": 8.691686529662682,
+    "receipt": "run9.metrics_round9 (round-9 mechanism leg)"
+   },
+   {
+    "axis": "mechanism",
+    "dose": "wd3e-4",
+    "depth": "75000",
+    "readout": "wc75",
+    "value": 6.443616949719879,
+    "receipt": "run9.metrics_round9 (round-9 mechanism leg)"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W100@0.5x",
+    "readout": "g_ratio",
+    "value": 0.5692660186806099,
+    "receipt": "run9.metrics_round9 (DIP9 0.5x)"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W75@0.5x",
+    "readout": "g_ratio",
+    "value": 0.6044818860554356,
+    "receipt": "run9.metrics_round9 (DIP9 0.5x)"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W60@0.5x",
+    "readout": "g_ratio",
+    "value": 0.6188174436817733,
+    "receipt": "run9.metrics_round9 (DIP9 0.5x)"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W400@2x",
+    "readout": "g_ratio",
+    "value": 0.13808047549701252,
+    "receipt": "run9.metrics_round9 (DIP9 2x)"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W300@2x",
+    "readout": "g_ratio",
+    "value": 0.1620743122201559,
+    "receipt": "run9.metrics_round9 (DIP9 2x)"
+   },
+   {
+    "axis": "pace",
+    "dose": "wd0",
+    "depth": "W240@2x",
+    "readout": "g_ratio",
+    "value": 0.14797584159818838,
+    "receipt": "run9.metrics_round9 (DIP9 2x)"
+   }
+  ]
+ },
+ "round9_resolution_inputs": [
+  {
+   "item": "cured-dose re-registration (wd 2e-4) — the dose decision",
+   "claim": "CURE9_cured_dose_reregistration",
+   "verdict": "FAIL",
+   "definitive": true
+  },
+  {
+   "item": "saturation successor (third switch, no weight reset)",
+   "claim": "SAT9_saturation_successor",
+   "verdict": "PASS",
+   "definitive": true
+  },
+  {
+   "item": "dip-law shape under W scaling",
+   "claim": "DIP9_dip_law_window_scaling",
+   "verdict": "FAIL",
+   "definitive": true
+  }
+ ],
+ "round9_resolution_leg2": "not-applicable per the v1 procedure — the round-9 agenda set is fully sealed (all three items SEALED-MEASURABLE in registration-v9.json), so leg 2 (defer-rate over an UNSEALED set) has an empty bound set",
+ "determinism_note": "stdlib Node, no wall-clock in output, fail-closed on missing rounds/receipt paths (incl. coverage-v2.json for the cross-check), non-finite cells, duplicate keys (exit 2); re-runs byte-identical on the same tree",
+ "receipt": "receipts/coverage-v3.json",
+ "registration": "registration-coverage-v3.json (sealed pre-instrument, self_sha256_masked 2c58e798…, mtime 1791000000000)",
+ "predecessor": "receipts/coverage-v2.json (rounds 4-8, v2 metric — cited by verdict-v8.md per COV2)"
+}
