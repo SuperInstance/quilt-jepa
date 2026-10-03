@@ -1,0 +1,1516 @@
+{
+ "schema": "quilt-jepa/run-receipt-v11",
+ "seed_u32": 2133245488,
+ "seed_b": 1657638767,
+ "seed_c": 2856986428,
+ "seed_d": 808219675,
+ "seed_e": 3972732037,
+ "seed_f": 3820734621,
+ "lr_registered": 0.3,
+ "tau_registered": 0.99998,
+ "K4_registered": 0.0000015,
+ "amp_registered": 0.9,
+ "round10_constants": {
+  "seedD_suffix": "|round10-worldD",
+  "seedE_suffix": "|round10-worldE",
+  "main_capture": [
+   20000,
+   30000,
+   40000,
+   50000,
+   75000,
+   100000,
+   500000
+  ],
+  "cure_capture": [
+   20000,
+   30000,
+   40000,
+   50000,
+   75000
+  ],
+  "ladder": [
+   20000,
+   30000,
+   40000,
+   50000,
+   75000
+  ],
+  "dip_scales_low": [
+   0.55,
+   0.6,
+   0.65,
+   0.7,
+   0.75,
+   0.8,
+   0.85,
+   0.9,
+   0.95
+  ],
+  "dip_scales_high": [
+   1.1,
+   1.25,
+   1.5,
+   1.75
+  ]
+ },
+ "round11_constants": {
+  "seedF_suffix": "|round11-worldF",
+  "seedF_derivation": "seedF = parseInt(sha256(selJson + \"|round11-worldF\").slice(0, 8), 16) >>> 0 — registered round-11 derivation (no new entropy), fail-closed vs registration-v11",
+  "prefix_T": 20000,
+  "prefix_invariance": "per-step arithmetic prefix-invariant — T=20000 truncation of the receipted arms",
+  "plast_steps": 400,
+  "cascade_law": "D-cascade trivial->World2(seedB)->World2(seedC)->World2(seedD)->World2(seedF); E-cascade World2(seedE)->World2(seedB)->World2(seedC)->World2(seedD)->World2(seedF); no weight reset between stages; both arms at their own dose (3e-4 / 0)",
+  "anchor_count": 40,
+  "anchor_label_note": "registration-v11 SAT11 claim text says FORTY (the pre-run-corrected count label, commit b69cf7f); the verdict_rule sentence retains the stale THIRTY-SEVEN label — the enumeration itself is unchanged and complete at FORTY legs; all FORTY bound bit-exact",
+  "carriers": [
+   "wc",
+   "first10",
+   "last10",
+   "first10/wc",
+   "last10/wc"
+  ],
+  "statistics": [
+   "S1_pooled_spearman_ties_averaged",
+   "S2_dose_gap_sign_series_necessary_condition",
+   "S3_rank_inversion_kendall_discordance"
+  ],
+  "islands_law": "F = island-L [0.55, 0.65] ∪ island-H [0.95, 1.1] at receipted resolution incl. the 1x anchor; gap {0.7-0.9}; dead zone {1.25-1.75}; G = {0.55, 0.6} ∪ {1.0, 1.1}; birth/death 0.55/1.1",
+  "washout_threshold": 0.027920190716289595,
+  "increment_curve": {
+   "rho20_1": 0.9311659387409014,
+   "rho20_2": 0.955013877487518,
+   "rho20_3": 0.9553466155442152,
+   "rho20_4": 0.9720798092837104,
+   "rho20_4_E": 0.9815072297359018,
+   "inc2": 0.023847938746616615,
+   "inc3": 0.0003327380566972016,
+   "inc4": 0.016733193739495222
+  },
+  "twin_law": "the round-11 core executed TWICE, metric shas equal (byte-identical)",
+  "spend": "exactly ONE fresh double execution (SAT11 stage-5) + prefix reproductions; CARRIER11/DIP11 zero new compute"
+ },
+ "operating_point_note": "UNCHANGED from round 4..10 (core/ byte-untouched) — ROUND 11 THE RE-PRICING ROUND: the twenty-eight round-10 claims carry BY REFERENCE (run10.json chain re-derived from GENESIS, tip cca59bd5ed10…; verdicts read verbatim; zero re-execution); CARRIER11 and DIP11 re-score existing receipt data with ZERO new compute; exactly ONE fresh confirm execution priced (SAT11 fifth switch, twin-deterministic, FORTY receipted anchors re-bound bit-exact fail-closed)",
+ "seal_verified_at_startup": {
+  "masked_sha": "24d9bc3b1d7830ffe3c20911a11204cdae546b1c35de7eb16c21ac9a3a886124",
+  "mtime": 1791200000000
+ },
+ "carried_receipt_verified_at_startup": {
+  "file_sha256": "13947bd5ea2c846b8fa796b3b1ec0ee22ca1064ac851d164d3b0b2c5d1f07da6",
+  "chain_tip": "cca59bd5ed1078406167d3c51b697eb467c8f37da1c1a3b64be2fc21f21740a3",
+  "chain_rows": 29,
+  "carried_claims": 28,
+  "carried_true": 22
+ },
+ "claims_passed": 24,
+ "claims_total": 31,
+ "verdicts": {
+  "CARRIER11_ordering_carrier_repricing_battery": true,
+  "SAT11_fifth_switch_plateau": false,
+  "DIP11_islands_of_survival": true,
+  "G_learning_sanity_gate": true,
+  "L2_difficulty_meter": true,
+  "R1_hard_world_learning": true,
+  "R2v4_pace_aware_ema": true,
+  "R3v4_percentile_normalized_surprise": true,
+  "R3L_ladder_saturation": true,
+  "R2x_k4_cross_pace": true,
+  "RHOR_finite_horizon_divergence": true,
+  "RLONG_longevity_law": true,
+  "R3D_depth_window_law": true,
+  "GWIN_g_window_law": true,
+  "RLONG7_dose_response": true,
+  "PLAST_plasticity_cost": true,
+  "R3DxR3L_composition": true,
+  "GWIN7_full_grid": true,
+  "MECH_plasticity_advantage_mechanism": false,
+  "GWIN8_low_pace_dip": true,
+  "REDOSE_main_dose_reregistration": true,
+  "OVERDECAY_over_decay_plasticity": true,
+  "CURE9_cured_dose_reregistration": false,
+  "SAT9_saturation_successor": true,
+  "DIP9_dip_law_window_scaling": false,
+  "DOSE10_dose_decision_depth_ladder": false,
+  "SAT10_fourth_switch_plateau": false,
+  "DIP10_dip_w_domain": false,
+  "R4_determinism": true,
+  "R5_mesh_conservation": true,
+  "R6v4_impact_sensitive_no_repair": true
+ },
+ "metrics_round11": {
+  "carrier11": {
+   "delta_series": [
+    0.01973914625535267,
+    0.030721487785987267,
+    0.031968810573301365,
+    0.028167362690862285,
+    -0.047261288378566135
+   ],
+   "delta_signs": [
+    1,
+    1,
+    1,
+    1,
+    -1
+   ],
+   "crossings": 1,
+   "dstar": 75000,
+   "battery": {
+    "wc": {
+     "s1_pooled_spearman": 0.9151515151515152,
+     "gap_series": [
+      1.3606326817220644,
+      1.4809770470061068,
+      1.5799007335145188,
+      1.6889870050180367,
+      2.248069579942803
+     ],
+     "gap_signs": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "s2_agreement_count": 4,
+     "s3_rank_inversions": 6,
+     "single_signed": true,
+     "single_signed_positive": true,
+     "flip_sites": [],
+     "flips_at_measured_edge": false
+    },
+    "first10": {
+     "s1_pooled_spearman": 0.6606060606060606,
+     "gap_series": [
+      0.00003530982076749761,
+      0.0000493507899842676,
+      0.00006618730886932172,
+      0.00008556210189498563,
+      0.00017428485948476182
+     ],
+     "gap_signs": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "s2_agreement_count": 4,
+     "s3_rank_inversions": 6,
+     "single_signed": true,
+     "single_signed_positive": true,
+     "flip_sites": [],
+     "flips_at_measured_edge": false
+    },
+    "last10": {
+     "s1_pooled_spearman": 0.9272727272727272,
+     "gap_series": [
+      0.00003303953221521684,
+      0.00004626577943763404,
+      0.00005677523856854964,
+      0.00006573307230282687,
+      0.00008228835880315968
+     ],
+     "gap_signs": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "s2_agreement_count": 4,
+     "s3_rank_inversions": 6,
+     "single_signed": true,
+     "single_signed_positive": true,
+     "flip_sites": [],
+     "flips_at_measured_edge": false
+    },
+    "first10/wc": {
+     "s1_pooled_spearman": -0.5636363636363636,
+     "gap_series": [
+      -0.000002458186243887604,
+      -0.0000020441607591727544,
+      -8.985303739382193e-7,
+      5.554513944309861e-7,
+      0.000008417867725037132
+     ],
+     "gap_signs": [
+      -1,
+      -1,
+      -1,
+      1,
+      1
+     ],
+     "s2_agreement_count": 1,
+     "s3_rank_inversions": 6,
+     "single_signed": false,
+     "single_signed_positive": false,
+     "flip_sites": [
+      "40000->50000"
+     ],
+     "flips_at_measured_edge": false
+    },
+    "last10/wc": {
+     "s1_pooled_spearman": 0.6242424242424243,
+     "gap_series": [
+      -7.725923600888625e-7,
+      7.580721964517336e-8,
+      9.114515510952876e-7,
+      0.0000017019911482065783,
+      0.0000025102568537641537
+     ],
+     "gap_signs": [
+      -1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "s2_agreement_count": 3,
+     "s3_rank_inversions": 6,
+     "single_signed": false,
+     "single_signed_positive": false,
+     "flip_sites": [
+      "20000->30000"
+     ],
+     "flips_at_measured_edge": false
+    }
+   },
+   "predictions": {
+    "p1": true,
+    "p2": true,
+    "p3": true,
+    "p4": true,
+    "p5": true,
+    "p6_upheld": true
+   },
+   "winner_under_rule": {
+    "rule": "the winning statistic both DETECTS and LOCALIZES the crossing on existing data",
+    "pooled_spearman": "MASKER (rho 0.9151515151515152 >= 0.9 while crossing live: 1 crossing at d* = 75000)",
+    "rank_inversion_count": "summary companion (receipted per carrier)",
+    "gap_based_order_statistic": "the only candidate with depth localization (S2)",
+    "single_factor_carrier_at_measured_edge": "NONE — no carrier gap flips at the measured edge",
+    "outcome": "no receipted single observable carries the ordering through the crossing"
+   }
+  },
+  "sat11": {
+   "prefix_reproduction": {
+    "main": {
+     "first10": 0.008204165043600227,
+     "wc_20000": 9.769638164817229,
+     "wp_20000": 22.660694952763663,
+     "executed_to": 20000,
+     "D": null
+    },
+    "ctrl": {
+     "first10": 0.008204023586316903,
+     "wc_20000": 17.808040736570447,
+     "wp_20000": 15.792360518954206,
+     "executed_to": 20000,
+     "D": null
+    }
+   },
+   "anchors_bound": [
+    {
+     "leg": "main_prefix_first10",
+     "note": "main-arm first10 (receipted 20k prefix)",
+     "receipted": 0.008204165043600227,
+     "measured": 0.008204165043600227,
+     "match": true
+    },
+    {
+     "leg": "main_prefix_wc_20000",
+     "note": "main 20k checkpoint |Wc|",
+     "receipted": 9.769638164817229,
+     "measured": 9.769638164817229,
+     "match": true
+    },
+    {
+     "leg": "main_prefix_wp_20000",
+     "note": "main 20k checkpoint |Wp|",
+     "receipted": 22.660694952763663,
+     "measured": 22.660694952763663,
+     "match": true
+    },
+    {
+     "leg": "ctrl_prefix_first10",
+     "note": "control-arm first10 (receipted 20k prefix)",
+     "receipted": 0.008204023586316903,
+     "measured": 0.008204023586316903,
+     "match": true
+    },
+    {
+     "leg": "dc_stage1_decayed",
+     "note": "D-cascade stage-1 ratio, decayed arm",
+     "receipted": 0.6644108562180416,
+     "measured": 0.6644108562180416,
+     "match": true
+    },
+    {
+     "leg": "dc_stage2_decayed",
+     "note": "D-cascade stage-2 ratio, decayed arm",
+     "receipted": 1.1268925734915027,
+     "measured": 1.1268925734915027,
+     "match": true
+    },
+    {
+     "leg": "dc_stage3_decayed",
+     "note": "D-cascade stage-3 ratio, decayed arm",
+     "receipted": 0.7025685901201354,
+     "measured": 0.7025685901201354,
+     "match": true
+    },
+    {
+     "leg": "dc_stage4_decayed",
+     "note": "D-cascade stage-4 ratio, decayed arm",
+     "receipted": 0.9491609473533265,
+     "measured": 0.9491609473533265,
+     "match": true
+    },
+    {
+     "leg": "dc_stage1_control",
+     "note": "D-cascade stage-1 ratio, control arm",
+     "receipted": 0.7135257300287862,
+     "measured": 0.7135257300287862,
+     "match": true
+    },
+    {
+     "leg": "dc_stage2_control",
+     "note": "D-cascade stage-2 ratio, control arm",
+     "receipted": 1.17997507686084,
+     "measured": 1.17997507686084,
+     "match": true
+    },
+    {
+     "leg": "dc_stage3_control",
+     "note": "D-cascade stage-3 ratio, control arm",
+     "receipted": 0.7354070016984524,
+     "measured": 0.7354070016984524,
+     "match": true
+    },
+    {
+     "leg": "dc_stage4_control",
+     "note": "D-cascade stage-4 ratio, control arm",
+     "receipted": 0.976422859819224,
+     "measured": 0.976422859819224,
+     "match": true
+    },
+    {
+     "leg": "dc_end1_sha_decayed",
+     "note": "D-cascade end-1 weight sha, decayed arm",
+     "receipted": "6cf16e0682a8bf41fb14a41f09b8197f0207c1410f86555e82a2abed14afed56",
+     "measured": "6cf16e0682a8bf41fb14a41f09b8197f0207c1410f86555e82a2abed14afed56",
+     "match": true
+    },
+    {
+     "leg": "dc_end1_sha_control",
+     "note": "D-cascade end-1 weight sha, control arm",
+     "receipted": "b929579e3159fa5e7e5b5f530c0277140fa9089be76ca64e6751987fcb7c7c85",
+     "measured": "b929579e3159fa5e7e5b5f530c0277140fa9089be76ca64e6751987fcb7c7c85",
+     "match": true
+    },
+    {
+     "leg": "dc_end2_wc_decayed",
+     "note": "D-cascade end-2 |Wc|, decayed arm",
+     "receipted": 9.467373780715064,
+     "measured": 9.467373780715064,
+     "match": true
+    },
+    {
+     "leg": "dc_end2_wc_control",
+     "note": "D-cascade end-2 |Wc|, control arm",
+     "receipted": 17.693144881570092,
+     "measured": 17.693144881570092,
+     "match": true
+    },
+    {
+     "leg": "dc_end3_wc_decayed",
+     "note": "D-cascade end-3 |Wc|, decayed arm",
+     "receipted": 9.38074682340556,
+     "measured": 9.38074682340556,
+     "match": true
+    },
+    {
+     "leg": "dc_end3_wc_control",
+     "note": "D-cascade end-3 |Wc|, control arm",
+     "receipted": 17.679359103847727,
+     "measured": 17.679359103847727,
+     "match": true
+    },
+    {
+     "leg": "dc_end4_wc_decayed",
+     "note": "D-cascade end-4 |Wc|, decayed arm",
+     "receipted": 9.364991121950265,
+     "measured": 9.364991121950265,
+     "match": true
+    },
+    {
+     "leg": "dc_end4_wc_control",
+     "note": "D-cascade end-4 |Wc|, control arm",
+     "receipted": 17.760185404934926,
+     "measured": 17.760185404934926,
+     "match": true
+    },
+    {
+     "leg": "dc_stage4_first10_decayed",
+     "note": "D-cascade stage-4 first10, decayed arm",
+     "receipted": 0.00063373491123632,
+     "measured": 0.00063373491123632,
+     "match": true
+    },
+    {
+     "leg": "dc_stage4_last10_decayed",
+     "note": "D-cascade stage-4 last10, decayed arm",
+     "receipted": 0.0006015164287199417,
+     "measured": 0.0006015164287199417,
+     "match": true
+    },
+    {
+     "leg": "dc_stage4_first10_control",
+     "note": "D-cascade stage-4 first10, control arm",
+     "receipted": 0.0008566096964317725,
+     "measured": 0.0008566096964317725,
+     "match": true
+    },
+    {
+     "leg": "dc_stage4_last10_control",
+     "note": "D-cascade stage-4 last10, control arm",
+     "receipted": 0.0008364132895387887,
+     "measured": 0.0008364132895387887,
+     "match": true
+    },
+    {
+     "leg": "ec_stage1_decayed",
+     "note": "E-cascade stage-1 ratio, decayed arm",
+     "receipted": 0.6937080013378479,
+     "measured": 0.6937080013378479,
+     "match": true
+    },
+    {
+     "leg": "ec_stage2_decayed",
+     "note": "E-cascade stage-2 ratio, decayed arm",
+     "receipted": 1.1560282592302051,
+     "measured": 1.1560282592302051,
+     "match": true
+    },
+    {
+     "leg": "ec_stage3_decayed",
+     "note": "E-cascade stage-3 ratio, decayed arm",
+     "receipted": 0.6931542618895913,
+     "measured": 0.6931542618895913,
+     "match": true
+    },
+    {
+     "leg": "ec_stage4_decayed",
+     "note": "E-cascade stage-4 ratio, decayed arm",
+     "receipted": 0.9595995448457966,
+     "measured": 0.9595995448457966,
+     "match": true
+    },
+    {
+     "leg": "ec_stage1_control",
+     "note": "E-cascade stage-1 ratio, control arm",
+     "receipted": 0.7339388216462988,
+     "measured": 0.7339388216462988,
+     "match": true
+    },
+    {
+     "leg": "ec_stage2_control",
+     "note": "E-cascade stage-2 ratio, control arm",
+     "receipted": 1.1899577897104565,
+     "measured": 1.1899577897104565,
+     "match": true
+    },
+    {
+     "leg": "ec_stage3_control",
+     "note": "E-cascade stage-3 ratio, control arm",
+     "receipted": 0.7320487218963793,
+     "measured": 0.7320487218963793,
+     "match": true
+    },
+    {
+     "leg": "ec_stage4_control",
+     "note": "E-cascade stage-4 ratio, control arm",
+     "receipted": 0.9776795481211076,
+     "measured": 0.9776795481211076,
+     "match": true
+    },
+    {
+     "leg": "ec_stage1_first10_control",
+     "note": "E-cascade stage-1 first10, control arm",
+     "receipted": 0.0011696976612871703,
+     "measured": 0.0011696976612871703,
+     "match": true
+    },
+    {
+     "leg": "ec_stage1_last10_control",
+     "note": "E-cascade stage-1 last10, control arm",
+     "receipted": 0.0008584865232075373,
+     "measured": 0.0008584865232075373,
+     "match": true
+    },
+    {
+     "leg": "ec_stage4_first10_decayed",
+     "note": "E-cascade stage-4 first10, decayed arm",
+     "receipted": 0.0006220738298734279,
+     "measured": 0.0006220738298734279,
+     "match": true
+    },
+    {
+     "leg": "ec_stage4_last10_decayed",
+     "note": "E-cascade stage-4 last10, decayed arm",
+     "receipted": 0.0005969417640070229,
+     "measured": 0.0005969417640070229,
+     "match": true
+    },
+    {
+     "leg": "ec_stage4_first10_control",
+     "note": "E-cascade stage-4 first10, control arm",
+     "receipted": 0.0008490242254007265,
+     "measured": 0.0008490242254007265,
+     "match": true
+    },
+    {
+     "leg": "ec_stage4_last10_control",
+     "note": "E-cascade stage-4 last10, control arm",
+     "receipted": 0.0008300736210336557,
+     "measured": 0.0008300736210336557,
+     "match": true
+    },
+    {
+     "leg": "ec_end4_wc_decayed",
+     "note": "E-cascade end-4 |Wc|, decayed arm",
+     "receipted": 9.38646432529357,
+     "measured": 9.38646432529357,
+     "match": true
+    },
+    {
+     "leg": "ec_end4_wc_control",
+     "note": "E-cascade end-4 |Wc|, control arm",
+     "receipted": 17.76983578233187,
+     "measured": 17.76983578233187,
+     "match": true
+    }
+   ],
+   "anchors_all_bit_exact": true,
+   "twin": {
+    "sha_exec1": "450a8560062518b099a2bca74690d33adc78bc48ebd68fa67ac7544cdc7e09f5",
+    "sha_exec2": "450a8560062518b099a2bca74690d33adc78bc48ebd68fa67ac7544cdc7e09f5",
+    "byte_identical": true
+   },
+   "stage5": {
+    "dc_ratio5_decayed": 0.6053785225377458,
+    "dc_ratio5_control": 0.6541856184998757,
+    "dc_first10_5": {
+     "decayed": 0.0008404286270119329,
+     "control": 0.0011401831308274256
+    },
+    "dc_last10_5": {
+     "decayed": 0.0005087774405189102,
+     "control": 0.0007458914066434641
+    },
+    "rho20_5": 0.9253925880026983,
+    "inc5": -0.0466872212810121,
+    "dc_end5_wc": {
+     "decayed": 9.316914905905948,
+     "control": 17.795979296040215
+    },
+    "ec_ratio5_decayed": 0.6063445131390993,
+    "ec_ratio5_control": 0.6568415511147861,
+    "ec_first10_5": {
+     "decayed": 0.0008397255789840085,
+     "control": 0.0011413244179110933
+    },
+    "ec_last10_5": {
+     "decayed": 0.0005091629973595069,
+     "control": 0.0007496693009859029
+    },
+    "rho20_5_E": 0.9231214318126134,
+    "inc5_E": -0.05838579792328835,
+    "ec_end5_wc": {
+     "decayed": 9.332620770305324,
+     "control": 17.80730393706955
+    },
+    "branch": "DEGRADATION",
+    "branch_note": "the advantage shrinks, contradicting the receipted monotone-plateau law (priced FAIL)",
+    "e_cascade_control_leg": true,
+    "composition_leg_D": true,
+    "composition_leg_E": true,
+    "physics_pass": false,
+    "infra_pass": true,
+    "verdict": false
+   },
+   "curve": {
+    "rho20_1": 0.9311659387409014,
+    "rho20_2": 0.955013877487518,
+    "rho20_3": 0.9553466155442152,
+    "rho20_4": 0.9720798092837104,
+    "rho20_4_E": 0.9815072297359018,
+    "inc2": 0.023847938746616615,
+    "inc3": 0.0003327380566972016,
+    "inc4": 0.016733193739495222
+   },
+   "washout_threshold": 0.027920190716289595,
+   "threshold_over_inc4": 1.6685512132922835,
+   "geometric_inc5": 0.8415020977846475,
+   "secular_band": [
+    0.016733193739495222,
+    0.023847938746616615
+   ],
+   "secular_cap_runtime": 0.995927748030327,
+   "void_bound": 0.9888130030232056
+  },
+  "dip11": {
+   "true_set": [
+    "0.55",
+    "0.6",
+    "0.65",
+    "0.95",
+    "1.0",
+    "1.1"
+   ],
+   "false_scales": [
+    "0.7",
+    "0.75",
+    "0.8",
+    "0.85",
+    "0.9",
+    "1.25",
+    "1.5",
+    "1.75"
+   ],
+   "axis": [
+    "0.55",
+    "0.6",
+    "0.65",
+    "0.7",
+    "0.75",
+    "0.8",
+    "0.85",
+    "0.9",
+    "0.95",
+    "1.0",
+    "1.1",
+    "1.25",
+    "1.5",
+    "1.75"
+   ],
+   "flip_edges": [
+    "0.65->0.7",
+    "0.9->0.95",
+    "1.1->1.25"
+   ],
+   "full_axis_flips": 3,
+   "gate_set": [
+    "0.55",
+    "0.6",
+    "1.0",
+    "1.1"
+   ],
+   "sub_gate_survivors": [
+    "0.65",
+    "0.95"
+   ],
+   "oneX_anchor": {
+    "dipmag": 0.0736349882819407,
+    "g015": 0.30409957215062605,
+    "g020": 0.25369541417668573,
+    "g025": 0.3505612327666269,
+    "localmin": true
+   },
+   "predictions": {
+    "q1": true,
+    "q2": true,
+    "q3": true,
+    "q4": true,
+    "q5": true
+   }
+  },
+  "carried": {
+   "file_sha256": "13947bd5ea2c846b8fa796b3b1ec0ee22ca1064ac851d164d3b0b2c5d1f07da6",
+   "chain_tip": "cca59bd5ed1078406167d3c51b697eb467c8f37da1c1a3b64be2fc21f21740a3",
+   "carried_verdicts": {
+    "G_learning_sanity_gate": true,
+    "L2_difficulty_meter": true,
+    "R1_hard_world_learning": true,
+    "R2v4_pace_aware_ema": true,
+    "R3v4_percentile_normalized_surprise": true,
+    "R3L_ladder_saturation": true,
+    "R2x_k4_cross_pace": true,
+    "RHOR_finite_horizon_divergence": true,
+    "RLONG_longevity_law": true,
+    "R3D_depth_window_law": true,
+    "GWIN_g_window_law": true,
+    "RLONG7_dose_response": true,
+    "PLAST_plasticity_cost": true,
+    "R3DxR3L_composition": true,
+    "GWIN7_full_grid": true,
+    "MECH_plasticity_advantage_mechanism": false,
+    "GWIN8_low_pace_dip": true,
+    "REDOSE_main_dose_reregistration": true,
+    "OVERDECAY_over_decay_plasticity": true,
+    "CURE9_cured_dose_reregistration": false,
+    "SAT9_saturation_successor": true,
+    "DIP9_dip_law_window_scaling": false,
+    "DOSE10_dose_decision_depth_ladder": false,
+    "SAT10_fourth_switch_plateau": false,
+    "DIP10_dip_w_domain": false,
+    "R4_determinism": true,
+    "R5_mesh_conservation": true,
+    "R6v4_impact_sensitive_no_repair": true
+   },
+   "carried_claims_passed": 22,
+   "carried_claims_total": 28
+  }
+ },
+ "chain": [
+  {
+   "i": 0,
+   "id": "header#0",
+   "type": "header",
+   "payload": {
+    "repo": "quilt-jepa",
+    "round": 11,
+    "executed_in": "wave 66 (lane 66-b-r2, resuming the sealed 66-b registration state)",
+    "seed_u32": 2133245488,
+    "seed_b": 1657638767,
+    "seed_c": 2856986428,
+    "seed_d": 808219675,
+    "seed_e": 3972732037,
+    "seed_f": 3820734621,
+    "seed_f_derivation": "seedF = parseInt(sha256(selJson + \"|round11-worldF\").slice(0, 8), 16) >>> 0 — registered round-11 derivation from the SAME certified seed receipt (no new entropy), fail-closed vs registration-v11 (3820734621)",
+    "seed_provenance": "seedU32/B/C/D/E re-bound fail-closed vs run10.seed_*; seedF vs registration-v11",
+    "lr_registered": 0.3,
+    "tau_registered": 0.99998,
+    "K4_registered": 0.0000015,
+    "amp_registered": 0.9,
+    "registration": "registration-v11.json (sealed pre-run, self_sha256_masked 24d9bc3b1d78… + mtime 1791200000000; RE-VERIFIED fail-closed at this run's startup)",
+    "carried_receipt": "receipts/run10.json carried BY REFERENCE (file sha256 13947bd5ea2c… bound fail-closed; hash chain re-derived from GENESIS row-by-row, tip cca59bd5ed10…; 28 verdict booleans read verbatim; zero carried re-execution)",
+    "spend_discipline": "exactly ONE fresh deterministic double execution (the SAT11 confirm run, twin law) + prefix reproductions; CARRIER11 and DIP11 are zero-compute re-scorings of existing receipts"
+   },
+   "prev": "JEPA-GENESIS-1",
+   "sha": "aa3c460fd92c4eea950e55315f28e578fc4223588a8e2b53c93bb66f0c74bc1e"
+  },
+  {
+   "i": 1,
+   "id": "CARRIER11_ordering_carrier_repricing_battery#1",
+   "type": "CARRIER11_ordering_carrier_repricing_battery",
+   "payload": {
+    "claim": "THE ORDERING-CARRIER RE-PRICING BATTERY on the EXISTING run-10 receipt data (zero new compute): three statistics (S1 pooled Spearman — the wc baseline re-derived 0.9151515151515152 bit-exact; S2 per-depth dose-gap sign series with the necessary-condition test; S3 rank-inversion count) applied to five carriers (wc baseline, first10, last10, first10/wc, last10/wc) on the receipted DOSE10 ladder",
+    "zero_new_compute": true,
+    "source": "receipts/run10.json metrics_round10 (chain tip cca59bd5ed10…)",
+    "delta_series_rederived_bit_exact": true,
+    "delta_series": [
+     0.01973914625535267,
+     0.030721487785987267,
+     0.031968810573301365,
+     0.028167362690862285,
+     -0.047261288378566135
+    ],
+    "delta_signs": [
+     1,
+     1,
+     1,
+     1,
+     -1
+    ],
+    "crossings": 1,
+    "dstar": 75000,
+    "battery": {
+     "wc": {
+      "s1_pooled_spearman": 0.9151515151515152,
+      "gap_series": [
+       1.3606326817220644,
+       1.4809770470061068,
+       1.5799007335145188,
+       1.6889870050180367,
+       2.248069579942803
+      ],
+      "gap_signs": [
+       1,
+       1,
+       1,
+       1,
+       1
+      ],
+      "s2_agreement_count": 4,
+      "s3_rank_inversions": 6,
+      "single_signed": true,
+      "single_signed_positive": true,
+      "flip_sites": [],
+      "flips_at_measured_edge": false
+     },
+     "first10": {
+      "s1_pooled_spearman": 0.6606060606060606,
+      "gap_series": [
+       0.00003530982076749761,
+       0.0000493507899842676,
+       0.00006618730886932172,
+       0.00008556210189498563,
+       0.00017428485948476182
+      ],
+      "gap_signs": [
+       1,
+       1,
+       1,
+       1,
+       1
+      ],
+      "s2_agreement_count": 4,
+      "s3_rank_inversions": 6,
+      "single_signed": true,
+      "single_signed_positive": true,
+      "flip_sites": [],
+      "flips_at_measured_edge": false
+     },
+     "last10": {
+      "s1_pooled_spearman": 0.9272727272727272,
+      "gap_series": [
+       0.00003303953221521684,
+       0.00004626577943763404,
+       0.00005677523856854964,
+       0.00006573307230282687,
+       0.00008228835880315968
+      ],
+      "gap_signs": [
+       1,
+       1,
+       1,
+       1,
+       1
+      ],
+      "s2_agreement_count": 4,
+      "s3_rank_inversions": 6,
+      "single_signed": true,
+      "single_signed_positive": true,
+      "flip_sites": [],
+      "flips_at_measured_edge": false
+     },
+     "first10/wc": {
+      "s1_pooled_spearman": -0.5636363636363636,
+      "gap_series": [
+       -0.000002458186243887604,
+       -0.0000020441607591727544,
+       -8.985303739382193e-7,
+       5.554513944309861e-7,
+       0.000008417867725037132
+      ],
+      "gap_signs": [
+       -1,
+       -1,
+       -1,
+       1,
+       1
+      ],
+      "s2_agreement_count": 1,
+      "s3_rank_inversions": 6,
+      "single_signed": false,
+      "single_signed_positive": false,
+      "flip_sites": [
+       "40000->50000"
+      ],
+      "flips_at_measured_edge": false
+     },
+     "last10/wc": {
+      "s1_pooled_spearman": 0.6242424242424243,
+      "gap_series": [
+       -7.725923600888625e-7,
+       7.580721964517336e-8,
+       9.114515510952876e-7,
+       0.0000017019911482065783,
+       0.0000025102568537641537
+      ],
+      "gap_signs": [
+       -1,
+       1,
+       1,
+       1,
+       1
+      ],
+      "s2_agreement_count": 3,
+      "s3_rank_inversions": 6,
+      "single_signed": false,
+      "single_signed_positive": false,
+      "flip_sites": [
+       "20000->30000"
+      ],
+      "flips_at_measured_edge": false
+     }
+    },
+    "predictions": {
+     "P1_baseline_bit_exact": true,
+     "P2_hump_real_strict_interior_max_at_40000": true,
+     "P3_wc_f10_l10_single_signed_positive_necessary_condition_fails": true,
+     "P4_normalized_carriers_flip_offsite": true,
+     "P5_winner_rule_of_record_applied": true,
+     "P5_masker_fires": true,
+     "P5_companion_computed": true,
+     "P5_s2_only_depth_resolved": true,
+     "P6_multi_factor_repricing": "UPHELD and SHARPENED — no receipted single observable carries the ordering through the crossing"
+    },
+    "winner_under_rule": {
+     "rule": "the winning statistic both DETECTS and LOCALIZES the crossing on existing data",
+     "pooled_spearman": "MASKER (rho 0.9151515151515152 >= 0.9 while crossing live: 1 crossing at d* = 75000)",
+     "rank_inversion_count": "summary companion (receipted per carrier)",
+     "gap_based_order_statistic": "the only candidate with depth localization (S2)",
+     "single_factor_carrier_at_measured_edge": "NONE — no carrier gap flips at the measured edge",
+     "outcome": "no receipted single observable carries the ordering through the crossing"
+    },
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "aa3c460fd92c4eea950e55315f28e578fc4223588a8e2b53c93bb66f0c74bc1e",
+   "sha": "a92598eb3782929bb269e985d363d8bb3341570b820301fe5e1ec381e36d4cf6"
+  },
+  {
+   "i": 2,
+   "id": "SAT11_fifth_switch_plateau#2",
+   "type": "SAT11_fifth_switch_plateau",
+   "payload": {
+    "claim": "THE FIFTH SWITCH on BOTH cascades, priced on the receipted increment curve BEFORE the confirm run; the confirm run reproduces both arms' 20000-step prefixes arithmetic-identically with FORTY receipted anchors re-bound bit-exact fail-closed, then measures stage-5 (400-step window on World2(seedF = 3820734621), no weight reset, from each cascade's end-4 state, both arms at their own dose)",
+    "increment_curve": {
+     "rho20_1": 0.9311659387409014,
+     "rho20_2": 0.955013877487518,
+     "rho20_3": 0.9553466155442152,
+     "rho20_4": 0.9720798092837104,
+     "rho20_4_E": 0.9815072297359018,
+     "inc2": 0.023847938746616615,
+     "inc3": 0.0003327380566972016,
+     "inc4": 0.016733193739495222
+    },
+    "washout_threshold_of_record": 0.027920190716289595,
+    "threshold_over_inc4": 1.6685512132922835,
+    "extrapolations_of_record": {
+     "geometric_continuation_inc5": 0.8415020977846475,
+     "secular_continuation_band": [
+      0.016733193739495222,
+      0.023847938746616615
+     ],
+     "absorbed_band_cap": 0.995927748030327,
+     "void_branch_bound": 0.9888130030232056,
+     "note": "findings receipted at registration; they gate nothing — the confirm run discriminates"
+    },
+    "prefix_reproduction": {
+     "main_T": 20000,
+     "main_stop": "registered",
+     "ctrl_T": 20000,
+     "ctrl_stop": "contrast",
+     "prefix_invariance": "the per-step arithmetic is prefix-invariant — the T=20000 truncation reproduces the receipted 5e5/1e5 arms' 20k prefixes bit-exactly (anchors below)",
+     "main_executed_to": 20000,
+     "ctrl_executed_to": 20000
+    },
+    "anchors": {
+     "registered_count_text": 40,
+     "verdict_rule_stale_label": 37,
+     "bound": "40/40",
+     "legs": [
+      {
+       "leg": "main_prefix_first10",
+       "note": "main-arm first10 (receipted 20k prefix)",
+       "receipted": 0.008204165043600227,
+       "measured": 0.008204165043600227,
+       "match": true
+      },
+      {
+       "leg": "main_prefix_wc_20000",
+       "note": "main 20k checkpoint |Wc|",
+       "receipted": 9.769638164817229,
+       "measured": 9.769638164817229,
+       "match": true
+      },
+      {
+       "leg": "main_prefix_wp_20000",
+       "note": "main 20k checkpoint |Wp|",
+       "receipted": 22.660694952763663,
+       "measured": 22.660694952763663,
+       "match": true
+      },
+      {
+       "leg": "ctrl_prefix_first10",
+       "note": "control-arm first10 (receipted 20k prefix)",
+       "receipted": 0.008204023586316903,
+       "measured": 0.008204023586316903,
+       "match": true
+      },
+      {
+       "leg": "dc_stage1_decayed",
+       "note": "D-cascade stage-1 ratio, decayed arm",
+       "receipted": 0.6644108562180416,
+       "measured": 0.6644108562180416,
+       "match": true
+      },
+      {
+       "leg": "dc_stage2_decayed",
+       "note": "D-cascade stage-2 ratio, decayed arm",
+       "receipted": 1.1268925734915027,
+       "measured": 1.1268925734915027,
+       "match": true
+      },
+      {
+       "leg": "dc_stage3_decayed",
+       "note": "D-cascade stage-3 ratio, decayed arm",
+       "receipted": 0.7025685901201354,
+       "measured": 0.7025685901201354,
+       "match": true
+      },
+      {
+       "leg": "dc_stage4_decayed",
+       "note": "D-cascade stage-4 ratio, decayed arm",
+       "receipted": 0.9491609473533265,
+       "measured": 0.9491609473533265,
+       "match": true
+      },
+      {
+       "leg": "dc_stage1_control",
+       "note": "D-cascade stage-1 ratio, control arm",
+       "receipted": 0.7135257300287862,
+       "measured": 0.7135257300287862,
+       "match": true
+      },
+      {
+       "leg": "dc_stage2_control",
+       "note": "D-cascade stage-2 ratio, control arm",
+       "receipted": 1.17997507686084,
+       "measured": 1.17997507686084,
+       "match": true
+      },
+      {
+       "leg": "dc_stage3_control",
+       "note": "D-cascade stage-3 ratio, control arm",
+       "receipted": 0.7354070016984524,
+       "measured": 0.7354070016984524,
+       "match": true
+      },
+      {
+       "leg": "dc_stage4_control",
+       "note": "D-cascade stage-4 ratio, control arm",
+       "receipted": 0.976422859819224,
+       "measured": 0.976422859819224,
+       "match": true
+      },
+      {
+       "leg": "dc_end1_sha_decayed",
+       "note": "D-cascade end-1 weight sha, decayed arm",
+       "receipted": "6cf16e0682a8bf41fb14a41f09b8197f0207c1410f86555e82a2abed14afed56",
+       "measured": "6cf16e0682a8bf41fb14a41f09b8197f0207c1410f86555e82a2abed14afed56",
+       "match": true
+      },
+      {
+       "leg": "dc_end1_sha_control",
+       "note": "D-cascade end-1 weight sha, control arm",
+       "receipted": "b929579e3159fa5e7e5b5f530c0277140fa9089be76ca64e6751987fcb7c7c85",
+       "measured": "b929579e3159fa5e7e5b5f530c0277140fa9089be76ca64e6751987fcb7c7c85",
+       "match": true
+      },
+      {
+       "leg": "dc_end2_wc_decayed",
+       "note": "D-cascade end-2 |Wc|, decayed arm",
+       "receipted": 9.467373780715064,
+       "measured": 9.467373780715064,
+       "match": true
+      },
+      {
+       "leg": "dc_end2_wc_control",
+       "note": "D-cascade end-2 |Wc|, control arm",
+       "receipted": 17.693144881570092,
+       "measured": 17.693144881570092,
+       "match": true
+      },
+      {
+       "leg": "dc_end3_wc_decayed",
+       "note": "D-cascade end-3 |Wc|, decayed arm",
+       "receipted": 9.38074682340556,
+       "measured": 9.38074682340556,
+       "match": true
+      },
+      {
+       "leg": "dc_end3_wc_control",
+       "note": "D-cascade end-3 |Wc|, control arm",
+       "receipted": 17.679359103847727,
+       "measured": 17.679359103847727,
+       "match": true
+      },
+      {
+       "leg": "dc_end4_wc_decayed",
+       "note": "D-cascade end-4 |Wc|, decayed arm",
+       "receipted": 9.364991121950265,
+       "measured": 9.364991121950265,
+       "match": true
+      },
+      {
+       "leg": "dc_end4_wc_control",
+       "note": "D-cascade end-4 |Wc|, control arm",
+       "receipted": 17.760185404934926,
+       "measured": 17.760185404934926,
+       "match": true
+      },
+      {
+       "leg": "dc_stage4_first10_decayed",
+       "note": "D-cascade stage-4 first10, decayed arm",
+       "receipted": 0.00063373491123632,
+       "measured": 0.00063373491123632,
+       "match": true
+      },
+      {
+       "leg": "dc_stage4_last10_decayed",
+       "note": "D-cascade stage-4 last10, decayed arm",
+       "receipted": 0.0006015164287199417,
+       "measured": 0.0006015164287199417,
+       "match": true
+      },
+      {
+       "leg": "dc_stage4_first10_control",
+       "note": "D-cascade stage-4 first10, control arm",
+       "receipted": 0.0008566096964317725,
+       "measured": 0.0008566096964317725,
+       "match": true
+      },
+      {
+       "leg": "dc_stage4_last10_control",
+       "note": "D-cascade stage-4 last10, control arm",
+       "receipted": 0.0008364132895387887,
+       "measured": 0.0008364132895387887,
+       "match": true
+      },
+      {
+       "leg": "ec_stage1_decayed",
+       "note": "E-cascade stage-1 ratio, decayed arm",
+       "receipted": 0.6937080013378479,
+       "measured": 0.6937080013378479,
+       "match": true
+      },
+      {
+       "leg": "ec_stage2_decayed",
+       "note": "E-cascade stage-2 ratio, decayed arm",
+       "receipted": 1.1560282592302051,
+       "measured": 1.1560282592302051,
+       "match": true
+      },
+      {
+       "leg": "ec_stage3_decayed",
+       "note": "E-cascade stage-3 ratio, decayed arm",
+       "receipted": 0.6931542618895913,
+       "measured": 0.6931542618895913,
+       "match": true
+      },
+      {
+       "leg": "ec_stage4_decayed",
+       "note": "E-cascade stage-4 ratio, decayed arm",
+       "receipted": 0.9595995448457966,
+       "measured": 0.9595995448457966,
+       "match": true
+      },
+      {
+       "leg": "ec_stage1_control",
+       "note": "E-cascade stage-1 ratio, control arm",
+       "receipted": 0.7339388216462988,
+       "measured": 0.7339388216462988,
+       "match": true
+      },
+      {
+       "leg": "ec_stage2_control",
+       "note": "E-cascade stage-2 ratio, control arm",
+       "receipted": 1.1899577897104565,
+       "measured": 1.1899577897104565,
+       "match": true
+      },
+      {
+       "leg": "ec_stage3_control",
+       "note": "E-cascade stage-3 ratio, control arm",
+       "receipted": 0.7320487218963793,
+       "measured": 0.7320487218963793,
+       "match": true
+      },
+      {
+       "leg": "ec_stage4_control",
+       "note": "E-cascade stage-4 ratio, control arm",
+       "receipted": 0.9776795481211076,
+       "measured": 0.9776795481211076,
+       "match": true
+      },
+      {
+       "leg": "ec_stage1_first10_control",
+       "note": "E-cascade stage-1 first10, control arm",
+       "receipted": 0.0011696976612871703,
+       "measured": 0.0011696976612871703,
+       "match": true
+      },
+      {
+       "leg": "ec_stage1_last10_control",
+       "note": "E-cascade stage-1 last10, control arm",
+       "receipted": 0.0008584865232075373,
+       "measured": 0.0008584865232075373,
+       "match": true
+      },
+      {
+       "leg": "ec_stage4_first10_decayed",
+       "note": "E-cascade stage-4 first10, decayed arm",
+       "receipted": 0.0006220738298734279,
+       "measured": 0.0006220738298734279,
+       "match": true
+      },
+      {
+       "leg": "ec_stage4_last10_decayed",
+       "note": "E-cascade stage-4 last10, decayed arm",
+       "receipted": 0.0005969417640070229,
+       "measured": 0.0005969417640070229,
+       "match": true
+      },
+      {
+       "leg": "ec_stage4_first10_control",
+       "note": "E-cascade stage-4 first10, control arm",
+       "receipted": 0.0008490242254007265,
+       "measured": 0.0008490242254007265,
+       "match": true
+      },
+      {
+       "leg": "ec_stage4_last10_control",
+       "note": "E-cascade stage-4 last10, control arm",
+       "receipted": 0.0008300736210336557,
+       "measured": 0.0008300736210336557,
+       "match": true
+      },
+      {
+       "leg": "ec_end4_wc_decayed",
+       "note": "E-cascade end-4 |Wc|, decayed arm",
+       "receipted": 9.38646432529357,
+       "measured": 9.38646432529357,
+       "match": true
+      },
+      {
+       "leg": "ec_end4_wc_control",
+       "note": "E-cascade end-4 |Wc|, control arm",
+       "receipted": 17.76983578233187,
+       "measured": 17.76983578233187,
+       "match": true
+      }
+     ],
+     "all_bit_exact": true
+    },
+    "twin_law": {
+     "executed_twice": true,
+     "sha_exec1": "450a8560062518b099a2bca74690d33adc78bc48ebd68fa67ac7544cdc7e09f5",
+     "sha_exec2": "450a8560062518b099a2bca74690d33adc78bc48ebd68fa67ac7544cdc7e09f5",
+     "byte_identical": true
+    },
+    "stage5": {
+     "seedF": 3820734621,
+     "world": "World2(seedF)",
+     "steps": 400,
+     "no_weight_reset": true,
+     "first_measured_in": "this round-11 receipt-of-record run",
+     "dc": {
+      "ratio5_decayed": 0.6053785225377458,
+      "ratio5_control": 0.6541856184998757,
+      "rho20_5": 0.9253925880026983,
+      "inc5": -0.0466872212810121,
+      "first10_5": {
+       "decayed": 0.0008404286270119329,
+       "control": 0.0011401831308274256
+      },
+      "last10_5": {
+       "decayed": 0.0005087774405189102,
+       "control": 0.0007458914066434641
+      },
+      "end5_wc": {
+       "decayed": 9.316914905905948,
+       "control": 17.795979296040215
+      }
+     },
+     "ec": {
+      "ratio5_decayed": 0.6063445131390993,
+      "ratio5_control": 0.6568415511147861,
+      "rho20_5_E": 0.9231214318126134,
+      "inc5_E": -0.05838579792328835,
+      "first10_5": {
+       "decayed": 0.0008397255789840085,
+       "control": 0.0011413244179110933
+      },
+      "last10_5": {
+       "decayed": 0.0005091629973595069,
+       "control": 0.0007496693009859029
+      },
+      "end5_wc": {
+       "decayed": 9.332620770305324,
+       "control": 17.80730393706955
+      }
+     }
+    },
+    "branch": {
+     "landed": "DEGRADATION",
+     "note": "the advantage shrinks, contradicting the receipted monotone-plateau law (priced FAIL)",
+     "registered_pass_branch": "ABSORBED (inc5 <= inc4 AND rho20_5 in [rho20_4, 1))"
+    },
+    "registered_legs": {
+     "e_cascade_control_leg_rho20_5E_lt_1": true,
+     "composition_end5_wc_decayed_lt_control_D": true,
+     "composition_end5_wc_decayed_lt_control_E": true
+    },
+    "physics_pass": false,
+    "infra_pass": true,
+    "pass": false,
+    "fired_branch": "DEGRADATION"
+   },
+   "prev": "a92598eb3782929bb269e985d363d8bb3341570b820301fe5e1ec381e36d4cf6",
+   "sha": "6f04f504fe8934f9ed55300c743251a0a88a3e0383ffa6b1fa3c1664ee7a0e9e"
+  },
+  {
+   "i": 3,
+   "id": "DIP11_islands_of_survival#3",
+   "type": "DIP11_islands_of_survival",
+   "payload": {
+    "claim": "THE FRAGMENTED W-DOMAIN RE-REGISTERED AS ISLANDS-OF-SURVIVAL on the existing receipt data (zero new compute): F = island-L [0.55, 0.65] ∪ island-H [0.95, 1.1] at the receipted resolution incl. the receipted 1x anchor interior to island-H; the gap (0.7-0.9) and the dead zone (1.25-1.75) are parts of the law; gate set G = {0.55, 0.6} ∪ {1.0, 1.1}",
+    "zero_new_compute": true,
+    "source": "receipts/run10.json metrics_round10.r10_dip_scan + the receipted 1x anchor (metrics_round9.r9_dipmag_1x + the GWIN8 grid row)",
+    "islands": {
+     "L": [
+      0.55,
+      0.65
+     ],
+     "H": [
+      0.95,
+      1.1
+     ]
+    },
+    "oneX_anchor": {
+     "dipmag": 0.0736349882819407,
+     "g015": 0.30409957215062605,
+     "g020": 0.25369541417668573,
+     "g025": 0.3505612327666269,
+     "localmin": true
+    },
+    "true_set": [
+     "0.55",
+     "0.6",
+     "0.65",
+     "0.95",
+     "1.0",
+     "1.1"
+    ],
+    "false_scales": [
+     "0.7",
+     "0.75",
+     "0.8",
+     "0.85",
+     "0.9",
+     "1.25",
+     "1.5",
+     "1.75"
+    ],
+    "full_axis": [
+     "0.55",
+     "0.6",
+     "0.65",
+     "0.7",
+     "0.75",
+     "0.8",
+     "0.85",
+     "0.9",
+     "0.95",
+     "1.0",
+     "1.1",
+     "1.25",
+     "1.5",
+     "1.75"
+    ],
+    "flip_edges": [
+     "0.65->0.7",
+     "0.9->0.95",
+     "1.1->1.25"
+    ],
+    "full_axis_flips": 3,
+    "low_flips_receipted": 2,
+    "high_flips_receipted": 1,
+    "gate_set": [
+     "0.55",
+     "0.6",
+     "1.0",
+     "1.1"
+    ],
+    "sub_gate_survivors": [
+     "0.65",
+     "0.95"
+    ],
+    "birth_receipted": "0.55",
+    "death_receipted": "1.1",
+    "predictions": {
+     "Q1_true_set_exact": true,
+     "Q2_false_strictly_outside": true,
+     "Q3_flips_exactly_3_eq_low_plus_high": true,
+     "Q4_gate_set_exact": true,
+     "Q5_birth_death_unchanged": true
+    },
+    "consequence": "DIP9's window-fragility and DIP10's fragmentation FOLD into the islands law as its two legs; unmapped-at-resolution: island-L's lower edge (s < 0.55) and the gap interior (0.675-0.925) — round 12 prices a refinement scan ONLY if a downstream consumer needs the domain (gate-nothing otherwise)",
+    "pass": true,
+    "void_as_gated": false
+   },
+   "prev": "6f04f504fe8934f9ed55300c743251a0a88a3e0383ffa6b1fa3c1664ee7a0e9e",
+   "sha": "b455c7a50e0b26e1f79a64bd8b356dc97d09f1a6409b88a795f2e4a53edb3d06"
+  },
+  {
+   "i": 4,
+   "id": "R4_r11_twin_layer#4",
+   "type": "R4_r11_twin_layer",
+   "payload": {
+    "note": "the R4 determinism crown (ten rounds deep) is PRESERVED, not extended: its deepest binding remains run10.json's R4 row (8a3daa00… twins); this row receipts the NEW round-11 layer twin proof only",
+    "round11_twin": {
+     "sha_exec1": "450a8560062518b099a2bca74690d33adc78bc48ebd68fa67ac7544cdc7e09f5",
+     "sha_exec2": "450a8560062518b099a2bca74690d33adc78bc48ebd68fa67ac7544cdc7e09f5",
+     "byte_identical": true
+    },
+    "run10_R4_row_binding": {
+     "source": "receipts/run10.json chain row R4_determinism (read verbatim; zero re-execution)",
+     "sha_round10_run1": "8a3daa00b613bf7409d93a42ed99c5072635d95579b8ba3192a0d259e58365c2",
+     "sha_round10_run2": "8a3daa00b613bf7409d93a42ed99c5072635d95579b8ba3192a0d259e58365c2",
+     "twins_equal": true
+    }
+   },
+   "prev": "b455c7a50e0b26e1f79a64bd8b356dc97d09f1a6409b88a795f2e4a53edb3d06",
+   "sha": "571b5c770de59ad6f41e0c874e01258a9292cb3d0249a296ff7fcb27341d7f30"
+  },
+  {
+   "i": 5,
+   "id": "CARRIED28_by_reference#5",
+   "type": "CARRIED28_by_reference",
+   "payload": {
+    "note": "ALL TWENTY-EIGHT round-10 claims carry BY REFERENCE (the L16 receipt-of-record-first discipline): run11 re-derived the run10.json hash chain from GENESIS (tip cca59bd5ed10…), read the 28 receipted verdict booleans verbatim, and re-scored NOTHING — no carried claim is re-executed, re-measured, or revised. A carried claim's round-11 verdict IS its round-10 verdict.",
+    "carried_from": "receipts/run10.json (file sha256 13947bd5ea2c… bound fail-closed)",
+    "carried_verdicts": {
+     "G_learning_sanity_gate": true,
+     "L2_difficulty_meter": true,
+     "R1_hard_world_learning": true,
+     "R2v4_pace_aware_ema": true,
+     "R3v4_percentile_normalized_surprise": true,
+     "R3L_ladder_saturation": true,
+     "R2x_k4_cross_pace": true,
+     "RHOR_finite_horizon_divergence": true,
+     "RLONG_longevity_law": true,
+     "R3D_depth_window_law": true,
+     "GWIN_g_window_law": true,
+     "RLONG7_dose_response": true,
+     "PLAST_plasticity_cost": true,
+     "R3DxR3L_composition": true,
+     "GWIN7_full_grid": true,
+     "MECH_plasticity_advantage_mechanism": false,
+     "GWIN8_low_pace_dip": true,
+     "REDOSE_main_dose_reregistration": true,
+     "OVERDECAY_over_decay_plasticity": true,
+     "CURE9_cured_dose_reregistration": false,
+     "SAT9_saturation_successor": true,
+     "DIP9_dip_law_window_scaling": false,
+     "DOSE10_dose_decision_depth_ladder": false,
+     "SAT10_fourth_switch_plateau": false,
+     "DIP10_dip_w_domain": false,
+     "R4_determinism": true,
+     "R5_mesh_conservation": true,
+     "R6v4_impact_sensitive_no_repair": true
+    },
+    "carried_claims_passed": 22,
+    "carried_claims_total": 28
+   },
+   "prev": "571b5c770de59ad6f41e0c874e01258a9292cb3d0249a296ff7fcb27341d7f30",
+   "sha": "e8c6cfa70aee8ac5d948d50c297b56152e1ca4a6a7a89008e59dbd2daee457b6"
+  }
+ ],
+ "tip": "e8c6cfa70aee8ac5d948d50c297b56152e1ca4a6a7a89008e59dbd2daee457b6"
+}
