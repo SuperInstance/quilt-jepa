@@ -34,3 +34,14 @@ node run.mjs && node verify.mjs
 ```
 
 Determinism: same seed ⇒ byte-identical receipts (crown-tested). See `verdict.md` before citing numbers.
+
+## Documentation
+
+Wave-69 docs layer (added; nothing above was changed). Route by audience:
+
+- Zero-shot agent entry point: [docs/ONBOARDING.md](docs/ONBOARDING.md)
+- End users of the core / runners / receipts: [docs/USER-GUIDE.md](docs/USER-GUIDE.md)
+- Developers extending the code: [docs/DEVELOPER-GUIDE.md](docs/DEVELOPER-GUIDE.md)
+- Engineers operating / reviewing the system: [docs/ENGINEERING-NOTES.md](docs/ENGINEERING-NOTES.md)
+- Executives deciding investment: [docs/CTO-BRIEF.md](docs/CTO-BRIEF.md)
+- Index of all deeper knowledge: [docs/KNOWLEDGE-MAP.md](docs/KNOWLEDGE-MAP.md)
